@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+    protected $fillable = ['title'];
+
+    public function permissions()
+    {
+        return $this->belongsToMany('App\Models\Role')->withTimestamps();
+    }
 }
