@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,6 @@ Route::group([
 
 
     Route::resource('permissions',PermissionController::class);
+    Route::resource('roles', RoleController::class);
 
 });

@@ -2,21 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PermissionFormRequest;
-use App\Repositories\PermissionRepositoryContract;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
-class PermissionController extends Controller
+class RoleController extends Controller
 {
-
-    private $permissionRepository;
-
-    public function __construct(PermissionRepositoryContract $permissionRepositoryContract)
-    {
-        $this->permissionRepository = $permissionRepositoryContract;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +13,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Management/User/Permissions/Index',[
-            'permissions' => $this->permissionRepository->all(),
-        ]);
+        //
     }
 
     /**
@@ -36,7 +23,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Management/User/Permissions/Create');
+        //
     }
 
     /**
@@ -45,10 +32,9 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PermissionFormRequest $request)
+    public function store(Request $request)
     {
-        $this->permissionRepository->process($request);
-        return redirect()->route('admin.permissions.index');
+        //
     }
 
     /**
@@ -70,9 +56,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        return Inertia::render('Admin/Management/User/Permissions/Edit',[
-            'permission' => $this->permissionRepository->findById($id),
-        ]);
+        //
     }
 
     /**
@@ -82,11 +66,9 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PermissionFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $this->permissionRepository->findById($id);
-        $this->permissionRepository->process($request);
-        return redirect()->route('admin.permissions.index');
+        //
     }
 
     /**

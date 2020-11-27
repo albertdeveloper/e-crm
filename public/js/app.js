@@ -47376,7 +47376,7 @@ var render = function() {
                                       "jet-dropdown-link",
                                       {
                                         attrs: {
-                                          href: _vm.route("profile.show")
+                                          href: _vm.route("admin.roles.index")
                                         }
                                       },
                                       [
