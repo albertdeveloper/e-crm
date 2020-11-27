@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleFormRequest;
+use App\Repositories\PermissionRepositoryContract;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class RoleController extends Controller
 {
+    private $permissionRepository;
+
+    public function __construct(PermissionRepositoryContract $permissionRepositoryContract)
+    {
+        $this->permissionRepository = $permissionRepositoryContract;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +23,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Admin/Management/User/Roles/Index');
     }
 
     /**
@@ -23,7 +33,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Admin/Management/User/Roles/Create',[
+            'permissions' => $this->permissionRepository->all(),
+        ]);
     }
 
     /**
@@ -32,9 +44,9 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleFormRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
