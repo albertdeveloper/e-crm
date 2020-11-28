@@ -27,6 +27,11 @@ class RoleRepository implements RoleRepositoryContract
 
     }
 
+    public function allWithPermissions()
+    {
+        return Role::with('permissions')->get();
+    }
+
     public function all()
     {
         return Role::get();

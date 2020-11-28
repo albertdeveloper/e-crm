@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class UserController extends Controller
 {
-    public function __construct(UserRepositoryContract $userRepositoryContract)
-    {
+    private $userRepository;
+    private $roleRepository;
 
+    public function __construct(UserRepositoryContract $userRepositoryContract, RoleRepositoryContract $roleRepositoryContract)
+    {
+        $this->userRepository = $userRepositoryContract;
+        $this->roleRepository = $roleRepositoryContract;
     }
 
     /**
@@ -20,7 +25,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Management/User/Users/Index');
+        return Inertia::render('Admin/Management/User/Users/Index', [
+            'users' => $this->userRepository->getUsersExceptAdmin(),
+        ]);
     }
 
     /**
@@ -30,13 +37,15 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Admin/Management/User/Users/Create', [
+            'roles' => $this->roleRepository->all(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,7 +56,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +67,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -69,8 +78,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -81,7 +90,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -27,7 +27,7 @@ class RoleController extends Controller
     public function index()
     {
         return Inertia::render('Admin/Management/User/Roles/Index',[
-            'roles' => $this->roleRepository->all(),
+            'roles' => $this->roleRepository->allWithPermissions(),
         ]);
     }
 
@@ -52,6 +52,7 @@ class RoleController extends Controller
     public function store(RoleFormRequest $request)
     {
          $this->roleRepository->process($request);
+         return redirect()->route('admin.roles.index');
     }
 
     /**
