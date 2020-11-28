@@ -52,7 +52,7 @@
                                                 Roles
                                             </jet-dropdown-link>
 
-                                            <jet-dropdown-link :href="route('profile.show')">
+                                            <jet-dropdown-link :href="route('admin.users.index')">
                                                 Users
                                             </jet-dropdown-link>
 
