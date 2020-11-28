@@ -4,22 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleFormRequest;
 use App\Repositories\PermissionRepositoryContract;
+use App\Repositories\RoleRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class RoleController extends Controller
 {
     private $permissionRepository;
+    private $roleRepository;
 
-    public function __construct(PermissionRepositoryContract $permissionRepositoryContract)
+    public function __construct(PermissionRepositoryContract $permissionRepositoryContract,RoleRepositoryContract $roleRepositoryContract)
     {
         $this->permissionRepository = $permissionRepositoryContract;
+        $this->roleRepository = $roleRepositoryContract;
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
@@ -29,7 +32,7 @@ class RoleController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function create()
     {
@@ -41,12 +44,12 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param RoleFormRequest $request
+     * @return void
      */
     public function store(RoleFormRequest $request)
     {
-        dd($request->all());
+         $this->roleRepository->process($request);
     }
 
     /**

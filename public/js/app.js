@@ -3737,7 +3737,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.post('/admin/roles', {
         preserveScroll: true
       }).then(function () {
-        _this.form.clear();
+        _this.form.reset();
       });
     }
   }
@@ -49385,13 +49385,17 @@ var render = function() {
                           }
                         },
                         _vm._l(_vm.permissions, function(permission) {
-                          return _c("option", [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(permission.title) +
-                                "\n                                "
-                            )
-                          ])
+                          return _c(
+                            "option",
+                            { domProps: { value: permission.id } },
+                            [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(permission.title) +
+                                  "\n                                "
+                              )
+                            ]
+                          )
                         }),
                         0
                       )

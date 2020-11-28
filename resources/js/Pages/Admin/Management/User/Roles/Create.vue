@@ -22,7 +22,7 @@
                                 <div class="float-right" v-if="form.error('permissions')">{{ form.error('permissions') }}</div>
                                 <span class="text-gray-700">Permissions</span>
                                 <select class="form-select  mt-1 block w-full" multiple v-model="form.permissions">
-                                    <option v-for="permission in permissions">
+                                    <option v-for="permission in permissions" :value="permission.id">
                                         {{permission.title}}
                                     </option>
                                 </select>
@@ -61,7 +61,7 @@ export default {
             this.form.post('/admin/roles',{
                 preserveScroll:true,
             }).then(() => {
-                this.form.clear()
+                this.form.reset()
             })
         }
     }
