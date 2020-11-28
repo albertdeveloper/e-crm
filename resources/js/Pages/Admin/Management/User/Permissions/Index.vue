@@ -13,7 +13,7 @@
                         <Inertia-Link class="button-primary bg-teal-700 hover:bg-teal-900 px-3 py-3  text-white shadow-lg rounded"
                                       :href="route('admin.permissions.create')">New Permission
                         </Inertia-Link>
-                        <div class="mt-6 bg-white rounded shadow overflow-x-auto">
+                        <div class="mt-6 bg-white rounded shadow overflow-x-auto" v-if="permissions.length > 0">
                             <table class="w-full whitespace-no-wrap">
                                 <tr class="text-left font-bold">
                                     <th class="px-6 pt-6 pb-4">Title</th>
@@ -30,6 +30,9 @@
                                     </td>
                                 </tr>
                             </table>
+                        </div>
+                        <div class="mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3" v-else>
+                            No record found
                         </div>
                     </div>
                 </div>

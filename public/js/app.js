@@ -3639,6 +3639,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3901,6 +3904,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/Icon */ "./resources/js/Shared/Icon.vue");
+//
+//
 //
 //
 //
@@ -49955,81 +49960,94 @@ var render = function() {
                     [_vm._v("New Permission\n                    ")]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "mt-6 bg-white rounded shadow overflow-x-auto"
-                    },
-                    [
-                      _c(
-                        "table",
-                        { staticClass: "w-full whitespace-no-wrap" },
+                  _vm.permissions.length > 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto"
+                        },
                         [
-                          _c("tr", { staticClass: "text-left font-bold" }, [
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("Title")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.permissions, function(permission) {
-                            return _c(
-                              "tr",
-                              {
-                                staticClass:
-                                  "hover:bg-gray-100 focus-within:bg-gray-100",
-                                staticStyle: { cursor: "pointer" }
-                              },
-                              [
-                                _c(
-                                  "td",
+                          _c(
+                            "table",
+                            { staticClass: "w-full whitespace-no-wrap" },
+                            [
+                              _c("tr", { staticClass: "text-left font-bold" }, [
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("Title")
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.permissions, function(permission) {
+                                return _c(
+                                  "tr",
                                   {
                                     staticClass:
-                                      "px-6 py-4 flex items-center focus:text-indigo-500 border-t"
+                                      "hover:bg-gray-100 focus-within:bg-gray-100",
+                                    staticStyle: { cursor: "pointer" }
                                   },
                                   [
                                     _c(
-                                      "Inertia-Link",
+                                      "td",
                                       {
-                                        attrs: {
-                                          href: _vm.route(
-                                            "admin.permissions.edit",
-                                            { id: permission.id }
-                                          )
-                                        }
+                                        staticClass:
+                                          "px-6 py-4 flex items-center focus:text-indigo-500 border-t"
                                       },
                                       [
-                                        _vm._v(
-                                          "\n                                        " +
-                                            _vm._s(permission.title) +
-                                            "\n                                    "
+                                        _c(
+                                          "Inertia-Link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.permissions.edit",
+                                                { id: permission.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        " +
+                                                _vm._s(permission.title) +
+                                                "\n                                    "
+                                            )
+                                          ]
                                         )
-                                      ]
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t w-px" },
+                                      [
+                                        _c("icon", {
+                                          staticClass:
+                                            "block w-6 h-6 fill-gray-400",
+                                          attrs: { name: "cheveron-right" }
+                                        })
+                                      ],
+                                      1
                                     )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  { staticClass: "border-t w-px" },
-                                  [
-                                    _c("icon", {
-                                      staticClass:
-                                        "block w-6 h-6 fill-gray-400",
-                                      attrs: { name: "cheveron-right" }
-                                    })
-                                  ],
-                                  1
+                                  ]
                                 )
-                              ]
-                            )
-                          })
-                        ],
-                        2
+                              })
+                            ],
+                            2
+                          )
+                        ]
                       )
-                    ]
-                  )
+                    : _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3"
+                        },
+                        [
+                          _vm._v(
+                            "\n                        No record found\n                    "
+                          )
+                        ]
+                      )
                 ],
                 1
               )
@@ -50451,80 +50469,94 @@ var render = function() {
                     [_vm._v("New Roles\n                        ")]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "mt-6 bg-white rounded shadow overflow-x-auto"
-                    },
-                    [
-                      _c(
-                        "table",
-                        { staticClass: "w-full whitespace-no-wrap" },
+                  _vm.roles.length > 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto"
+                        },
                         [
-                          _c("tr", { staticClass: "text-left font-bold" }, [
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("Title")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.roles, function(role) {
-                            return _c(
-                              "tr",
-                              {
-                                staticClass:
-                                  "hover:bg-gray-100 focus-within:bg-gray-100",
-                                staticStyle: { cursor: "pointer" }
-                              },
-                              [
-                                _c(
-                                  "td",
+                          _c(
+                            "table",
+                            { staticClass: "w-full whitespace-no-wrap" },
+                            [
+                              _c("tr", { staticClass: "text-left font-bold" }, [
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("Title")
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.roles, function(role) {
+                                return _c(
+                                  "tr",
                                   {
                                     staticClass:
-                                      "px-6 py-4 flex items-center focus:text-indigo-500 border-t"
+                                      "hover:bg-gray-100 focus-within:bg-gray-100",
+                                    staticStyle: { cursor: "pointer" }
                                   },
                                   [
                                     _c(
-                                      "Inertia-Link",
+                                      "td",
                                       {
-                                        attrs: {
-                                          href: _vm.route("admin.roles.edit", {
-                                            id: role.id
-                                          })
-                                        }
+                                        staticClass:
+                                          "px-6 py-4 flex items-center focus:text-indigo-500 border-t"
                                       },
                                       [
-                                        _vm._v(
-                                          "\n                                            " +
-                                            _vm._s(role.title) +
-                                            "\n                                        "
+                                        _c(
+                                          "Inertia-Link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.roles.edit",
+                                                { id: role.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                            " +
+                                                _vm._s(role.title) +
+                                                "\n                                        "
+                                            )
+                                          ]
                                         )
-                                      ]
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t w-px" },
+                                      [
+                                        _c("icon", {
+                                          staticClass:
+                                            "block w-6 h-6 fill-gray-400",
+                                          attrs: { name: "cheveron-right" }
+                                        })
+                                      ],
+                                      1
                                     )
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "td",
-                                  { staticClass: "border-t w-px" },
-                                  [
-                                    _c("icon", {
-                                      staticClass:
-                                        "block w-6 h-6 fill-gray-400",
-                                      attrs: { name: "cheveron-right" }
-                                    })
-                                  ],
-                                  1
+                                  ]
                                 )
-                              ]
-                            )
-                          })
-                        ],
-                        2
+                              })
+                            ],
+                            2
+                          )
+                        ]
                       )
-                    ]
-                  )
+                    : _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3"
+                        },
+                        [
+                          _vm._v(
+                            "\n                            No record found\n                        "
+                          )
+                        ]
+                      )
                 ],
                 1
               )

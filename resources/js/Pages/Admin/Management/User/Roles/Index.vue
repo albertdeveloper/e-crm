@@ -13,7 +13,7 @@
                                           :href="route('admin.roles.create')">New Roles
                             </Inertia-Link>
 
-                            <div class="mt-6 bg-white rounded shadow overflow-x-auto">
+                            <div class="mt-6 bg-white rounded shadow overflow-x-auto" v-if="roles.length > 0">
                                 <table class="w-full whitespace-no-wrap">
                                     <tr class="text-left font-bold">
                                         <th class="px-6 pt-6 pb-4">Title</th>
@@ -31,7 +31,9 @@
                                     </tr>
                                 </table>
                             </div>
-
+                            <div class="mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3" v-else>
+                                No record found
+                            </div>
                         </div>
                     </div>
                 </div>
