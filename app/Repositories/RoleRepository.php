@@ -19,12 +19,22 @@ class RoleRepository implements RoleRepositoryContract
                 $permissions = ($request->set_all !== null) ? Permission::get() : $request->permissions;
 
                 foreach ($permissions as $k => $value) {
-
-                    $real_value = $value->id ?? $value;
+                    $real_value = $value['id'];
                     if (!in_array($real_value, $create_role->permissions()->pluck('permissions.id')->toArray())) $create_role->permissions()->attach($real_value);
                 }
             }
         }
+
+    }
+
+    public function all()
+    {
+        return Role::get();
+    }
+
+    public function findById($id)
+    {
+       return Role::findOrFail($id);
     }
 
 }

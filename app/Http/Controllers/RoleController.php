@@ -26,7 +26,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Management/User/Roles/Index');
+        return Inertia::render('Admin/Management/User/Roles/Index',[
+            'roles' => $this->roleRepository->all(),
+        ]);
     }
 
     /**
@@ -71,7 +73,13 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role =  $this->roleRepository->findById($id);
+
+        return Inertia::render('Admin/Management/User/Roles/Edit.vue',[
+            'role' => $role,
+            'attach_permission' => $role->permissions,
+            'permissions' => $this->permissionRepository->all(),
+        ]);
     }
 
     /**
@@ -83,7 +91,9 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->roleRepository->findById($id);
+        $this->roleRepository->process($request);
+        return redirect()->route('admin.roles.index');
     }
 
     /**

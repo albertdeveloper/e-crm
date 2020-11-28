@@ -7,11 +7,12 @@
         </template>
 
 
-        <div class="py-12">
+        <div class="py-12 ">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white shadow-xl sm:rounded-lg">
+                <div class="bg-white  md:h-ful shadow-xl sm:rounded-lg">
                     <div class="p-6">
                         <form @submit.prevent="submitForm">
+
                             <label class="block">
                                 <div class="float-right" v-if="form.error('title')">{{ form.error('title') }}</div>
                                 <span class="text-gray-700">Title</span>
@@ -19,18 +20,21 @@
                             </label>
 
                             <label class="block mt-3">
-                                <div class="float-right" v-if="form.error('permissions')">{{ form.error('permissions') }}</div>
-                                <span class="text-gray-700">Permissions</span>
-                                <multiselect v-model="value" :options="options" :multiple="true"
-                                             placeholder="Type to search" track-by="id" label="title"><span
-                                    slot="noResult">Oops! No elements found. Consider changing the search query.</span>
-                                </multiselect>
+                                <div class="float-right" v-if="form.error('permissions')">{{ form.error('permissions')
+                                    }}
+                                </div>
+                                <div>
+                                    <label class="typo__label">Permissions</label>
+                                    <multiselect v-model="value" :options="options" :multiple="true"
+                                                 placeholder="Type to search" track-by="id" label="title"><span
+                                        slot="noResult">Oops! No elements found. Consider changing the search query.</span>
+                                    </multiselect>
+                                </div>
                             </label>
                             <div class="mt-3">
-
                                 <button type="submit"
                                         class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
-                                    Create Role
+                                    Update Role
                                 </button>
                             </div>
                         </form>
@@ -44,16 +48,18 @@
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import Multiselect from 'vue-multiselect'
+
 export default {
-    props: ['permissions'],
-    components: {AppLayout,Multiselect},
+    props: ['permissions', 'role', 'attach_permission'],
+    components: {AppLayout, Multiselect},
     data() {
         return {
             value: [],
             options: [],
             form: this.$inertia.form({
-                title: null,
-                permissions: [],
+                id: this.role.id,
+                title: this.role.title,
+                permissions: '',
             })
         }
     },
@@ -67,16 +73,20 @@ export default {
                 this.options.push({title: perm.title, id: perm.id},);
             })
 
+            this.attach_permission.map(perm => {
+                this.value.push({title: perm.title, id: perm.id});
+            });
+
         },
-        submitForm()
-        {
+        submitForm() {
             this.form.permissions = this.value;
-            this.form.post('/admin/roles',{
-                preserveScroll:true,
+            this.form.put('/admin/roles/' + this.role.id, {
+                preserveScroll: true,
             }).then(() => {
                 this.form.reset()
             })
         },
+
         addTag(newTag) {
             const tag = {
                 title: newTag,

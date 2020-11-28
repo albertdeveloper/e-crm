@@ -18,9 +18,6 @@
                                 Dashboard
                             </jet-nav-link>
 
-                            <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                User Management
-                            </jet-nav-link>
 
                             <div class="hidden sm:flex sm:items-center sm:ml-6">
                                 <div class="ml-3 relative">
