@@ -1,20 +1,20 @@
 <template>
     <app-layout>
-        <template #header >
+        <template #header>
             Create > Lead
 
             <div class="float-right">
-            <a @click.prevent="submitForm"
-                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
-                Create Lead
-            </a>
+                <a @click.prevent="submitForm"
+                   class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                    Create Lead
+                </a>
             </div>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
-                        <form >
+                        <form>
                             <div class="flex py-3 px-3 ">
                                 <h2 class="text-2xl font-bold">Lead Information</h2>
                             </div>
@@ -31,21 +31,41 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Company</span>
-                                    <input class="form-input mt-1 border-r-red block w-full" placeholder="" v-model="form.company">
+                                    <input class="form-input mt-1 border-r-red block w-full" placeholder=""
+                                           v-model="form.company">
                                 </label>
                             </div>
 
+                            <div class="flex mt-3">
+                                <div class="flex-1"></div>
 
-                            <div class="flex mt-5">
+                            </div>
+
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('first_name')">{{
                                             form.error('first_name')
                                         }}
                                     </div>
+
                                     <span class="text-gray-700">First Name</span>
-                                    <input class="form-input mt-1 block w-full" placeholder=""
-                                           v-model="form.first_name">
+                                    <div class="mt-1 relative rounded-md shadow-sm">
+                                        <div class="absolute inset-y-0 left-0 flex items-center">
+                                            <select id="salutation" v-model="form.salutation" name="salutation"
+                                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-1 pr-3 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                                <option></option>
+                                                <option>Mr.</option>
+                                                <option>Mrs.</option>
+                                                <option>Ms.</option>
+                                                <option>Dr.</option>
+                                                <option>Prof.</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" name="first_name" id="first_name"
+                                               class="form-input focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-20 pr-20  border-gray-300 rounded-md block w-full "
+                                               v-model="form.first_name"/>
+                                    </div>
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('last_name')">{{
@@ -57,7 +77,7 @@
                                 </label>
                             </div>
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('title')">{{ form.error('title') }}</div>
@@ -72,7 +92,7 @@
                             </div>
 
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('phone')">{{ form.error('phone') }}</div>
@@ -86,7 +106,7 @@
                                 </label>
                             </div>
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('mobile')">{{
@@ -107,7 +127,7 @@
                             </div>
 
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('lead_source')">
@@ -117,7 +137,7 @@
                                     <select class="form-input mt-1 block w-full" v-model="form.lead_source">
                                         <option></option>
                                         <option v-for="source in lead_sources" :value="source.id">
-                                            {{source.title}}
+                                            {{ source.title }}
                                         </option>
                                     </select>
                                 </label>
@@ -129,13 +149,13 @@
                                     <select class="form-input mt-1 block w-full" v-model="form.lead_status">
                                         <option></option>
                                         <option v-for="status in lead_status" :value="status.id">
-                                            {{status.title}}
+                                            {{ status.title }}
                                         </option>
                                     </select>
                                 </label>
                             </div>
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('industry')">{{
@@ -160,7 +180,7 @@
                                 <h2 class="text-2xl font-bold">Address Information</h2>
                             </div>
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('street')">{{
@@ -180,7 +200,7 @@
                                 </label>
                             </div>
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('state')">{{
@@ -201,7 +221,7 @@
                             </div>
 
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-3">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('country')">{{
@@ -227,13 +247,14 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources','lead_status'],
+    props: ['lead_sources', 'lead_status'],
     components: {AppLayout},
     data() {
         return {
             form: this.$inertia.form({
-                owner:this.$page.user.name,
+                owner: this.$page.user.name,
                 company: null,
+                salutation: null,
                 first_name: null,
                 last_name: null,
                 title: null,
@@ -255,9 +276,8 @@ export default {
         }
     },
     methods: {
-        submitForm()
-        {
-            this.form.post('/admin/leads',{
+        submitForm() {
+            this.form.post('/admin/leads', {
                 preserveScroll: true,
                 preserveState: true,
             });
