@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -35,6 +36,8 @@ Route::group([
     Route::resource('permissions',PermissionController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+
+    Route::resource('leads', LeadController::class);
 
 
 });

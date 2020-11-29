@@ -59,6 +59,11 @@
                                     </jet-dropdown>
                                 </div>
                             </div>
+
+                            <jet-nav-link :href="route('admin.leads.index')" :active="route().current('admin.leads.index')">
+                                Leads
+                            </jet-nav-link>
+
                         </div>
                     </div>
 
