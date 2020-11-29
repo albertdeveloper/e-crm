@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserFormRequest;
 use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
@@ -45,12 +46,12 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param UserFormRequest $request
+     * @return void
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
-        //
+        $this->userRepository->process($request);
     }
 
     /**

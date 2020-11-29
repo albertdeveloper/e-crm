@@ -4012,10 +4012,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      form: this.$inertia.form({
+        'name': null,
+        'email': null,
+        'password': null
+      })
+    };
+  },
+  methods: {
+    submitForm: function submitForm() {
+      var _this = this;
+
+      this.form.post('/admin/users', {
+        preserveScroll: true
+      }).then(function () {
+        _this.form.reset();
+      });
+    }
   }
 });
 
@@ -4031,8 +4088,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-//
-//
+/* harmony import */ var _Shared_Icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/Icon */ "./resources/js/Shared/Icon.vue");
 //
 //
 //
@@ -4098,9 +4154,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['users'],
   components: {
+    Icon: _Shared_Icon__WEBPACK_IMPORTED_MODULE_1__["default"],
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
@@ -50622,7 +50680,7 @@ var render = function() {
                         "div",
                         { staticClass: "mt-6 bg-white rounded shadow " },
                         [
-                          _c("table", { staticClass: "table-fixed    " }, [
+                          _c("table", { staticClass: "table-fixed" }, [
                             _c("thead", [
                               _c("tr", { staticClass: "text-left font-bold" }, [
                                 _c(
@@ -50800,25 +50858,170 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("app-layout", {
-    scopedSlots: _vm._u([
-      {
-        key: "header",
-        fn: function() {
-          return [
-            _c(
-              "h2",
-              {
-                staticClass: "font-semibold text-xl text-gray-800 leading-tight"
-              },
-              [_vm._v("\n            Users > Create\n        ")]
-            )
-          ]
-        },
-        proxy: true
-      }
-    ])
-  })
+  return _c(
+    "app-layout",
+    {
+      scopedSlots: _vm._u([
+        {
+          key: "header",
+          fn: function() {
+            return [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "font-semibold text-xl text-gray-800 leading-tight"
+                },
+                [_vm._v("\n            Users > Create\n        ")]
+              )
+            ]
+          },
+          proxy: true
+        }
+      ])
+    },
+    [
+      _vm._v(" "),
+      _c("div", { staticClass: "py-12" }, [
+        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+          _c("div", { staticClass: "bg-white shadow-xl sm:rounded-lg" }, [
+            _c("div", { staticClass: "p-6" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.submitForm($event)
+                    }
+                  }
+                },
+                [
+                  _c("label", { staticClass: "block" }, [
+                    _vm.form.error("name")
+                      ? _c("div", { staticClass: "float-right" }, [
+                          _vm._v(_vm._s(_vm.form.error("name")))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-gray-700" }, [
+                      _vm._v("Name")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.name,
+                          expression: "form.name"
+                        }
+                      ],
+                      staticClass: "form-input mt-1 block w-full",
+                      attrs: { placeholder: "" },
+                      domProps: { value: _vm.form.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "block mt-3" }, [
+                    _vm.form.error("email")
+                      ? _c("div", { staticClass: "float-right" }, [
+                          _vm._v(_vm._s(_vm.form.error("email")))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-gray-700" }, [
+                      _vm._v("Email")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.email,
+                          expression: "form.email"
+                        }
+                      ],
+                      staticClass: "form-input mt-1 block w-full",
+                      attrs: { placeholder: "" },
+                      domProps: { value: _vm.form.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "email", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "block mt-3" }, [
+                    _vm.form.error("email")
+                      ? _c("div", { staticClass: "float-right" }, [
+                          _vm._v(_vm._s(_vm.form.error("password")))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "text-gray-700" }, [
+                      _vm._v("Password")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.password,
+                          expression: "form.password"
+                        }
+                      ],
+                      staticClass: "form-input mt-1 block w-full",
+                      attrs: { type: "password", placeholder: "" },
+                      domProps: { value: _vm.form.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.form, "password", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-3" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                        attrs: { type: "submit" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                                Create Role\n                            "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50891,18 +51094,18 @@ var render = function() {
                         "div",
                         { staticClass: "mt-6 bg-white rounded shadow " },
                         [
-                          _c("table", { staticClass: "table-fixed    " }, [
+                          _c("table", { staticClass: "table-fixed" }, [
                             _c("thead", [
                               _c("tr", { staticClass: "text-left font-bold" }, [
                                 _c(
                                   "th",
-                                  { staticClass: "px-6 pt-6 w-1/4 pb-4" },
+                                  { staticClass: "px-6 pt-6 w-1/2 pb-4" },
                                   [_vm._v("Title")]
                                 ),
                                 _vm._v(" "),
                                 _c(
                                   "th",
-                                  { staticClass: "px-6 pt-6 w-1/2 pb-4" },
+                                  { staticClass: "px-6 pt-6 w-full pb-4" },
                                   [_vm._v("Permissions")]
                                 )
                               ])
@@ -50944,7 +51147,7 @@ var render = function() {
                                           [
                                             _vm._v(
                                               "\n                                        " +
-                                                _vm._s(user.title) +
+                                                _vm._s(user.name) +
                                                 "\n                                    "
                                             )
                                           ]
@@ -50967,25 +51170,19 @@ var render = function() {
                                               )
                                             }
                                           },
-                                          _vm._l(user.permissions, function(
-                                            permission
-                                          ) {
-                                            return _c(
-                                              "button",
-                                              {
-                                                staticClass:
-                                                  "rounded btn primary px-1 py-1 bg-blue-500 hover:bg-blue-700 text-white mr-1 mt-1 mb-1"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  "\n                                            " +
-                                                    _vm._s(permission.title) +
-                                                    "\n                                        "
-                                                )
-                                              ]
-                                            )
-                                          }),
-                                          0
+                                          [
+                                            _c("button", [
+                                              _vm._v(
+                                                "\n                                          " +
+                                                  _vm._s(
+                                                    user.roles[0]
+                                                      ? user.roles[0].title
+                                                      : ""
+                                                  ) +
+                                                  "\n                                        "
+                                              )
+                                            ])
+                                          ]
                                         )
                                       ],
                                       1
@@ -51006,7 +51203,7 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _c("icon", {
+                                            _c("Icon", {
                                               staticClass:
                                                 "block w-6 h-6 fill-gray-400 float-right",
                                               attrs: { name: "cheveron-right" }

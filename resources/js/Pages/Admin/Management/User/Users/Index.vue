@@ -17,11 +17,11 @@
 
 
                         <div class="mt-6 bg-white rounded shadow " v-if="users.length > 0">
-                            <table class="table-fixed    ">
+                            <table class="table-fixed">
                                 <thead>
                                 <tr class="text-left font-bold">
-                                    <th class="px-6 pt-6 w-1/4 pb-4">Title</th>
-                                    <th class="px-6 pt-6 w-1/2 pb-4">Permissions</th>
+                                    <th class="px-6 pt-6 w-1/2 pb-4">Title</th>
+                                    <th class="px-6 pt-6 w-full pb-4">Permissions</th>
 
                                 </tr>
                                 </thead>
@@ -31,23 +31,21 @@
                                     @click="update(user.id)">
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
                                         <Inertia-Link :href="route('admin.roles.edit',{id: user.id})">
-                                            {{ user.title }}
+                                            {{ user.name }}
                                         </Inertia-Link>
                                     </td>
 
                                     <td class="border-t">
                                         <Inertia-Link :href="route('admin.roles.edit',{id: user.id})">
-                                            <button
-                                                class="rounded btn primary px-1 py-1 bg-blue-500 hover:bg-blue-700 text-white mr-1 mt-1 mb-1"
-                                                v-for="permission in user.permissions">
-                                                {{ permission.title }}
+                                            <button>
+                                              {{user.roles[0] ? user.roles[0].title : ''}}
                                             </button>
                                         </Inertia-Link>
                                     </td>
 
                                     <td class="border-t w-px">
                                         <Inertia-Link :href="route('admin.roles.edit',{id: user.id})">
-                                            <icon name="cheveron-right"  class="block w-6 h-6 fill-gray-400 float-right"/>
+                                            <Icon name="cheveron-right"  class="block w-6 h-6 fill-gray-400 float-right"/>
                                         </Inertia-Link>
                                     </td>
                                 </tr>
@@ -66,9 +64,10 @@
 </template>
 <script>
 import AppLayout from "@/Layouts/AppLayout";
+import Icon from "@/Shared/Icon";
 
 export default {
     props: ['users'],
-    components: {AppLayout}
+    components: {Icon, AppLayout}
 }
 </script>

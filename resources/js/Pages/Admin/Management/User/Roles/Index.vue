@@ -16,7 +16,7 @@
 
 
                         <div class="mt-6 bg-white rounded shadow " v-if="roles.length > 0">
-                            <table class="table-fixed    ">
+                            <table class="table-fixed">
                                 <thead>
                                 <tr class="text-left font-bold">
                                     <th class="px-6 pt-6 w-1/4 pb-4">Title</th>
