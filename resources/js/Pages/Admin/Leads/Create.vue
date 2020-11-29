@@ -23,7 +23,7 @@
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('owner')">{{ form.error('owner') }}</div>
                                     <span class="text-gray-700">Lead Owner</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.owner">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.owner">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('company')">{{
@@ -31,7 +31,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Company</span>
-                                    <input class="form-input mt-1 border-r-red block w-full" placeholder=""
+                                    <input class="form-input mt-1 border-r-red block w-full"
                                            v-model="form.company">
                                 </label>
                             </div>
@@ -73,7 +73,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Last Name</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.last_name">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.last_name">
                                 </label>
                             </div>
 
@@ -82,12 +82,12 @@
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('title')">{{ form.error('title') }}</div>
                                     <span class="text-gray-700">Title</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.title">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.title">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('email')">{{ form.error('email') }}</div>
                                     <span class="text-gray-700">Email</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.email">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.email">
                                 </label>
                             </div>
 
@@ -97,12 +97,12 @@
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('phone')">{{ form.error('phone') }}</div>
                                     <span class="text-gray-700">Phone</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.phone">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.phone">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('fax')">{{ form.error('fax') }}</div>
                                     <span class="text-gray-700">Fax</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.fax">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.fax">
                                 </label>
                             </div>
 
@@ -114,7 +114,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Mobile</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.mobile">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.mobile">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('website')">{{
@@ -122,7 +122,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Website</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.website">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.website">
                                 </label>
                             </div>
 
@@ -163,14 +163,14 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Industry</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.industry">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.industry">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('no_employees')">
                                         {{ form.error('no_employee') }}
                                     </div>
                                     <span class="text-gray-700">No. of Employees</span>
-                                    <input class="form-input mt-1 block w-full" placeholder=""
+                                    <input class="form-input mt-1 block w-full"
                                            v-model="form.no_employee">
                                 </label>
                             </div>
@@ -188,14 +188,14 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Street</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.street">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.street">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('city')">
                                         {{ form.error('city') }}
                                     </div>
                                     <span class="text-gray-700">City</span>
-                                    <input class="form-input mt-1 block w-full" placeholder=""
+                                    <input class="form-input mt-1 block w-full"
                                            v-model="form.city">
                                 </label>
                             </div>
@@ -207,16 +207,16 @@
                                             form.error('state')
                                         }}
                                     </div>
-                                    <span class="text-gray-700">Street</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.state">
+                                    <span class="text-gray-700">State</span>
+                                    <input class="form-input mt-1 block w-full"  v-model="form.state">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('zip_code')">
                                         {{ form.error('zip_code') }}
                                     </div>
                                     <span class="text-gray-700">Zip Code</span>
-                                    <input class="form-input mt-1 block w-full" placeholder=""
-                                           v-model="form.zip_copde">
+                                    <input class="form-input mt-1 block w-full"
+                                           v-model="form.zip_code">
                                 </label>
                             </div>
 
@@ -229,7 +229,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Country</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.country">
+                                    <input class="form-input mt-1 block w-full"  v-model="form.country">
                                 </label>
                                 <label class="block ml-5 flex-1">
 

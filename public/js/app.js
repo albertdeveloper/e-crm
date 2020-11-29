@@ -3687,6 +3687,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'lead_status'],
@@ -3698,6 +3718,7 @@ __webpack_require__.r(__webpack_exports__);
       form: this.$inertia.form({
         owner: this.$page.user.name,
         company: null,
+        salutation: null,
         first_name: null,
         last_name: null,
         title: null,
@@ -50362,7 +50383,7 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                      "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
                     on: {
                       click: function($event) {
                         $event.preventDefault()
@@ -50370,7 +50391,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("\n            Create Lead\n        ")]
+                  [_vm._v("\n                Create Lead\n            ")]
                 )
               ])
             ]
@@ -50419,7 +50440,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.owner },
                         on: {
                           input: function($event) {
@@ -50457,7 +50477,6 @@ var render = function() {
                         ],
                         staticClass:
                           "form-input mt-1 border-r-red block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.company },
                         on: {
                           input: function($event) {
@@ -50471,7 +50490,11 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
+                    _c("div", { staticClass: "flex-1" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block   flex-1" }, [
@@ -50488,31 +50511,106 @@ var render = function() {
                         _vm._v("First Name")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.first_name,
-                            expression: "form.first_name"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
-                        domProps: { value: _vm.form.first_name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "div",
+                        { staticClass: "mt-1 relative rounded-md shadow-sm" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "absolute inset-y-0 left-0 flex items-center"
+                            },
+                            [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.form.salutation,
+                                      expression: "form.salutation"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-1 pr-3 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md",
+                                  attrs: {
+                                    id: "salutation",
+                                    name: "salutation"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.form,
+                                        "salutation",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option"),
+                                  _vm._v(" "),
+                                  _c("option", [_vm._v("Mr.")]),
+                                  _vm._v(" "),
+                                  _c("option", [_vm._v("Mrs.")]),
+                                  _vm._v(" "),
+                                  _c("option", [_vm._v("Ms.")]),
+                                  _vm._v(" "),
+                                  _c("option", [_vm._v("Dr.")]),
+                                  _vm._v(" "),
+                                  _c("option", [_vm._v("Prof.")])
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.first_name,
+                                expression: "form.first_name"
+                              }
+                            ],
+                            staticClass:
+                              "form-input focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-20 pr-20  border-gray-300 rounded-md block w-full ",
+                            attrs: {
+                              type: "text",
+                              name: "first_name",
+                              id: "first_name"
+                            },
+                            domProps: { value: _vm.form.first_name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "first_name",
+                                  $event.target.value
+                                )
+                              }
                             }
-                            _vm.$set(
-                              _vm.form,
-                              "first_name",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
+                          })
+                        ]
+                      )
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block ml-5 flex-1" }, [
@@ -50539,7 +50637,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.last_name },
                         on: {
                           input: function($event) {
@@ -50553,7 +50650,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -50577,7 +50674,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.title },
                         on: {
                           input: function($event) {
@@ -50611,7 +50707,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.email },
                         on: {
                           input: function($event) {
@@ -50625,7 +50720,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -50649,7 +50744,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.phone },
                         on: {
                           input: function($event) {
@@ -50683,7 +50777,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.fax },
                         on: {
                           input: function($event) {
@@ -50697,7 +50790,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -50724,7 +50817,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.mobile },
                         on: {
                           input: function($event) {
@@ -50748,7 +50840,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Fax")
+                        _vm._v("Website")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -50761,7 +50853,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.website },
                         on: {
                           input: function($event) {
@@ -50775,7 +50866,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -50915,7 +51006,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -50942,7 +51033,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.industry },
                         on: {
                           input: function($event) {
@@ -50980,7 +51070,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.no_employee },
                         on: {
                           input: function($event) {
@@ -51004,7 +51093,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -51031,7 +51120,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.street },
                         on: {
                           input: function($event) {
@@ -51069,7 +51157,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.city },
                         on: {
                           input: function($event) {
@@ -51083,7 +51170,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -51097,7 +51184,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Street")
+                        _vm._v("State")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -51110,7 +51197,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.state },
                         on: {
                           input: function($event) {
@@ -51143,26 +51229,25 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.form.zip_copde,
-                            expression: "form.zip_copde"
+                            value: _vm.form.zip_code,
+                            expression: "form.zip_code"
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
-                        domProps: { value: _vm.form.zip_copde },
+                        domProps: { value: _vm.form.zip_code },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.form, "zip_copde", $event.target.value)
+                            _vm.$set(_vm.form, "zip_code", $event.target.value)
                           }
                         }
                       })
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-3" }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
@@ -51189,7 +51274,6 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        attrs: { placeholder: "" },
                         domProps: { value: _vm.form.country },
                         on: {
                           input: function($event) {
