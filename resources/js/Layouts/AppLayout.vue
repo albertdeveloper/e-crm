@@ -55,9 +55,6 @@
                                             <jet-dropdown-link :href="route('admin.users.index')">
                                                 Users
                                             </jet-dropdown-link>
-
-
-
                                         </template>
                                     </jet-dropdown>
                                 </div>

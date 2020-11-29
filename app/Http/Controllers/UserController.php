@@ -52,6 +52,7 @@ class UserController extends Controller
     public function store(UserFormRequest $request)
     {
         $this->userRepository->process($request);
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -73,7 +74,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Inertia::render('Admin/Management/User/Users/Edit',[
+            'user_data' => $this->userRepository->findByIdWithRole($id),
+            'roles' => $this->roleRepository->all(),
+        ]);
     }
 
     /**
@@ -83,9 +87,11 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
-        //
+        $this->userRepository->findById($id);
+        $this->userRepository->process($request);
+        return redirect()->route('admin.users.index');
     }
 
     /**

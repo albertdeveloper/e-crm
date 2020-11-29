@@ -30,23 +30,18 @@
                                     class="hover:bg-gray-100 focus-within:bg-gray-100" style="cursor: pointer"
                                     @click="update(user.id)">
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
-                                        <Inertia-Link :href="route('admin.roles.edit',{id: user.id})">
                                             {{ user.name }}
-                                        </Inertia-Link>
                                     </td>
 
                                     <td class="border-t">
-                                        <Inertia-Link :href="route('admin.roles.edit',{id: user.id})">
                                             <button>
-                                              {{user.roles[0] ? user.roles[0].title : ''}}
+                                                {{ user.roles[0] ? user.roles[0].title : '' }}
                                             </button>
-                                        </Inertia-Link>
                                     </td>
 
                                     <td class="border-t w-px">
-                                        <Inertia-Link :href="route('admin.roles.edit',{id: user.id})">
-                                            <Icon name="cheveron-right"  class="block w-6 h-6 fill-gray-400 float-right"/>
-                                        </Inertia-Link>
+                                            <Icon name="cheveron-right"
+                                                  class="block w-6 h-6 fill-gray-400 float-right"/>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -67,7 +62,14 @@ import AppLayout from "@/Layouts/AppLayout";
 import Icon from "@/Shared/Icon";
 
 export default {
-    props: ['users'],
-    components: {Icon, AppLayout}
+    props: ['users','roles'],
+    components: {Icon, AppLayout},
+    methods: {
+        update(id)
+        {
+            window.location="/admin/users/"+id+"/edit";
+        }
+
+    }
 }
 </script>

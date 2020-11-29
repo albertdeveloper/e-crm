@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Users > Create
+                Users > Update
             </h2>
         </template>
 
@@ -41,8 +41,6 @@
                             </label>
 
 
-
-
                             <div class="mt-3">
 
                                 <button type="submit"
@@ -61,21 +59,23 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['roles'],
+    props: ['user_data','roles'],
     components: {AppLayout},
     data() {
         return {
             form: this.$inertia.form({
-                'name': null,
-                'email':null,
-                'password':null
+                id: this.user_data.id,
+                name: this.user_data.name,
+                email: this.user_data.email,
+                role: this.user_data.roles[0].id,
+                password:null
             }),
         }
     },
     methods:{
         submitForm()
         {
-            this.form.post('/admin/users',{
+            this.form.put('/admin/users/'+this.user_data.id,{
                 preserveScroll:true
             }).then(() => {
                 this.form.reset();
