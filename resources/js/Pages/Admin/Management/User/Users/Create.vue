@@ -26,7 +26,8 @@
                             <label class="block mt-3">
                                 <div class="float-right" v-if="form.error('email')">{{ form.error('password') }}</div>
                                 <span class="text-gray-700">Password</span>
-                                <input class="form-input mt-1 block w-full" type="password" placeholder="" v-model="form.password">
+                                <input class="form-input mt-1 block w-full" type="password" placeholder=""
+                                       v-model="form.password">
                             </label>
 
                             <label class="block mt-3">
@@ -34,17 +35,13 @@
                                 <span class="text-gray-700">Role</span>
                                 <select class="form-input mt-1 block w-full" v-model="form.role">
                                     <option></option>
-                                    <option v-for="role in roles" :key="role.id" :value="role.id" :selected="role.id == form.role">
+                                    <option v-for="role in roles" :key="role.id" :value="role.id"
+                                            :selected="role.id == form.role">
                                         {{role.title}}
                                     </option>
                                 </select>
                             </label>
-
-
-
-
                             <div class="mt-3">
-
                                 <button type="submit"
                                         class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                                     Create User
@@ -66,17 +63,17 @@ export default {
     data() {
         return {
             form: this.$inertia.form({
-                'name': null,
-                'email':null,
-                'password':null
+                name: null,
+                email: null,
+                role: null,
+                password: null
             }),
         }
     },
-    methods:{
-        submitForm()
-        {
-            this.form.post('/admin/users',{
-                preserveScroll:true
+    methods: {
+        submitForm() {
+            this.form.post('/admin/users', {
+                preserveScroll: true
             }).then(() => {
                 this.form.reset();
             })

@@ -4056,9 +4056,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['roles'],
@@ -4068,9 +4065,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: this.$inertia.form({
-        'name': null,
-        'email': null,
-        'password': null
+        name: null,
+        email: null,
+        role: null,
+        password: null
       })
     };
   },
@@ -4099,7 +4097,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-//
 //
 //
 //
@@ -51367,9 +51364,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("label", { staticClass: "block mt-3" }, [
-                    _vm.form.error("email")
+                    _vm.form.error("role")
                       ? _c("div", { staticClass: "float-right" }, [
-                          _vm._v(_vm._s(_vm.form.error("password")))
+                          _vm._v(_vm._s(_vm.form.error("role")))
                         ])
                       : _vm._e(),
                     _vm._v(" "),
