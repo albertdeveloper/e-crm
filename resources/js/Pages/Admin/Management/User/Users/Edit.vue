@@ -66,7 +66,7 @@ export default {
                 id: this.user_data.id,
                 name: this.user_data.name,
                 email: this.user_data.email,
-                role: this.user_data.roles[0].id,
+                role: this.user_data.roles[0] ? this.user_data.roles[0].id : null,
                 password: null
             }),
         }
