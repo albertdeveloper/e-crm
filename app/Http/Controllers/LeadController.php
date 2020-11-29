@@ -76,6 +76,7 @@ class LeadController extends Controller
         return Inertia::render('Admin/Leads/Edit', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'lead_status' => $this->leadRepository->getAllLeadStatus(),
+            'lead_data' => $this->leadRepository->findById($id),
         ]);
     }
 

@@ -9,6 +9,11 @@ use App\Models\LeadStatus;
 class LeadRepository implements LeadRepositoryContract
 {
 
+    public function findById($id)
+    {
+        return Lead::findOrfail($id);
+    }
+
     public function getAllLeadSource()
     {
         return LeadSource::get();
@@ -21,7 +26,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function getLeads()
     {
-        return Lead::with('leadStatus','leadSource')->get();
+        return Lead::with('leadStatus', 'leadSource')->get();
     }
 
     public function process($request)

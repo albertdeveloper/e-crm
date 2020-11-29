@@ -8,4 +8,5 @@ interface LeadRepositoryContract
     public function getAllLeadStatus();
     public function getLeads();
     public function process($request);
+    public function findById($id);
 }
