@@ -5,7 +5,7 @@
 
             <div class="float-right">
             <a @click.prevent="submitForm"
-                    class="btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                 Create Lead
             </a>
             </div>
@@ -101,7 +101,7 @@
                                             form.error('website')
                                         }}
                                     </div>
-                                    <span class="text-gray-700">Fax</span>
+                                    <span class="text-gray-700">Website</span>
                                     <input class="form-input mt-1 block w-full" placeholder="" v-model="form.website">
                                 </label>
                             </div>
