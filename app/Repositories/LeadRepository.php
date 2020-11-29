@@ -19,6 +19,11 @@ class LeadRepository implements LeadRepositoryContract
         return LeadStatus::get();
     }
 
+    public function getLeads()
+    {
+        return Lead::with('leadStatus','leadSource')->get();
+    }
+
     public function process($request)
     {
         Lead::updateOrCreate(['id' => $request->id], [

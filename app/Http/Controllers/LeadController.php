@@ -23,7 +23,10 @@ class LeadController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Leads/Index');
+
+        return Inertia::render('Admin/Leads/Index',[
+            'leads' => $this->leadRepository->getLeads(),
+        ]);
     }
 
     /**
@@ -70,7 +73,10 @@ class LeadController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Inertia::render('Admin/Leads/Edit', [
+            'lead_sources' => $this->leadRepository->getAllLeadSource(),
+            'lead_status' => $this->leadRepository->getAllLeadStatus(),
+        ]);
     }
 
     /**

@@ -3804,8 +3804,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['leads'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -51070,6 +51106,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
+                        attrs: { type: "number" },
                         domProps: { value: _vm.form.no_employee },
                         on: {
                           input: function($event) {
@@ -51363,59 +51400,233 @@ var render = function() {
                     [_vm._v(" + New Leads\n                    ")]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "mt-6 bg-white rounded shadow overflow-x-auto"
-                    },
-                    [
-                      _c(
-                        "table",
-                        { staticClass: "w-full whitespace-no-wrap" },
+                  _vm.leads.length > 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto"
+                        },
                         [
-                          _c("tr", { staticClass: "text-left font-bold" }, [
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("LEAD NAME")
-                            ]),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("COMPANY")
-                            ]),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("EMAIL")
-                            ]),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("PHONE")
-                            ]),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("LEAD SOURCE")
-                            ]),
-                            _vm._v(" "),
-                            _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
-                              _vm._v("LEAD OWNER")
-                            ])
-                          ])
+                          _c(
+                            "table",
+                            { staticClass: "w-full whitespace-no-wrap" },
+                            [
+                              _c("tr", { staticClass: "text-left font-bold" }, [
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("LEAD NAME")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("COMPANY")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("EMAIL")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("PHONE")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("LEAD SOURCE")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("LEAD OWNER")
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.leads, function(lead) {
+                                return _c(
+                                  "tr",
+                                  {
+                                    key: lead.id,
+                                    staticClass:
+                                      "hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
+                                  },
+                                  [
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4 flex items-center focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.leads.edit",
+                                                { id: lead.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        " +
+                                                _vm._s(lead.owner) +
+                                                "\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t" },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.leads.edit",
+                                                { id: lead.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        " +
+                                                _vm._s(lead.company) +
+                                                "\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t" },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.leads.edit",
+                                                { id: lead.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        " +
+                                                _vm._s(lead.email) +
+                                                "\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t" },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.leads.edit",
+                                                { id: lead.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(lead.phone) +
+                                                "\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t" },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.leads.edit",
+                                                { id: lead.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                        " +
+                                                _vm._s(
+                                                  lead.lead_status
+                                                    ? lead.lead_status.title
+                                                    : ""
+                                                ) +
+                                                "\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      { staticClass: "border-t" },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.leads.edit",
+                                                { id: lead.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(lead.owner) +
+                                                "\n                                    "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
                         ]
                       )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3"
-                    },
-                    [
-                      _vm._v(
-                        "\n                        No record found\n                    "
+                    : _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3"
+                        },
+                        [
+                          _vm._v(
+                            "\n                        No record found\n                    "
+                          )
+                        ]
                       )
-                    ]
-                  )
                 ],
                 1
               )
@@ -51757,8 +51968,7 @@ var render = function() {
                                   "tr",
                                   {
                                     staticClass:
-                                      "hover:bg-gray-100 focus-within:bg-gray-100",
-                                    staticStyle: { cursor: "pointer" }
+                                      "hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
                                   },
                                   [
                                     _c(
@@ -52272,8 +52482,7 @@ var render = function() {
                                   "tr",
                                   {
                                     staticClass:
-                                      "hover:bg-gray-100 focus-within:bg-gray-100",
-                                    staticStyle: { cursor: "pointer" }
+                                      "hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
                                   },
                                   [
                                     _c(
@@ -53030,8 +53239,7 @@ var render = function() {
                                   "tr",
                                   {
                                     staticClass:
-                                      "hover:bg-gray-100 focus-within:bg-gray-100",
-                                    staticStyle: { cursor: "pointer" }
+                                      "hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
                                   },
                                   [
                                     _c(

@@ -27,7 +27,7 @@
                                 </thead>
                                 <tbody>
                                 <tr v-for="user in users"
-                                    class="hover:bg-gray-100 focus-within:bg-gray-100" style="cursor: pointer"
+                                    class="hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
                                 >
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
                                         <Inertia-Link :href="route('admin.users.edit',{id: role.id})">

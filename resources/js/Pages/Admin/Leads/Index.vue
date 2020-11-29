@@ -14,7 +14,7 @@
                             class="button-primary bg-teal-700 hover:bg-teal-900 px-3 py-3  text-white shadow-lg rounded"
                             :href="route('admin.leads.create')"> + New Leads
                         </Inertia-Link>
-                        <div class="mt-6 bg-white rounded shadow overflow-x-auto">
+                        <div class="mt-6 bg-white rounded shadow overflow-x-auto" v-if="leads.length > 0">
                             <table class="w-full whitespace-no-wrap">
                                 <tr class="text-left font-bold">
                                     <th class="px-6 pt-6 pb-4">LEAD NAME</th>
@@ -29,9 +29,44 @@
 
                                     <th class="px-6 pt-6 pb-4">LEAD OWNER</th>
                                 </tr>
+
+                                <tr v-for="lead in leads" :key="lead.id"
+                                    class="hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer">
+                                    <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
+                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">
+                                            {{ lead.owner }}
+                                        </Inertia-link>
+                                    </td>
+                                    <td class="border-t">
+                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">
+                                            {{ lead.company }}
+                                        </Inertia-link>
+                                    </td>
+                                    <td class="border-t">
+                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">
+                                            {{ lead.email }}
+                                        </Inertia-link>
+                                    </td>
+                                    <td class="border-t">
+                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">{{ lead.phone }}
+                                        </Inertia-link>
+                                    </td>
+                                    <td class="border-t">
+                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">
+                                            {{ lead.lead_status ? lead.lead_status.title : '' }}
+                                        </Inertia-link>
+                                    </td>
+                                    <td class="border-t">
+                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">{{
+                                                lead.owner
+                                            }}
+                                        </Inertia-link>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
-                        <div class="mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3">
+
+                        <div class="mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3" v-else>
                             No record found
                         </div>
                     </div>
@@ -45,6 +80,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
+    props: ['leads'],
     components: {AppLayout}
 }
 </script>

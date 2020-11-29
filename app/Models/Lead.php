@@ -31,4 +31,14 @@ class Lead extends Model
         'lead_status_id',
         'lead_source_id'
     ];
+
+    public function leadStatus()
+    {
+        return $this->belongsTo('App\Models\LeadStatus','lead_status_id','id');
+    }
+    public function leadSource()
+    {
+        return $this->belongsTo('App\Models\LeadSource','lead_source_id','id');
+    }
+
 }

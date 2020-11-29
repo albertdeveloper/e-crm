@@ -19,7 +19,7 @@
                                     <th class="px-6 pt-6 pb-4">Title</th>
                                 </tr>
                                 <tr v-for="permission in permissions"
-                                    class="hover:bg-gray-100 focus-within:bg-gray-100" style="cursor: pointer">
+                                    class="hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer">
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
                                         <Inertia-Link :href="route('admin.permissions.edit',{id: permission.id})">
                                             {{ permission.title }}
