@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <template #header>
+        <template #header >
             Create > Lead
         </template>
         <div class="py-12">
@@ -8,8 +8,8 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
                         <form @submit.prevent="submitForm">
-                            <div class="flex">
-                                Lead Information
+                            <div class="flex py-3 px-3 ">
+                                <h2 class="text-2xl font-bold">Lead Information</h2>
                             </div>
                             <div class="flex ">
                                 <div class="flex-1"></div>
@@ -109,6 +109,9 @@
                                     <span class="text-gray-700">Lead Source</span>
                                     <select class="form-input mt-1 block w-full" v-model="form.lead_source">
                                         <option></option>
+                                        <option v-for="source in lead_sources" :value="source.id">
+                                            {{source.title}}
+                                        </option>
                                     </select>
                                 </label>
                                 <label class="block ml-5 flex-1">
@@ -118,6 +121,9 @@
                                     <span class="text-gray-700">Lead Status</span>
                                     <select class="form-input mt-1 block w-full" v-model="form.lead_status">
                                         <option></option>
+                                        <option v-for="status in lead_status" :value="status.id">
+                                            {{status.title}}
+                                        </option>
                                     </select>
                                 </label>
                             </div>
@@ -143,6 +149,66 @@
                             </div>
 
 
+                            <div class="flex py-3 px-3 ">
+                                <h2 class="text-2xl font-bold">Address Information</h2>
+                            </div>
+
+                            <div class="flex mt-5">
+                                <div class="flex-1"></div>
+                                <label class="block flex-1">
+                                    <div class="float-right" v-if="form.error('street')">{{
+                                            form.error('street')
+                                        }}
+                                    </div>
+                                    <span class="text-gray-700">Street</span>
+                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.street">
+                                </label>
+                                <label class="block ml-5 flex-1">
+                                    <div class="float-right" v-if="form.error('city')">
+                                        {{ form.error('city') }}
+                                    </div>
+                                    <span class="text-gray-700">City</span>
+                                    <input class="form-input mt-1 block w-full" placeholder=""
+                                           v-model="form.city">
+                                </label>
+                            </div>
+
+                            <div class="flex mt-5">
+                                <div class="flex-1"></div>
+                                <label class="block flex-1">
+                                    <div class="float-right" v-if="form.error('state')">{{
+                                            form.error('state')
+                                        }}
+                                    </div>
+                                    <span class="text-gray-700">Street</span>
+                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.state">
+                                </label>
+                                <label class="block ml-5 flex-1">
+                                    <div class="float-right" v-if="form.error('zip_code')">
+                                        {{ form.error('zip_code') }}
+                                    </div>
+                                    <span class="text-gray-700">Zip Code</span>
+                                    <input class="form-input mt-1 block w-full" placeholder=""
+                                           v-model="form.zip_copde">
+                                </label>
+                            </div>
+
+                            <div class="flex mt-5">
+                                <div class="flex-1"></div>
+                                <label class="block flex-1">
+                                    <div class="float-right" v-if="form.error('country')">{{
+                                            form.error('country')
+                                        }}
+                                    </div>
+                                    <span class="text-gray-700">Country</span>
+                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.country">
+                                </label>
+                                <label class="block ml-5 flex-1">
+
+                                </label>
+                            </div>
+
+
                             <div class="mt-3">
                                 <button type="submit"
                                         class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
@@ -160,6 +226,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
+    props: ['lead_sources','lead_status'],
     components: {AppLayout},
     data() {
         return {
@@ -178,6 +245,11 @@ export default {
                 lead_status: null,
                 industry: null,
                 no_employee: null,
+                street: null,
+                city: null,
+                state: null,
+                zip_code: null,
+                country: null,
             })
         }
     }

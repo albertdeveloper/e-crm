@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class LeadController extends Controller
 {
+    private $leaRepository;
+
+    public function __construct(LeadRepositoryContract $leadRepositoryContract)
+    {
+        $this->leaRepository = $leadRepositoryContract;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,13 +32,16 @@ class LeadController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Leads/Create');
+        return Inertia::render('Admin/Leads/Create', [
+            'lead_sources' => $this->leaRepository->getAllLeadSource(),
+            'lead_status' => $this->leaRepository->getAllLeadStatus(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +52,7 @@ class LeadController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,7 +63,7 @@ class LeadController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,8 +74,8 @@ class LeadController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -75,7 +86,7 @@ class LeadController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
