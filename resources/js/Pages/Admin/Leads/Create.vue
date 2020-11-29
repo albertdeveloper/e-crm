@@ -170,7 +170,7 @@
                                         {{ form.error('no_employee') }}
                                     </div>
                                     <span class="text-gray-700">No. of Employees</span>
-                                    <input class="form-input mt-1 block w-full"
+                                    <input class="form-input mt-1 block w-full" type="number"
                                            v-model="form.no_employee">
                                 </label>
                             </div>
