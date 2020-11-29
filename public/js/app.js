@@ -3597,15 +3597,106 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lead_sources', 'lead_status'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       form: this.$inertia.form({
-        owner: null,
+        owner: this.$page.user.name,
         company: null,
         first_name: null,
         last_name: null,
@@ -3618,9 +3709,22 @@ __webpack_require__.r(__webpack_exports__);
         lead_source: null,
         lead_status: null,
         industry: null,
-        no_employee: null
+        no_employee: null,
+        street: null,
+        city: null,
+        state: null,
+        zip_code: null,
+        country: null
       })
     };
+  },
+  methods: {
+    submitForm: function submitForm() {
+      this.form.post('/admin/leads', {
+        preserveScroll: true,
+        preserveState: true
+      });
+    }
   }
 });
 
@@ -49515,7 +49619,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("header", { staticClass: "bg-white shadow" }, [
+      _c("header", { staticClass: "bg-white shadow   w-full sticky top-0 " }, [
         _c(
           "div",
           { staticClass: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" },
@@ -50251,7 +50355,25 @@ var render = function() {
         {
           key: "header",
           fn: function() {
-            return [_vm._v("\n        Create > Lead\n    ")]
+            return [
+              _vm._v("\n        Create > Lead\n\n        "),
+              _c("div", { staticClass: "float-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.submitForm($event)
+                      }
+                    }
+                  },
+                  [_vm._v("\n            Create Lead\n        ")]
+                )
+              ])
+            ]
           },
           proxy: true
         }
@@ -50266,586 +50388,823 @@ var render = function() {
             { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
             [
               _c("div", { staticClass: "p-6" }, [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.submitForm($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "flex" }, [
-                      _vm._v(
-                        "\n                            Lead Information\n                        "
-                      )
-                    ]),
+                _c("form", [
+                  _c("div", { staticClass: "flex py-3 px-3 " }, [
+                    _c("h2", { staticClass: "text-2xl font-bold" }, [
+                      _vm._v("Lead Information")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex " }, [
+                    _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "flex " }, [
-                      _c("div", { staticClass: "flex-1" }),
+                    _c("label", { staticClass: "block   flex-1" }, [
+                      _vm.form.error("owner")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.form.error("owner")))
+                          ])
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c("label", { staticClass: "block   flex-1" }, [
-                        _vm.form.error("owner")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("owner")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Lead Owner")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.owner,
-                              expression: "form.owner"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.owner },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "owner", $event.target.value)
-                            }
-                          }
-                        })
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Lead Owner")
                       ]),
                       _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("company")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("company")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Company")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.company,
-                              expression: "form.company"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.company },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "company", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex mt-5" }, [
-                      _c("div", { staticClass: "flex-1" }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block   flex-1" }, [
-                        _vm.form.error("first_name")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("first_name")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("First Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.first_name,
-                              expression: "form.first_name"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.first_name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "first_name",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("last_name")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("last_name")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Last Name")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.last_name,
-                              expression: "form.last_name"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.last_name },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "last_name",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex mt-5" }, [
-                      _c("div", { staticClass: "flex-1" }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block flex-1" }, [
-                        _vm.form.error("title")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("title")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Title")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.title,
-                              expression: "form.title"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.title },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "title", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("email")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("email")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Email")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.email,
-                              expression: "form.email"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.email },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "email", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex mt-5" }, [
-                      _c("div", { staticClass: "flex-1" }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block flex-1" }, [
-                        _vm.form.error("phone")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("phone")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Phone")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.phone,
-                              expression: "form.phone"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.phone },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "phone", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("fax")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("fax")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Fax")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.fax,
-                              expression: "form.fax"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.fax },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "fax", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex mt-5" }, [
-                      _c("div", { staticClass: "flex-1" }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block flex-1" }, [
-                        _vm.form.error("mobile")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("mobile")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Mobile")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.mobile,
-                              expression: "form.mobile"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.mobile },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "mobile", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("website")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("website")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Fax")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.website,
-                              expression: "form.website"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.website },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "website", $event.target.value)
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex mt-5" }, [
-                      _c("div", { staticClass: "flex-1" }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block flex-1" }, [
-                        _vm.form.error("lead_source")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("lead_source")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Lead Source")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
+                      _c("input", {
+                        directives: [
                           {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.lead_source,
-                                expression: "form.lead_source"
-                              }
-                            ],
-                            staticClass: "form-input mt-1 block w-full",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "lead_source",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.owner,
+                            expression: "form.owner"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.owner },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
                             }
-                          },
-                          [_c("option")]
-                        )
+                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("company")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("company")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Company")
                       ]),
                       _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("lead_status")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("lead_status")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Lead Status")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "select",
+                      _c("input", {
+                        directives: [
                           {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.lead_status,
-                                expression: "form.lead_status"
-                              }
-                            ],
-                            staticClass: "form-input mt-1 block w-full",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.form,
-                                  "lead_status",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [_c("option")]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex mt-5" }, [
-                      _c("div", { staticClass: "flex-1" }),
-                      _vm._v(" "),
-                      _c("label", { staticClass: "block flex-1" }, [
-                        _vm.form.error("industry")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("industry")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("Industry")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.industry,
-                              expression: "form.industry"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.industry },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "industry",
-                                $event.target.value
-                              )
-                            }
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.company,
+                            expression: "form.company"
                           }
-                        })
+                        ],
+                        staticClass:
+                          "form-input mt-1 border-r-red block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.company },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "company", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block   flex-1" }, [
+                      _vm.form.error("first_name")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("first_name")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("First Name")
                       ]),
                       _vm._v(" "),
-                      _c("label", { staticClass: "block ml-5 flex-1" }, [
-                        _vm.form.error("no_employees")
-                          ? _c("div", { staticClass: "float-right" }, [
-                              _vm._v(_vm._s(_vm.form.error("no_employee")))
-                            ])
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-gray-700" }, [
-                          _vm._v("No. of Employees")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.no_employee,
-                              expression: "form.no_employee"
-                            }
-                          ],
-                          staticClass: "form-input mt-1 block w-full",
-                          attrs: { placeholder: "" },
-                          domProps: { value: _vm.form.no_employee },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "no_employee",
-                                $event.target.value
-                              )
-                            }
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.first_name,
+                            expression: "form.first_name"
                           }
-                        })
-                      ])
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.first_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "first_name",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "mt-3" }, [
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("last_name")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("last_name")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Last Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.last_name,
+                            expression: "form.last_name"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.last_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "last_name", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("title")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.form.error("title")))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Title")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.title,
+                            expression: "form.title"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.title },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "title", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("email")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.form.error("email")))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Email")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.email,
+                            expression: "form.email"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "email", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("phone")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.form.error("phone")))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Phone")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.phone,
+                            expression: "form.phone"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.phone },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "phone", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("fax")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.form.error("fax")))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Fax")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.fax,
+                            expression: "form.fax"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.fax },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "fax", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("mobile")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("mobile")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Mobile")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.mobile,
+                            expression: "form.mobile"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.mobile },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "mobile", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("website")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("website")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Fax")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.website,
+                            expression: "form.website"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.website },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "website", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("lead_source")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.form.error("lead_source")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Lead Source")
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "button",
+                        "select",
                         {
-                          staticClass:
-                            "btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          attrs: { type: "submit" }
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.lead_source,
+                              expression: "form.lead_source"
+                            }
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "lead_source",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
                         },
                         [
-                          _vm._v(
-                            "\n                                Create Lead\n                            "
-                          )
-                        ]
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.lead_sources, function(source) {
+                            return _c(
+                              "option",
+                              { domProps: { value: source.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(source.title) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("lead_status")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.form.error("lead_status")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Lead Status")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.lead_status,
+                              expression: "form.lead_status"
+                            }
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "lead_status",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.lead_status, function(status) {
+                            return _c(
+                              "option",
+                              { domProps: { value: status.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(status.title) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
                       )
                     ])
-                  ]
-                )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("industry")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("industry")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Industry")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.industry,
+                            expression: "form.industry"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.industry },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "industry", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("no_employees")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.form.error("no_employee")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("No. of Employees")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.no_employee,
+                            expression: "form.no_employee"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.no_employee },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "no_employee",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex py-3 px-3 " }, [
+                    _c("h2", { staticClass: "text-2xl font-bold" }, [
+                      _vm._v("Address Information")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("street")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("street")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Street")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.street,
+                            expression: "form.street"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.street },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "street", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("city")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.form.error("city")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("City")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.city,
+                            expression: "form.city"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.city },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "city", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("state")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("state")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Street")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.state,
+                            expression: "form.state"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.state },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "state", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("zip_code")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              "\n                                    " +
+                                _vm._s(_vm.form.error("zip_code")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Zip Code")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.zip_copde,
+                            expression: "form.zip_copde"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.zip_copde },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "zip_copde", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-5" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("country")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("country")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Country")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.country,
+                            expression: "form.country"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        attrs: { placeholder: "" },
+                        domProps: { value: _vm.form.country },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "country", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" })
+                  ])
+                ])
               ])
             ]
           )

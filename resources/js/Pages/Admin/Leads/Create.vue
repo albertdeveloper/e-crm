@@ -2,12 +2,19 @@
     <app-layout>
         <template #header >
             Create > Lead
+
+            <div class="float-right">
+            <a @click.prevent="submitForm"
+                    class="btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                Create Lead
+            </a>
+            </div>
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
-                        <form @submit.prevent="submitForm">
+                        <form >
                             <div class="flex py-3 px-3 ">
                                 <h2 class="text-2xl font-bold">Lead Information</h2>
                             </div>
@@ -24,7 +31,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Company</span>
-                                    <input class="form-input mt-1 block w-full" placeholder="" v-model="form.company">
+                                    <input class="form-input mt-1 border-r-red block w-full" placeholder="" v-model="form.company">
                                 </label>
                             </div>
 
@@ -193,6 +200,7 @@
                                 </label>
                             </div>
 
+
                             <div class="flex mt-5">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
@@ -208,13 +216,6 @@
                                 </label>
                             </div>
 
-
-                            <div class="mt-3">
-                                <button type="submit"
-                                        class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
-                                    Create Lead
-                                </button>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -231,7 +232,7 @@ export default {
     data() {
         return {
             form: this.$inertia.form({
-                owner: null,
+                owner:this.$page.user.name,
                 company: null,
                 first_name: null,
                 last_name: null,
@@ -251,6 +252,15 @@ export default {
                 zip_code: null,
                 country: null,
             })
+        }
+    },
+    methods: {
+        submitForm()
+        {
+            this.form.post('/admin/leads',{
+                preserveScroll: true,
+                preserveState: true,
+            });
         }
     }
 }

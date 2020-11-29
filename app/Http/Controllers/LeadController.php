@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LeadFormRequest;
 use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class LeadController extends Controller
 {
-    private $leaRepository;
+    private $leadRepository;
 
     public function __construct(LeadRepositoryContract $leadRepositoryContract)
     {
-        $this->leaRepository = $leadRepositoryContract;
+        $this->leadRepository = $leadRepositoryContract;
     }
 
     /**
@@ -33,8 +34,8 @@ class LeadController extends Controller
     public function create()
     {
         return Inertia::render('Admin/Leads/Create', [
-            'lead_sources' => $this->leaRepository->getAllLeadSource(),
-            'lead_status' => $this->leaRepository->getAllLeadStatus(),
+            'lead_sources' => $this->leadRepository->getAllLeadSource(),
+            'lead_status' => $this->leadRepository->getAllLeadStatus(),
         ]);
     }
 
@@ -44,9 +45,10 @@ class LeadController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LeadFormRequest $request)
     {
-        //
+        $this->leadRepository->process($request);
+        return redirect()->route('admin.leads.index');
     }
 
     /**

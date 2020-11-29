@@ -17,4 +17,9 @@ class LeadRepository implements LeadRepositoryContract
     {
         return LeadStatus::get();
     }
+
+    public function process($request)
+    {
+
+    }
 }
