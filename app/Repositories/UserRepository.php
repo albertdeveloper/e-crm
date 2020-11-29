@@ -31,4 +31,10 @@ class UserRepository implements UserRepositoryContract
     {
         return User::findOrFail($id);
     }
+
+    public function delete($id)
+    {
+        $user = $this->findById($id);
+        $user->delete();
+    }
 }

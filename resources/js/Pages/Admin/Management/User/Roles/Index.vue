@@ -20,7 +20,7 @@
                                 <thead>
                                 <tr class="text-left font-bold">
                                     <th class="px-6 pt-6 w-1/4 pb-4">Title</th>
-                                    <th class="px-6 pt-6 w-1/2 pb-4">Permissions</th>
+                                    <th class="px-6 pt-6 w-full pb-4">Permissions</th>
 
                                 </tr>
                                 </thead>
@@ -75,9 +75,8 @@ export default {
     components: {Button, Icon, AppLayout},
     data() {
         return {
-            update(id)
-            {
-                window.location="/admin/roles/"+id+"/edit";
+            update(id) {
+                window.location = "/admin/roles/" + id + "/edit";
             }
         }
     }

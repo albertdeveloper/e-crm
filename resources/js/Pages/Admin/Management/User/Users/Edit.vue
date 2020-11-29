@@ -7,8 +7,14 @@
         </template>
 
         <div class="py-12">
+
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white shadow-xl sm:rounded-lg">
+                    <div class="px-4 py-4">
+                    <Inertia-link method="delete" :href="route('admin.users.destroy',{id:this.user_data.id})" class="btn btn-primary px-2 py-2 bg-red-500 hover:bg-red-700 float-right text-white">
+                        Delete
+                    </Inertia-link>
+                    </div>
                     <div class="p-6">
                         <form @submit.prevent="submitForm">
                             <label class="block">
@@ -56,10 +62,11 @@
 </template>
 <script>
 import AppLayout from "@/Layouts/AppLayout";
+import Button from "@/Jetstream/Button";
 
 export default {
     props: ['user_data', 'roles'],
-    components: {AppLayout},
+    components: {Button, AppLayout},
     data() {
         return {
             form: this.$inertia.form({
