@@ -35,11 +35,11 @@
 
                             <div class="flex mt-5">
                                 <div class="flex-1">
-                                   <button class="btn btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 text-white">
+                                   <Inertia-link class="btn btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 text-white">
                                        Convert
-                                   </button>
+                                   </Inertia-link>
 
-                                    <Inertia-link :href="route('admin.leads.show',{id:lead_data.id})" class="btn btn-primary px-3 py-3 bg-gray-400 hover:bg-gray-900 text-white">
+                                    <Inertia-link :href="route('admin.leads.show',{id:lead_data.id})" class="ml-2 btn btn-primary px-3 py-3 bg-gray-400 hover:bg-gray-900 text-white">
                                         Cancel
                                     </Inertia-link>
 

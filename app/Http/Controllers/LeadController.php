@@ -107,11 +107,15 @@ class LeadController extends Controller
         //
     }
 
-    public function convert_leads($id)
+    public function convert_lead($id)
     {
         return Inertia::render('Admin/Leads/Convert',[
             'lead_data' => $this->leadRepository->findById($id),
         ]);
+    }
+
+    public function convert_lead_store()
+    {
 
     }
 }

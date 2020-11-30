@@ -38,7 +38,8 @@ Route::group([
     Route::resource('users', UserController::class);
 
 
-    Route::get('/leads/convert/{id}',[LeadController::class,'convert_leads'])->name('leads.convert');
+    Route::get('/leads/convert/{id}',[LeadController::class,'convert_lead'])->name('leads.convert');
+    Route::post('/leads/convert/{id}',[LeadController::class,'convert_lead_store']);
     Route::resource('leads', LeadController::class);
 
 

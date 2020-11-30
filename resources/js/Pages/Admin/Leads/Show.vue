@@ -25,34 +25,40 @@
                             {{ lead_data.last_name }}</p>
                         <p class="text-1xl"> - {{ lead_data.company }}</p>
 
-
                         <div class="flex mt-5">
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Owner:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Owner:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1"></div>
+                            <div class="flex-1"></div>
                         </div>
                         <div class="flex mt-5">
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Email:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.email }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Email:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.email }}</span></div>
+                            <div class="flex-1"></div>
+                            <div class="flex-1"></div>
 
                         </div>
                         <div class="flex mt-5">
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Phone:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.phone }}</span></div>
+                            <div class="flex-1"></div>
+                            <div class="flex-1"></div>
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Phone:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.phone }}</span></div>
-                        </div>
-
-                        <div class="flex mt-5">
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Mobile:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.mobile }}</span></div>
                         </div>
 
                         <div class="flex mt-5">
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Mobile:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.mobile }}</span></div>
+                            <div class="flex-1"></div>
+                            <div class="flex-1"></div>
+                        </div>
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Status:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                        <div class="flex mt-5">
+
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Status:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1"></div>
+                            <div class="flex-1"></div>
                         </div>
 
 
@@ -62,59 +68,52 @@
 
                         <div class="flex mt-5">
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Owner:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.owner }}</span></div>
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Company:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.company }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Owner:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Company:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.company }}</span></div>
                         </div>
 
                         <div class="flex mt-5">
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Title:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.title }}</span></div>
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Name:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{ lead_data.company }}</span></div>
-                        </div>
-
-
-                        <div class="flex mt-5">
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Phone:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.phone}}</span></div>
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Email:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.email}}</span></div>
-                        </div>
-
-
-                        <div class="flex mt-5">
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Mobile:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.mobile}}</span></div>
-
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Fax:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.fax}}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Title:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.title }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Name:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.company }}</span></div>
                         </div>
 
                         <div class="flex mt-5">
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Source:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.owner}}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Phone:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.phone }}</span></div>
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Status:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.owner}}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Email:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.email }}</span></div>
                         </div>
 
                         <div class="flex mt-5">
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">Lead Source:</b></div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.owner}}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Mobile:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.mobile }}</span></div>
 
-                            <div class="flex-initial w-40"><b class="float-right text-gray-400">No. of employee:</b>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Fax:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.fax }}</span></div>
+                        </div>
+
+                        <div class="flex mt-5">
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Source:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Status:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                        </div>
+
+                        <div class="flex mt-5">
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Source:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">No. of employee:</b>
                             </div>
-                            <div class="flex-initial"><span class="ml-5">{{lead_data.no_employee}}</span></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.no_employee }}</span></div>
                         </div>
-
                     </div>
                 </div>
             </div>
