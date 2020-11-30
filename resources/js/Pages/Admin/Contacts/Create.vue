@@ -196,7 +196,7 @@ export default {
         return {
             form: this.$inertia.form({
                 owner: this.$page.user.name,
-                company: null,
+                account_name: null,
                 salutation: null,
                 first_name: null,
                 last_name: null,
