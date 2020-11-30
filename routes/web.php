@@ -37,6 +37,8 @@ Route::group([
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
 
+
+    Route::get('/leads/convert/{id}',[LeadController::class,'convert_leads'])->name('leads.convert');
     Route::resource('leads', LeadController::class);
 
 

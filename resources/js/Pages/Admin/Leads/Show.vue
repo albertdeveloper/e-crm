@@ -3,7 +3,7 @@
         <template #header>
             Lead Information
             <div class="float-right">
-                <Inertia-link :href="route('dashboard')"
+                <Inertia-link :href="route('admin.leads.convert',{id:lead_data.id})"
                               class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-green-700 hover:bg-green-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Convert
                 </Inertia-link>
