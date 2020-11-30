@@ -26,6 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
+
         return Inertia::render('Admin/Management/User/Users/Index', [
             'users' => $this->userRepository->getUsersExceptAdmin(),
         ]);

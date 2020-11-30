@@ -30,13 +30,13 @@
                                     class="hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
                                 >
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
-                                        <Inertia-Link :href="route('admin.users.edit',{id: role.id})">
+                                        <Inertia-Link :href="route('admin.users.edit',{id: user.id})">
                                             {{ user.name }}
                                         </Inertia-Link>
                                     </td>
 
                                     <td class="border-t">
-                                        <Inertia-Link :href="route('admin.users.edit',{id: role.id})">
+                                        <Inertia-Link :href="route('admin.users.edit',{id: user.id})">
                                             <button>
                                                 {{ user.roles[0] ? user.roles[0].title : '' }}
                                             </button>

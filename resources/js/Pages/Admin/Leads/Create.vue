@@ -1,12 +1,22 @@
 <template>
     <app-layout>
         <template #header>
-            Create > Lead
+            Create Lead
 
             <div class="float-right">
+                <Inertia-link :href="route('dashboard')"
+                   class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                    Cancel
+                </Inertia-link>
+
                 <a @click.prevent="submitForm"
                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
-                    Create Lead
+                    Save and New
+                </a>
+
+                <a @click.prevent="submitForm"
+                   class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                    Save
                 </a>
             </div>
         </template>
@@ -53,7 +63,7 @@
                                     <div class="mt-1 relative rounded-md shadow-sm">
                                         <div class="absolute inset-y-0 left-0 flex items-center">
                                             <select id="salutation" v-model="form.salutation" name="salutation"
-                                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-1 pr-3 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md">
+                                                    class="focus:ring-indigo-500  h-full py-0 pl-1 pr-3 border-transparent bg-transparent   rounded-md">
                                                 <option></option>
                                                 <option>Mr.</option>
                                                 <option>Mrs.</option>
