@@ -33,8 +33,8 @@
                                 <tr v-for="lead in leads" :key="lead.id"
                                     class="hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer">
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
-                                        <Inertia-link :href="route('admin.leads.edit',{id:lead.id})">
-                                            {{ lead.owner }}
+                                        <Inertia-link :href="route('admin.leads.show',{id:lead.id})" class="text-blue-500">
+                                            {{ lead.first_name }} {{ lead.last_name}}
                                         </Inertia-link>
                                     </td>
                                     <td class="border-t">

@@ -50,8 +50,8 @@ class LeadController extends Controller
      */
     public function store(LeadFormRequest $request)
     {
-        $this->leadRepository->process($request);
-        return redirect()->route('admin.leads.index');
+        $lead = $this->leadRepository->process($request);
+        return redirect()->route('admin.leads.show',['lead' => $lead->id]);
     }
 
     /**
@@ -62,7 +62,11 @@ class LeadController extends Controller
      */
     public function show($id)
     {
-        //
+        $lead =  $this->leadRepository->    findById($id);
+        return Inertia::render('Admin/Leads/Show',[
+            'lead_data' => $lead,
+            'lead_logo' => $lead->defaultProfilePicture(),
+        ]);
     }
 
     /**

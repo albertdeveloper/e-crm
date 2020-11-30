@@ -26,12 +26,12 @@ class LeadRepository implements LeadRepositoryContract
 
     public function getLeads()
     {
-        return Lead::with('leadStatus', 'leadSource')->get();
+        return Lead::with('leadStatus', 'leadSource')->orderBy('created_at','desc' )->get();
     }
 
     public function process($request)
     {
-        Lead::updateOrCreate(['id' => $request->id], [
+      $lead =  Lead::updateOrCreate(['id' => $request->id], [
             'owner' => $request->owner,
             'company' => $request->company,
             'salutation' => $request->salutation,
@@ -53,5 +53,7 @@ class LeadRepository implements LeadRepositoryContract
             'zip_code' => $request->zip_code,
             'country' => $request->country
         ]);
+
+      return $lead;
     }
 }

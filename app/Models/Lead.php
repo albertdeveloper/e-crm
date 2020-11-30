@@ -40,5 +40,9 @@ class Lead extends Model
     {
         return $this->belongsTo('App\Models\LeadSource','lead_source_id','id');
     }
+    public function defaultProfilePicture()
+    {
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->first_name.''.$this->last_name) . '&color=7F9CF5&background=EBF4FF';
+    }
 
 }
