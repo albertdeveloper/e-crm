@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -42,5 +44,8 @@ Route::group([
     Route::post('/leads/convert/{id}',[LeadController::class,'convert_lead_store']);
     Route::resource('leads', LeadController::class);
 
+
+    Route::resource('accounts', AccountController::class);
+    Route::resource('contacts', ContactController::class);
 
 });

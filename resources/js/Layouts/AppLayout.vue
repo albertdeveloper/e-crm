@@ -64,6 +64,15 @@
                                 Leads
                             </jet-nav-link>
 
+                            <jet-nav-link :href="route('admin.leads.index')" :active="route().current('admin.contacts.index')">
+                                Contacts
+                            </jet-nav-link>
+
+
+                            <jet-nav-link :href="route('admin.leads.index')" :active="route().current('admin.accounts.index')">
+                                Accounts
+                            </jet-nav-link>
+
                         </div>
                     </div>
 
