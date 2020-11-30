@@ -198,6 +198,7 @@ export default {
                 owner: this.$page.user.name,
                 account_name: null,
                 salutation: null,
+                lead_source: null,
                 first_name: null,
                 last_name: null,
                 title: null,
@@ -217,7 +218,7 @@ export default {
     components: {AppLayout},
     methods: {
         submitForm() {
-
+            this.form.post('/admin/contacts');
         }
     }
 }

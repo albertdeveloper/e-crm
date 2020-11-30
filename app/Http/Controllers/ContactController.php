@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
+use App\Repositories\ContactRepositoryContract;
 use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -10,10 +11,12 @@ use Inertia\Inertia;
 class ContactController extends Controller
 {
     private $leadRepository;
+    private $contactRepository;
 
-    public function __construct(LeadRepositoryContract $leadRepositoryContract)
+    public function __construct(LeadRepositoryContract $leadRepositoryContract,ContactRepositoryContract $contactRepositoryContract)
     {
         $this->leadRepository = $leadRepositoryContract;
+        $this->contactRepository = $contactRepositoryContract;
     }
 
     /**
@@ -46,7 +49,8 @@ class ContactController extends Controller
      */
     public function store(ContactFormRequest $request)
     {
-
+        $contact =  $this->contactRepository->process($request);
+        return redirect()->route('admin.contacts.show',['contact'=>$contact->id]);
     }
 
     /**
@@ -57,7 +61,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        return Inertia::render('Admin/Contacts/Show');
     }
 
     /**
