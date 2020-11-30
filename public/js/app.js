@@ -4292,6 +4292,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_data', 'lead_logo'],
@@ -53134,13 +53145,36 @@ var render = function() {
           key: "header",
           fn: function() {
             return [
+              _vm._v("\n        Lead Information\n        "),
               _c(
-                "h2",
-                {
-                  staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
-                },
-                [_vm._v("\n            Lead Information\n        ")]
+                "div",
+                { staticClass: "float-right" },
+                [
+                  _c(
+                    "Inertia-link",
+                    {
+                      staticClass:
+                        "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-green-700 hover:bg-green-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                      attrs: { href: _vm.route("dashboard") }
+                    },
+                    [_vm._v("\n                Convert\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "Inertia-link",
+                    {
+                      staticClass:
+                        "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                      attrs: {
+                        href: _vm.route("admin.leads.edit", {
+                          id: _vm.lead_data.id
+                        })
+                      }
+                    },
+                    [_vm._v("\n                Edit\n            ")]
+                  )
+                ],
+                1
               )
             ]
           },
@@ -53172,8 +53206,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Lead Owner:")
@@ -53188,8 +53220,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Email:")
@@ -53204,8 +53234,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Phone:")
@@ -53220,8 +53248,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Mobile:")
@@ -53236,8 +53262,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Lead Status:")
@@ -53258,8 +53282,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Lead Owner:")
@@ -53286,8 +53308,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Title:")
@@ -53314,8 +53334,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Phone:")
@@ -53342,8 +53360,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Mobile:")
@@ -53370,8 +53386,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Lead Source:")
@@ -53398,8 +53412,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-initial w-40" }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-initial w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("Lead Source:")
