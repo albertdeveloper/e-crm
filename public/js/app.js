@@ -51608,7 +51608,7 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                      attrs: { href: _vm.route("dashboard") }
+                      attrs: { href: _vm.route("admin.contacts.index") }
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
@@ -52386,7 +52386,7 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                      attrs: { href: _vm.route("dashboard") }
+                      attrs: { href: _vm.route("admin.contacts.index") }
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
@@ -53636,7 +53636,7 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                      attrs: { href: _vm.route("dashboard") }
+                      attrs: { href: _vm.route("admin.leads.index") }
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
@@ -54617,7 +54617,7 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                      attrs: { href: _vm.route("dashboard") }
+                      attrs: { href: _vm.route("admin.leads.index") }
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
