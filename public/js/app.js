@@ -3661,9 +3661,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_sources'],
+  props: ['lead_sources', 'account_sources'],
   data: function data() {
     return {
       form: this.$inertia.form({
@@ -51632,36 +51635,57 @@ var render = function() {
                         _vm._v("Account Name")
                       ]),
                       _vm._v(" "),
-                      _c("select", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.account_name,
-                            expression: "form.account_name"
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.account_name,
+                              expression: "form.account_name"
+                            }
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "account_name",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.form,
-                              "account_name",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
+                        },
+                        [
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.account_sources, function(account) {
+                            return _c(
+                              "option",
+                              { domProps: { value: account.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(account.name) +
+                                    "\n                                    "
+                                )
+                              ]
                             )
-                          }
-                        }
-                      })
+                          })
+                        ],
+                        2
+                      )
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1 ml-2" }, [

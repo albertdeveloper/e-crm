@@ -43,6 +43,7 @@ class ContactController extends Controller
     {
         return Inertia::render('Admin/Contacts/Create', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
+            'account_sources' => $this->accountRepository->getAccounts(),
         ]);
     }
 

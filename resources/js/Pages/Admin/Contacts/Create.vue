@@ -98,7 +98,10 @@
                                     </div>
                                     <span class="text-gray-700">Account Name</span>
                                     <select class="form-input mt-1 block w-full" v-model="form.account_name">
-
+                                        <option></option>
+                                        <option v-for="account in account_sources" :value="account.id">
+                                            {{account.name}}
+                                        </option>
                                     </select>
                                 </label>
 
@@ -193,7 +196,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources'],
+    props: ['lead_sources','account_sources'],
     data() {
         return {
             form: this.$inertia.form({
