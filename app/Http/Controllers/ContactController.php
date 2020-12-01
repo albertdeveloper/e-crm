@@ -31,7 +31,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Contacts/Index');
+        return Inertia::render('Admin/Contacts/Index',[
+            'contacts' => $this->contactRepository->getContacts(),
+        ]);
     }
 
     /**
@@ -78,7 +80,11 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Inertia::render('Admin/Contacts/Edit',[
+            'lead_sources' => $this->leadRepository->getAllLeadSource(),
+            'account_sources' => $this->accountRepository->getAccounts(),
+            'contact_data' => $this->contactRepository->findById($id),
+        ]);
     }
 
     /**

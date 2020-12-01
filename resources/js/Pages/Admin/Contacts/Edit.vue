@@ -196,27 +196,28 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources','account_sources'],
+    props: ['lead_sources','account_sources','contact_data'],
     data() {
         return {
             form: this.$inertia.form({
-                owner: this.$page.user.name,
-                account_name: null,
-                salutation: null,
-                lead_source: null,
-                first_name: null,
-                last_name: null,
-                title: null,
-                email: null,
-                department: null,
-                phone: null,
-                home_phone: null,
-                other_phone: null,
-                fax: null,
-                mobile: null,
-                date_of_birth: null,
-                assistant: null,
-                assistant_phone: null,
+                id: this.contact_data.id,
+                owner: this.contact_data.owner,
+                account_name: this.contact_data.account_id,
+                salutation: this.contact_data.salutation,
+                lead_source: this.contact_data.lead_source_id,
+                first_name: this.contact_data.first_name,
+                last_name: this.contact_data.last_name,
+                title: this.contact_data.title,
+                email: this.contact_data.email,
+                department: this.contact_data.department,
+                phone: this.contact_data.phone,
+                home_phone: this.contact_data.home_phone,
+                other_phone: this.contact_data.other_phone,
+                fax: this.contact_data.fax,
+                mobile: this.contact_data.mobile,
+                date_of_birth: this.contact_data.date_of_birth,
+                assistant: this.contact_data.assistant,
+                assistant_phone: this.contact_data.assistant_phone,
             })
         }
     },

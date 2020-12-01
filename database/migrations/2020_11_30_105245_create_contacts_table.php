@@ -17,7 +17,8 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('account_id');
             $table->unsignedBigInteger('lead_source_id');
-            $table->string('owner');
+            $table->string('owner',100)->nullable();
+            $table->string('salutation',5)->nullable();
             $table->string('first_name',100);
             $table->string('last_name',100);
             $table->string('title',100);

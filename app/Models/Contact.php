@@ -13,6 +13,7 @@ class Contact extends Model
         'account_id',
         'lead_source_id',
         'owner',
+        'salutation',
         'first_name',
         'last_name',
         'title',
@@ -27,4 +28,9 @@ class Contact extends Model
         'assistant',
         'assistant_phone',
     ];
+
+    public function account()
+    {
+        return $this->belongsTo('App\Models\Account');
+    }
 }

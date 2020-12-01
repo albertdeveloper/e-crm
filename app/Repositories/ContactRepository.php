@@ -11,6 +11,7 @@ class ContactRepository implements ContactRepositoryContract
             'account_id' => $request->account_name,
             'lead_source_id' => $request->lead_source,
             'owner' => $request->owner,
+            'salutation' => $request->salutation,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'title' => $request->title,
@@ -27,5 +28,15 @@ class ContactRepository implements ContactRepositoryContract
         ]);
 
        return $contact;
+    }
+
+    public function getContacts()
+    {
+        return Contact::with('account')->get();
+    }
+
+    public function findById($id)
+    {
+        return Contact::findOrFail($id);
     }
 }
