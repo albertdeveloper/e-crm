@@ -97,7 +97,9 @@
                                         {{ form.error('account_name') }}
                                     </div>
                                     <span class="text-gray-700">Account Name</span>
-                                    <input class="form-input mt-1 block w-full" v-model="form.account_name">
+                                    <select class="form-input mt-1 block w-full" v-model="form.account_name">
+
+                                    </select>
                                 </label>
 
                                 <label class="block flex-1 ml-2">

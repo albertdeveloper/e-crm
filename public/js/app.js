@@ -3659,6 +3659,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources'],
@@ -51630,7 +51632,7 @@ var render = function() {
                         _vm._v("Account Name")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
+                      _c("select", {
                         directives: [
                           {
                             name: "model",
@@ -51640,16 +51642,22 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.account_name },
                         on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
                             _vm.$set(
                               _vm.form,
                               "account_name",
-                              $event.target.value
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
                             )
                           }
                         }

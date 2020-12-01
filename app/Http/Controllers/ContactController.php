@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFormRequest;
+use App\Repositories\AccountRepositoryContract;
 use App\Repositories\ContactRepositoryContract;
 use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
@@ -12,11 +13,15 @@ class ContactController extends Controller
 {
     private $leadRepository;
     private $contactRepository;
+    private $accountRepository;
 
-    public function __construct(LeadRepositoryContract $leadRepositoryContract,ContactRepositoryContract $contactRepositoryContract)
+    public function __construct(LeadRepositoryContract $leadRepositoryContract,
+                                ContactRepositoryContract $contactRepositoryContract,
+                                AccountRepositoryContract $accountRepositoryContract)
     {
         $this->leadRepository = $leadRepositoryContract;
         $this->contactRepository = $contactRepositoryContract;
+        $this->accountRepository = $accountRepositoryContract;
     }
 
     /**
@@ -36,7 +41,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Contacts/Create',[
+        return Inertia::render('Admin/Contacts/Create', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
         ]);
     }
@@ -44,19 +49,19 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ContactFormRequest $request)
     {
-        $contact =  $this->contactRepository->process($request);
-        return redirect()->route('admin.contacts.show',['contact'=>$contact->id]);
+        $contact = $this->contactRepository->process($request);
+        return redirect()->route('admin.contacts.show', ['contact' => $contact->id]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -67,7 +72,7 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -78,8 +83,8 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -90,7 +95,7 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
