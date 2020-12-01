@@ -179,7 +179,7 @@
                                 <label class="block flex-1 ml-2">
                                     <span class="text-gray-700">Assistant Phone</span>
                                     <input class="form-input mt-1 block w-full" type="text"
-                                           v-model="form.asasistant_phone">
+                                           v-model="form.assistant_phone">
                                 </label>
                             </div>
 
