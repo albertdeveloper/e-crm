@@ -69,7 +69,9 @@ class AccountController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Inertia::render('Admin/Accounts/Edit',[
+            'account_data' => $this->accountRepository->findById($id),
+        ]);
     }
 
     /**
