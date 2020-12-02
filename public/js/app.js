@@ -3562,12 +3562,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: this.$inertia.form({
-        account: null,
+        name: null,
+        owner: null,
         industry: null,
         no_employee: null,
         annual_revenue: null,
@@ -3579,7 +3585,9 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
-    submitForm: function submitForm() {}
+    submitForm: function submitForm() {
+      this.form.post('/admin/accounts');
+    }
   }
 });
 
@@ -3616,8 +3624,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['accounts'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -51836,14 +51911,14 @@ var render = function() {
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("account")
+                      _vm.form.error("name")
                         ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("account")))
+                            _vm._v(_vm._s(_vm.form.error("name")))
                           ])
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("Account name")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -51851,24 +51926,61 @@ var render = function() {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.form.account,
-                            expression: "form.account"
+                            value: _vm.form.name,
+                            expression: "form.name"
                           }
                         ],
                         staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.account },
+                        domProps: { value: _vm.form.name },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.form, "account", $event.target.value)
+                            _vm.$set(_vm.form, "name", $event.target.value)
                           }
                         }
                       })
                     ]),
                     _vm._v(" "),
+                    _c("div", { staticClass: "flex-1" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex " }, [
                     _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block   flex-1" }, [
+                      _vm.form.error("owner")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(_vm._s(_vm.form.error("owner")))
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Account owner")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.owner,
+                            expression: "form.owner"
+                          }
+                        ],
+                        staticClass: "form-input mt-1 block w-full",
+                        domProps: { value: _vm.form.owner },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
@@ -51884,7 +51996,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("Industry")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -51909,8 +52021,6 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
@@ -51925,7 +52035,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("No. of Employee")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -51954,8 +52064,6 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
@@ -51970,7 +52078,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("Annual Revenue")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -51999,8 +52107,6 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
@@ -52015,7 +52121,7 @@ var render = function() {
                         : _vm._e(),
                       _vm._v(" "),
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("Phone")
                       ]),
                       _vm._v(" "),
                       _c("input", {
@@ -52039,8 +52145,6 @@ var render = function() {
                         }
                       })
                     ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ])
@@ -52121,7 +52225,249 @@ var render = function() {
                         "\n                        New Accounts\n                    "
                       )
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.accounts.length > 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto"
+                        },
+                        [
+                          _c(
+                            "table",
+                            { staticClass: "w-full whitespace-no-wrap" },
+                            [
+                              _c("tr", { staticClass: "text-left font-bold" }, [
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("ACCOUNT NAME")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("ACCOUNT OWNER")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("INDUSTRY")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("NO. EMPLOYEE")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("ANNUAL REVENUE")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "px-6 pt-6 pb-4" }, [
+                                  _vm._v("PHONE")
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.accounts, function(account) {
+                                return _c(
+                                  "tr",
+                                  {
+                                    key: account.id,
+                                    staticClass:
+                                      "hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer"
+                                  },
+                                  [
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4 flex items-center focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            staticClass: "text-blue-500",
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.contacts.edit",
+                                                { id: account.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                     " +
+                                                _vm._s(account.name) +
+                                                "\n                                "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4     focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.accounts.show",
+                                                { id: account.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                    " +
+                                                _vm._s(account.owner) +
+                                                "\n                                "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4     focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.accounts.show",
+                                                { id: account.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                    " +
+                                                _vm._s(account.industry) +
+                                                "\n                                "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4     focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.accounts.show",
+                                                { id: account.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                    " +
+                                                _vm._s(account.no_employee) +
+                                                "\n                                "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4     focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.accounts.show",
+                                                { id: account.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                    " +
+                                                _vm._s(account.annual_revenue) +
+                                                "\n                                "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "td",
+                                      {
+                                        staticClass:
+                                          "px-6 py-4     focus:text-indigo-500 border-t"
+                                      },
+                                      [
+                                        _c(
+                                          "Inertia-link",
+                                          {
+                                            attrs: {
+                                              href: _vm.route(
+                                                "admin.accounts.show",
+                                                { id: account.id }
+                                              )
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                    " +
+                                                _vm._s(account.phone) +
+                                                "\n                                "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        ]
+                      )
+                    : _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mt-6 bg-white rounded shadow overflow-x-auto px-3 py-3"
+                        },
+                        [
+                          _vm._v(
+                            "\n                    No record found\n                "
+                          )
+                        ]
+                      )
                 ],
                 1
               )

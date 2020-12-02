@@ -31,21 +31,30 @@
                             <div class="flex ">
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
-                                    <div class="float-right" v-if="form.error('account')">{{ form.error('account') }}</div>
-                                    <span class="text-gray-700">Lead Owner</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.account">
+                                    <div class="float-right" v-if="form.error('name')">{{ form.error('name') }}</div>
+                                    <span class="text-gray-700">Account name</span>
+                                    <input class="form-input mt-1 block w-full"  v-model="form.name">
                                 </label>
                                 <div class="flex-1"></div>
+                            </div>
+
+                            <div class="flex ">
+                                <div class="flex-1"></div>
+                                <label class="block   flex-1">
+                                    <div class="float-right" v-if="form.error('owner')">{{ form.error('owner') }}</div>
+                                    <span class="text-gray-700">Account owner</span>
+                                    <input class="form-input mt-1 block w-full"  v-model="form.owner">
+                                </label>
                                 <div class="flex-1"></div>
                             </div>
+
                             <div class="flex mt-5 ">
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('industry')">{{ form.error('industry') }}</div>
-                                    <span class="text-gray-700">Lead Owner</span>
+                                    <span class="text-gray-700">Industry</span>
                                     <input class="form-input mt-1 block w-full"  v-model="form.industry">
                                 </label>
-                                <div class="flex-1"></div>
                                 <div class="flex-1"></div>
                             </div>
 
@@ -53,10 +62,9 @@
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('no_employee')">{{ form.error('no_employee') }}</div>
-                                    <span class="text-gray-700">Lead Owner</span>
+                                    <span class="text-gray-700">No. of Employee</span>
                                     <input class="form-input mt-1 block w-full"  v-model="form.no_employee">
                                 </label>
-                                <div class="flex-1"></div>
                                 <div class="flex-1"></div>
                             </div>
 
@@ -64,10 +72,9 @@
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('annual_revenue')">{{ form.error('annual_revenue') }}</div>
-                                    <span class="text-gray-700">Lead Owner</span>
+                                    <span class="text-gray-700">Annual Revenue</span>
                                     <input class="form-input mt-1 block w-full"  v-model="form.annual_revenue">
                                 </label>
-                                <div class="flex-1"></div>
                                 <div class="flex-1"></div>
                             </div>
 
@@ -75,13 +82,11 @@
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('phone')">{{ form.error('phone') }}</div>
-                                    <span class="text-gray-700">Lead Owner</span>
+                                    <span class="text-gray-700">Phone</span>
                                     <input class="form-input mt-1 block w-full"  v-model="form.phone">
                                 </label>
                                 <div class="flex-1"></div>
-                                <div class="flex-1"></div>
                             </div>
-
 
                         </form>
                     </div>
@@ -97,7 +102,8 @@ export default {
     data() {
         return {
             form:this.$inertia.form({
-                account: null,
+                name: null,
+                owner: null,
                 industry: null,
                 no_employee: null,
                 annual_revenue: null,
@@ -108,7 +114,7 @@ export default {
     components: {AppLayout},
     methods: {
         submitForm() {
-
+            this.form.post('/admin/accounts');
         }
     }
 }

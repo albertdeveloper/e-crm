@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'owner',
+        'no_employee',
+        'annual_revenue',
+        'phone'
+    ];
 }

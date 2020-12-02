@@ -17,10 +17,11 @@ class CreateAccountsTable extends Migration
             $table->id();
 
             $table->string('name')->nullable();
-            $table->string('industry')->nullable();
-            $table->string('no_employee')->nullable();
+            $table->string('owner',100);
+            $table->string('industry',100)->nullable();
+            $table->string('no_employee',100)->nullable();
             $table->decimal('annual_revenue',8,2)->nullable();
-            $table->string('phone')->nullable();
+            $table->string('phone',50)->nullable();
             $table->timestamps();
         });
     }

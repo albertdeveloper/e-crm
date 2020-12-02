@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AccountFormRequest;
+use App\Repositories\AccountRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class AccountController extends Controller
 {
+    private $accountRepository;
+
+    public function __construct(AccountRepositoryContract $accountRepositoryContract)
+    {
+        $this->accountRepository = $accountRepositoryContract;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,9 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Admin/Accounts/Index');
+        return Inertia::render('Admin/Accounts/Index',[
+            'accounts' => $this->accountRepository->getAccounts(),
+        ]);
     }
 
     /**
@@ -33,9 +44,10 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AccountFormRequest $request)
     {
-        //
+        $this->accountRepository->process($request);
+        return redirect()->route('admin.accounts.index');
     }
 
     /**
