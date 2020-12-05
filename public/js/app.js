@@ -53625,7 +53625,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 contacting-tight"
                 },
-                [_vm._v("\n            Account's\n        ")]
+                [_vm._v("\n            Accounts\n        ")]
               )
             ]
           },
