@@ -30,9 +30,19 @@ class ContactRepository implements ContactRepositoryContract
        return $contact;
     }
 
-    public function getContacts()
+    public function getContacts($request = false)
     {
-        return Contact::with('account')->get();
+        $query = Contact::query();
+        $query->with('account');
+        if(sizeof($request) && isset($request['search']))
+        {
+            $query->where(function($q) use($request) {
+                $search_field = '%'.$request['search'].'%';
+                $q->where(\DB::raw('concat(first_name," ",last_name)'),'like',$search_field);
+
+            });
+        }
+        return  $query->paginate();
     }
 
     public function findById($id)

@@ -6,6 +6,7 @@ use App\Http\Requests\RoleFormRequest;
 use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\RoleRepositoryContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
 class RoleController extends Controller
@@ -26,6 +27,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('roles_access'), 403);
         return Inertia::render('Admin/Management/User/Roles/Index',[
             'roles' => $this->roleRepository->allWithPermissions(),
         ]);
@@ -38,6 +40,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('roles_process'), 403);
         return Inertia::render('Admin/Management/User/Roles/Create',[
             'permissions' => $this->permissionRepository->all(),
         ]);
@@ -51,6 +54,7 @@ class RoleController extends Controller
      */
     public function store(RoleFormRequest $request)
     {
+        abort_unless(Gate::allows('roles_process'), 403);
          $this->roleRepository->process($request);
          return redirect()->route('admin.roles.index');
     }
@@ -74,6 +78,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
+        abort_unless(Gate::allows('roles_process'), 403);
         $role =  $this->roleRepository->findById($id);
 
         return Inertia::render('Admin/Management/User/Roles/Edit.vue',[
@@ -92,6 +97,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        abort_unless(Gate::allows('roles_process'), 403);
         $this->roleRepository->findById($id);
         $this->roleRepository->process($request);
         return redirect()->route('admin.roles.index');
@@ -105,6 +111,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort_unless(Gate::allows('users_destroy'), 403);
     }
 }

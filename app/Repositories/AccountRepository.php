@@ -2,12 +2,25 @@
 namespace App\Repositories;
 
 use App\Models\Account;
-
 class AccountRepository implements AccountRepositoryContract
 {
-    public function getAccounts()
+    public function getAccounts($request)
     {
-        return Account::get();
+        $query = Account::query();
+
+        if(sizeof($request) > 0 && isset($request['search']))
+        {
+            $query->where(function($q) use($request) {
+                $search_field = '%'.$request['search'].'%';
+                $q->where('name','like',$search_field)
+                    ->orWhere('owner','like',$search_field);
+            });
+        }
+       return $query->paginate();
+    }
+   public function getAllAccounts()
+    {
+       return  Account::paginate();
     }
 
     public function process($request)

@@ -7,6 +7,7 @@ use App\Repositories\AccountRepositoryContract;
 use App\Repositories\ContactRepositoryContract;
 use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
 class ContactController extends Controller
@@ -31,8 +32,10 @@ class ContactController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('contacts_access'), 403);
         return Inertia::render('Admin/Contacts/Index',[
-            'contacts' => $this->contactRepository->getContacts(),
+            'contacts' => $this->contactRepository->getContacts(request()->only('search')),
+            'filters' => request()->only('search')
         ]);
     }
 
@@ -43,9 +46,10 @@ class ContactController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('contacts_process'), 403);
         return Inertia::render('Admin/Contacts/Create', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
-            'account_sources' => $this->accountRepository->getAccounts(),
+            'account_sources' => $this->accountRepository->getAllAccounts(),
         ]);
     }
 
@@ -57,6 +61,7 @@ class ContactController extends Controller
      */
     public function store(ContactFormRequest $request)
     {
+        abort_unless(Gate::allows('contacts_process'), 403);
         $contact = $this->contactRepository->process($request);
         return redirect()->route('admin.contacts.show', ['contact' => $contact->id]);
     }
@@ -80,6 +85,7 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
+        abort_unless(Gate::allows('contacts_process'), 403);
         return Inertia::render('Admin/Contacts/Edit',[
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'account_sources' => $this->accountRepository->getAccounts(),
@@ -94,9 +100,12 @@ class ContactController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactFormRequest $request, $id)
     {
-        //
+        abort_unless(Gate::allows('contacts_process'), 403);
+        $this->accountRepository->findById($id);
+        $contact = $this->contactRepository->process($request);
+        return redirect()->route('admin.contacts.show', ['contact' => $contact->id]);
     }
 
     /**
@@ -107,6 +116,6 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort_unless(Gate::allows('contacts_destroy'), 403);
     }
 }

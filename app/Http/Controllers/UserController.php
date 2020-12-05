@@ -6,6 +6,7 @@ use App\Http\Requests\UserFormRequest;
 use App\Repositories\RoleRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function index()
     {
-
+        abort_unless(Gate::allows('users_access'), 403);
         return Inertia::render('Admin/Management/User/Users/Index', [
             'users' => $this->userRepository->getUsersExceptAdmin(),
         ]);
@@ -39,6 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('users_process'), 403);
         return Inertia::render('Admin/Management/User/Users/Create', [
             'roles' => $this->roleRepository->all(),
         ]);
@@ -52,6 +54,7 @@ class UserController extends Controller
      */
     public function store(UserFormRequest $request)
     {
+        abort_unless(Gate::allows('users_access'), 403);
         $this->userRepository->process($request);
         return redirect()->route('admin.users.index');
     }
@@ -75,6 +78,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        abort_unless(Gate::allows('users_process'), 403);
+
         return Inertia::render('Admin/Management/User/Users/Edit',[
             'user_data' => $this->userRepository->findByIdWithRole($id),
             'roles' => $this->roleRepository->all(),
@@ -90,6 +95,7 @@ class UserController extends Controller
      */
     public function update(UserFormRequest $request, $id)
     {
+        abort_unless(Gate::allows('users_process'), 403);
         $this->userRepository->findById($id);
         $this->userRepository->process($request);
         return redirect()->route('admin.users.index');
@@ -103,6 +109,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        abort_unless(Gate::allows('users_destroy'), 403);
          $this->userRepository->delete($id);
          return redirect()->route('admin.users.index');
     }

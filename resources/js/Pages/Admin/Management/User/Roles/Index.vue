@@ -9,7 +9,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
-                        <Inertia-Link
+                        <Inertia-Link v-if="$page.user.allowed_gates.includes('roles_process')"
                             class="button-primary bg-teal-700 hover:bg-teal-900 px-3 py-3  text-white shadow-lg rounded"
                             :href="route('admin.roles.create')">New Roles
                         </Inertia-Link>

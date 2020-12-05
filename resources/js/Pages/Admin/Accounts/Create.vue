@@ -9,12 +9,12 @@
                     Cancel
                 </Inertia-link>
 
-                <a @click.prevent="submitForm"
+                <a @click.prevent="submitForm" v-if="$page.user.allowed_gates.includes('accounts_process')"
                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Save and New
                 </a>
 
-                <a @click.prevent="submitForm"
+                <a @click.prevent="submitForm"  v-if="$page.user.allowed_gates.includes('accounts_process')"
                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Save
                 </a>
@@ -73,7 +73,7 @@
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('annual_revenue')">{{ form.error('annual_revenue') }}</div>
                                     <span class="text-gray-700">Annual Revenue</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.annual_revenue">
+                                    <input class="form-input mt-1 block w-full" type="number"  v-model="form.annual_revenue">
                                 </label>
                                 <div class="flex-1"></div>
                             </div>

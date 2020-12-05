@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LeadFormRequest extends FormRequest
@@ -13,7 +14,7 @@ class LeadFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return (auth()->user()->id) ? true : false;
+        return Gate::allows('leads_process');
     }
 
     /**

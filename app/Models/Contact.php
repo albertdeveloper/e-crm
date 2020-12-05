@@ -29,6 +29,17 @@ class Contact extends Model
         'assistant_phone',
     ];
 
+    protected $appends = [
+        'name',
+    ];
+
+    public function getNameAttribute()
+    {
+        return $this->first_name .' '. $this->last_name;
+    }
+
+
+
     public function account()
     {
         return $this->belongsTo('App\Models\Account');

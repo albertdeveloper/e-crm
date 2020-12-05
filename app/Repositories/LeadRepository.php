@@ -24,9 +24,20 @@ class LeadRepository implements LeadRepositoryContract
         return LeadStatus::get();
     }
 
-    public function getLeads()
+    public function getLeads($request)
     {
-        return Lead::with('leadStatus', 'leadSource')->orderBy('created_at','desc' )->get();
+        $query = Lead::query();
+        $query->with('leadStatus', 'leadSource');
+
+        if(sizeof($request) > 0 && isset($request['search'])) {
+            $query->where(function($q) use($request) {
+                $searchField = '%'.$request['search'].'%';
+                $q->where(\DB::raw('concat(first_name, " ", last_name)'),'like',$searchField)
+                    ->orWhere('company','like',$searchField);
+            });
+        }
+
+        return $query->paginate();
     }
 
     public function process($request)

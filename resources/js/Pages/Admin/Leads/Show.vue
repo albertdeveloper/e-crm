@@ -8,7 +8,7 @@
                     Convert
                 </Inertia-link>
 
-                <Inertia-link :href="route('admin.leads.edit',{id:lead_data.id})"
+                <Inertia-link :href="route('admin.leads.edit',{id:lead_data.id})" v-if="$page.user.allowed_gates.includes('leads_process')"
                               class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Edit
                 </Inertia-link>

@@ -6,7 +6,7 @@ interface LeadRepositoryContract
 {
     public function getAllLeadSource();
     public function getAllLeadStatus();
-    public function getLeads();
+    public function getLeads($request);
     public function process($request);
     public function findById($id);
 }

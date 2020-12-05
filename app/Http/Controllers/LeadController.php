@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LeadFormRequest;
 use App\Repositories\LeadRepositoryContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
 class LeadController extends Controller
@@ -23,9 +24,10 @@ class LeadController extends Controller
      */
     public function index()
     {
-
+        abort_unless(Gate::allows('leads_access'), 403);
         return Inertia::render('Admin/Leads/Index',[
-            'leads' => $this->leadRepository->getLeads(),
+            'leads' => $this->leadRepository->getLeads(request()->only('search')),
+            'filters' => request()->only('search'),
         ]);
     }
 
@@ -36,6 +38,8 @@ class LeadController extends Controller
      */
     public function create()
     {
+
+        abort_unless(Gate::allows('leads_process'), 403);
         return Inertia::render('Admin/Leads/Create', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'lead_status' => $this->leadRepository->getAllLeadStatus(),
@@ -50,6 +54,7 @@ class LeadController extends Controller
      */
     public function store(LeadFormRequest $request)
     {
+        abort_unless(Gate::allows('leads_process'), 403);
         $lead = $this->leadRepository->process($request);
         return redirect()->route('admin.leads.show',['lead' => $lead->id]);
     }
@@ -62,6 +67,7 @@ class LeadController extends Controller
      */
     public function show($id)
     {
+        abort_unless(Gate::allows('leads_show'), 403);
         $lead =  $this->leadRepository->    findById($id);
         return Inertia::render('Admin/Leads/Show',[
             'lead_data' => $lead,
@@ -77,6 +83,7 @@ class LeadController extends Controller
      */
     public function edit($id)
     {
+        abort_unless(Gate::allows('leads_process'), 403);
         return Inertia::render('Admin/Leads/Edit', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'lead_status' => $this->leadRepository->getAllLeadStatus(),
@@ -93,7 +100,9 @@ class LeadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort_unless(Gate::allows('leads_process'), 403);
+        $lead = $this->leadRepository->process($request);
+        return redirect()->route('admin.leads.show',['lead' => $lead->id]);
     }
 
     /**
@@ -104,7 +113,7 @@ class LeadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        abort_unless(Gate::allows('leads_destroy'), 403);
     }
 
     public function convert_lead($id)

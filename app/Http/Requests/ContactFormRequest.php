@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactFormRequest extends FormRequest
@@ -13,7 +14,7 @@ class ContactFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return (auth()->user()) ? true : false;
+        return Gate::allows('contacts_process');
     }
 
     /**

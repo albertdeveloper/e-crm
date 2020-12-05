@@ -9,7 +9,7 @@ class UserRepository implements UserRepositoryContract
 
     public function getUsersExceptAdmin()
     {
-        return User::with('roles')->where('id', '!=', auth()->user()->id)->get();
+        return User::with('roles')->get();
     }
 
     public function process($request)

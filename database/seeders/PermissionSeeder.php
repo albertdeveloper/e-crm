@@ -31,16 +31,19 @@ class PermissionSeeder extends Seeder
             'leads_process',
             'leads_destroy',
             'leads_show',
-            'list_filters',
             'leads_convert_process',
             'contacts_process',
-            'contacts_access'
+            'contacts_access',
+            'contacts_destroy',
+            'accounts_access',
+            'accounts_process',
+            'accounts_destroy',
+            'accounts_show',
         );
 
 
         foreach ($list_default_permissions as $k => $val) {
-            Permission::updateOrcreate(
-                ['id' => 0], [
+            Permission::create([
                 'title' => $val
             ]);
         }

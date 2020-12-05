@@ -9,12 +9,12 @@
                     Cancel
                 </Inertia-link>
 
-                <a @click.prevent="submitForm"
+                <a @click.prevent="submitForm" v-if="$page.user.allowed_gates.includes('contacts_process')"
                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Save and New
                 </a>
 
-                <a @click.prevent="submitForm"
+                <a @click.prevent="submitForm"  v-if="$page.user.allowed_gates.includes('contacts_process')"
                    class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Save
                 </a>
@@ -99,7 +99,7 @@
                                     <span class="text-gray-700">Account Name</span>
                                     <select class="form-input mt-1 block w-full" v-model="form.account_name">
                                         <option></option>
-                                        <option v-for="account in account_sources" :value="account.id">
+                                        <option v-for="account in account_sources.data" :value="account.id">
                                             {{account.name}}
                                         </option>
                                     </select>

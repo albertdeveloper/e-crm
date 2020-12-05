@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PermissionFormRequest;
 use App\Repositories\PermissionRepositoryContract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
 class PermissionController extends Controller
@@ -24,6 +25,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('permission_access'), 403);
         return Inertia::render('Admin/Management/User/Permissions/Index',[
             'permissions' => $this->permissionRepository->all(),
         ]);
@@ -36,6 +38,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('permission_process'), 403);
         return Inertia::render('Admin/Management/User/Permissions/Create');
     }
 
@@ -47,6 +50,7 @@ class PermissionController extends Controller
      */
     public function store(PermissionFormRequest $request)
     {
+        abort_unless(Gate::allows('permission_process'), 403);
         $this->permissionRepository->process($request);
         return redirect()->route('admin.permissions.index');
     }
@@ -70,6 +74,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
+        abort_unless(Gate::allows('permission_process'), 403);
         return Inertia::render('Admin/Management/User/Permissions/Edit',[
             'permission' => $this->permissionRepository->findById($id),
         ]);
@@ -84,6 +89,7 @@ class PermissionController extends Controller
      */
     public function update(PermissionFormRequest $request, $id)
     {
+        abort_unless(Gate::allows('permission_process'), 403);
         $this->permissionRepository->findById($id);
         $this->permissionRepository->process($request);
         return redirect()->route('admin.permissions.index');
@@ -97,6 +103,7 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
+        abort_unless(Gate::allows('permission_destroy'), 403);
         //
     }
 }
