@@ -1,8 +1,10 @@
 <template>
     <div class="flex items-center ">
         <div class="flex w-1/2 bg-white shadow rounded ">
+            <label for="search" class="px-3 py-3" >Search</label>
+            <br clear="all"/>
             <input class="relative w-full px-6 py-3 rounded-r focus:shadow-outline" autocomplete="off" type="text"
-                   name="search" placeholder="Search…" v-model="search">
+                   name="search" id="search" placeholder="…" v-model="search">
         </div>
 
     </div>

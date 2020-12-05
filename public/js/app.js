@@ -6276,6 +6276,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['filters', 'routeUrl'],
@@ -58044,7 +58046,6 @@ var render = function() {
                                           _c(
                                             "Inertia-link",
                                             {
-                                              staticClass: "text-blue-500",
                                               attrs: {
                                                 href: _vm.route(
                                                   "admin.leads.show",
@@ -60358,6 +60359,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex items-center " }, [
     _c("div", { staticClass: "flex w-1/2 bg-white shadow rounded " }, [
+      _c("label", { staticClass: "px-3 py-3", attrs: { for: "search" } }, [
+        _vm._v("Search")
+      ]),
+      _vm._v(" "),
+      _c("br", { attrs: { clear: "all" } }),
+      _vm._v(" "),
       _c("input", {
         directives: [
           {
@@ -60372,7 +60379,8 @@ var render = function() {
           autocomplete: "off",
           type: "text",
           name: "search",
-          placeholder: "Search…"
+          id: "search",
+          placeholder: "…"
         },
         domProps: { value: _vm.search },
         on: {

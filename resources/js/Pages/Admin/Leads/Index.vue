@@ -36,7 +36,7 @@
                                     class="hover:bg-gray-100 focus-within:bg-gray-100 cursor-pointer">
                                     <td class="px-6 py-4 flex items-center focus:text-indigo-500 border-t">
                                         <Inertia-link :href="route('admin.leads.show',{id:lead.id})"
-                                                      class="text-blue-500">
+                                                      class="">
                                             {{  lead.name }}
                                         </Inertia-link>
                                     </td>
