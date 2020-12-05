@@ -5232,7 +5232,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -51346,9 +51345,7 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes(
-                    "user_management_access"
-                  )
+                  _vm.$page.allowed_gates.includes("user_management_access")
                     ? _c(
                         "div",
                         {
@@ -51516,7 +51513,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("leads_access")
+                  _vm.$page.allowed_gates.includes("leads_access")
                     ? _c(
                         "jet-nav-link",
                         {
@@ -51533,7 +51530,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("contacts_access")
+                  _vm.$page.allowed_gates.includes("contacts_access")
                     ? _c(
                         "jet-nav-link",
                         {
@@ -51550,7 +51547,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("accounts_access")
+                  _vm.$page.allowed_gates.includes("accounts_access")
                     ? _c(
                         "jet-nav-link",
                         {
@@ -52927,7 +52924,7 @@ var render = function() {
                     [_vm._v("\n                Cancel\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("accounts_process")
+                  _vm.$page.allowed_gates.includes("accounts_process")
                     ? _c(
                         "a",
                         {
@@ -52944,7 +52941,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("accounts_process")
+                  _vm.$page.allowed_gates.includes("accounts_process")
                     ? _c(
                         "a",
                         {
@@ -53281,7 +53278,7 @@ var render = function() {
                     [_vm._v("\n                Cancel\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("accounts_process")
+                  _vm.$page.allowed_gates.includes("accounts_process")
                     ? _c(
                         "a",
                         {
@@ -53298,7 +53295,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("accounts_process")
+                  _vm.$page.allowed_gates.includes("accounts_process")
                     ? _c(
                         "a",
                         {
@@ -53646,7 +53643,7 @@ var render = function() {
                 "div",
                 { staticClass: "p-6" },
                 [
-                  _vm.$page.user.allowed_gates.includes("accounts_process")
+                  _vm.$page.allowed_gates.includes("accounts_process")
                     ? _c(
                         "Inertia-link",
                         {
@@ -53915,7 +53912,7 @@ var render = function() {
                     [_vm._v("\n                Cancel\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("contacts_process")
+                  _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
                         "a",
                         {
@@ -53932,7 +53929,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("contacts_process")
+                  _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
                         "a",
                         {
@@ -54697,7 +54694,7 @@ var render = function() {
                     [_vm._v("\n                Cancel\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("contacts_process")
+                  _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
                         "a",
                         {
@@ -54714,7 +54711,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("contacts_process")
+                  _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
                         "a",
                         {
@@ -55490,7 +55487,7 @@ var render = function() {
                 "div",
                 { staticClass: "p-6" },
                 [
-                  _vm.$page.user.allowed_gates.includes("contacts_process")
+                  _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
                         "Inertia-link",
                         {
@@ -55982,7 +55979,7 @@ var render = function() {
                     [_vm._v("\n                Cancel\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("leads_process")
+                  _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
                         "a",
                         {
@@ -55999,7 +55996,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("leads_process")
+                  _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
                         "a",
                         {
@@ -56967,7 +56964,7 @@ var render = function() {
                     [_vm._v("\n                Cancel\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("leads_process")
+                  _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
                         "a",
                         {
@@ -56984,7 +56981,7 @@ var render = function() {
                       )
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("leads_process")
+                  _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
                         "a",
                         {
@@ -57963,12 +57960,7 @@ var render = function() {
                 "div",
                 { staticClass: "p-6" },
                 [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.$page.can_allowed) +
-                      "\n                    "
-                  ),
-                  _vm.$page.user.allowed_gates.includes("leads_process")
+                  _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
                         "Inertia-Link",
                         {
@@ -58263,7 +58255,7 @@ var render = function() {
                     [_vm._v("\n                Convert\n            ")]
                   ),
                   _vm._v(" "),
-                  _vm.$page.user.allowed_gates.includes("leads_process")
+                  _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
                         "Inertia-link",
                         {
@@ -58867,7 +58859,7 @@ var render = function() {
                 "div",
                 { staticClass: "p-6" },
                 [
-                  _vm.$page.user.allowed_gates.includes("permissions_process")
+                  _vm.$page.allowed_gates.includes("permissions_process")
                     ? _c(
                         "Inertia-Link",
                         {
@@ -59377,7 +59369,7 @@ var render = function() {
                 "div",
                 { staticClass: "p-6" },
                 [
-                  _vm.$page.user.allowed_gates.includes("roles_process")
+                  _vm.$page.allowed_gates.includes("roles_process")
                     ? _c(
                         "Inertia-Link",
                         {
@@ -60136,7 +60128,7 @@ var render = function() {
                 "div",
                 { staticClass: "p-6" },
                 [
-                  _vm.$page.user.allowed_gates.includes("users_process")
+                  _vm.$page.allowed_gates.includes("users_process")
                     ? _c(
                         "Inertia-Link",
                         {

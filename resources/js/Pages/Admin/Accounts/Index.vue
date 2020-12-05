@@ -9,7 +9,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
-                        <Inertia-link :href="route('admin.accounts.create')" v-if="$page.user.allowed_gates.includes('accounts_process')"
+                        <Inertia-link :href="route('admin.accounts.create')" v-if="$page.allowed_gates.includes('accounts_process')"
                                       class="btn float-right btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 rounded text-white">
                             + New Accounts
                         </Inertia-link>

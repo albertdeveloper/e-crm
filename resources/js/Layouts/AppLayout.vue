@@ -19,7 +19,7 @@
                             </jet-nav-link>
 
 
-                            <div class="hidden sm:flex sm:items-center sm:ml-6" v-if="$page.user.allowed_gates.includes('user_management_access')">
+                            <div class="hidden sm:flex sm:items-center sm:ml-6" v-if="$page.allowed_gates.includes('user_management_access')">
                                 <div class="ml-3 relative">
                                     <jet-dropdown align="left" width="48">
                                         <template #trigger>
@@ -60,15 +60,15 @@
                                 </div>
                             </div>
 
-                            <jet-nav-link :href="route('admin.leads.index')" :active="route().current('admin.leads.index')" v-if="$page.user.allowed_gates.includes('leads_access')">
+                            <jet-nav-link :href="route('admin.leads.index')" :active="route().current('admin.leads.index')" v-if="$page.allowed_gates.includes('leads_access')">
                                 Leads
                             </jet-nav-link>
 
-                            <jet-nav-link :href="route('admin.contacts.index')" :active="route().current('admin.contacts.index')" v-if="$page.user.allowed_gates.includes('contacts_access')">
+                            <jet-nav-link :href="route('admin.contacts.index')" :active="route().current('admin.contacts.index')" v-if="$page.allowed_gates.includes('contacts_access')">
                                 Contacts
                             </jet-nav-link>
 
-                            <jet-nav-link :href="route('admin.accounts.index')" :active="route().current('admin.accounts.index')" v-if="$page.user.allowed_gates.includes('accounts_access')">
+                            <jet-nav-link :href="route('admin.accounts.index')" :active="route().current('admin.accounts.index')" v-if="$page.allowed_gates.includes('accounts_access')">
                                 Accounts
                             </jet-nav-link>
 

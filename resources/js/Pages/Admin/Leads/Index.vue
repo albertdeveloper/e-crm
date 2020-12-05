@@ -10,8 +10,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
-                        {{$page.can_allowed}}
-                        <Inertia-Link v-if="$page.user.allowed_gates.includes('leads_process')"
+                        <Inertia-Link v-if="$page.allowed_gates.includes('leads_process')"
                             class="button-primary float-right bg-teal-700 hover:bg-teal-900 px-3 py-3  text-white shadow-lg rounded"
                             :href="route('admin.leads.create')"> + New Leads
                         </Inertia-Link>
