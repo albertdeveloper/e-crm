@@ -3767,6 +3767,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: this.$inertia.form({
+        id: this.account_data.id,
         name: this.account_data.name,
         owner: this.account_data.owner,
         industry: this.account_data.industry,

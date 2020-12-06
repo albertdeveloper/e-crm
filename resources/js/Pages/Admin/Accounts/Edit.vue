@@ -103,6 +103,7 @@ export default {
     data() {
         return {
             form:this.$inertia.form({
+                id: this.account_data.id,
                 name: this.account_data.name,
                 owner: this.account_data.owner,
                 industry: this.account_data.industry,
