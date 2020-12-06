@@ -43,11 +43,16 @@ export default {
     },
     methods:{
         submitForm() {
-                this.form.put('/admin/permissions/'+this.form.id,{
-                preserveScroll: true
-            }).then(() => {
-                this.form.reset()
+            this.$inertia.visit( '/admin/permissions/'+this.form.id,{
+                method: 'PUT',
+                data:this.form,
+                preserveScroll: true,
+                preserveState: true,
+                onSuccess: () => {
+
+                },
             })
+
         }
     }
 

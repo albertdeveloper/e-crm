@@ -63,7 +63,7 @@ class ContactController extends Controller
     {
         abort_unless(Gate::allows('contacts_process'), 403);
         $contact = $this->contactRepository->process($request);
-        return redirect()->route('admin.contacts.show', ['contact' => $contact->id]);
+        return redirect()->route('admin.contacts.show', ['contact' => $contact->id])->with(['toast'=>['message' => 'Contact created!']]);
     }
 
     /**
@@ -105,7 +105,7 @@ class ContactController extends Controller
         abort_unless(Gate::allows('contacts_process'), 403);
         $this->accountRepository->findById($id);
         $contact = $this->contactRepository->process($request);
-        return redirect()->route('admin.contacts.show', ['contact' => $contact->id]);
+        return redirect()->route('admin.contacts.show', ['contact' => $contact->id])->with(['toast'=>['message' => 'Contact updated!']]);
     }
 
     /**

@@ -53,7 +53,7 @@ class AccountController extends Controller
     {
         abort_unless(Gate::allows('accounts_process'), 403);
         $this->accountRepository->process($request);
-        return redirect()->route('admin.accounts.index');
+        return redirect()->route('admin.accounts.index')->with(['toast'=> ['message' => 'Account created!']]);
     }
 
     /**
@@ -92,7 +92,7 @@ class AccountController extends Controller
     {
         abort_unless(Gate::allows('accounts_process'), 403);
         $this->accountRepository->process($request);
-        return redirect()->route('admin.accounts.index');
+        return redirect()->route('admin.accounts.index')->with(['toast'=> ['message' => 'Account updated!']]);
 
     }
 

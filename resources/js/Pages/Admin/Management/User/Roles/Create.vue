@@ -71,11 +71,16 @@ export default {
         submitForm()
         {
             this.form.permissions = this.value;
-            this.form.post('/admin/roles',{
-                preserveScroll:true,
-            }).then(() => {
-                this.form.reset()
+            this.$inertia.visit( '/admin/roles/',{
+                method: 'POST',
+                data:this.form,
+                preserveScroll: true,
+                preserveState: true,
+                onSuccess: () => {
+
+                },
             })
+
         },
         addTag(newTag) {
             const tag = {

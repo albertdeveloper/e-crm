@@ -288,8 +288,8 @@ export default {
     },
     methods: {
         submitForm() {
-            this.$inertia.visit( '/admin/leads/',{
-                method: 'POST',
+            this.$inertia.visit( '/admin/leads/'+this.form.id,{
+                method: 'PUT',
                 data:this.form,
                 preserveScroll: true,
                 preserveState: true,

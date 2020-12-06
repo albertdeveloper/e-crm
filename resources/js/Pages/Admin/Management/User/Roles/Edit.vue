@@ -80,11 +80,16 @@ export default {
         },
         submitForm() {
             this.form.permissions = this.value;
-            this.form.put('/admin/roles/' + this.role.id, {
+            this.$inertia.visit( '/admin/roles/'+this.form.id,{
+                method: 'PUT',
+                data:this.form,
                 preserveScroll: true,
-            }).then(() => {
-                this.form.reset()
+                preserveState: true,
+                onSuccess: () => {
+
+                },
             })
+
         },
 
         addTag(newTag) {

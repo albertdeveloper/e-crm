@@ -26,7 +26,7 @@ class AccountObserver
      */
     public function created(Account $account)
     {
-       Notification::send($this->admins,new AccountCreatedNotification($account));
+//       Notification::send($this->admins,new AccountCreatedNotification($account));
     }
 
     /**

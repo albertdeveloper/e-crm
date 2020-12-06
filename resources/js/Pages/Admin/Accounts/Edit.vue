@@ -115,8 +115,8 @@ export default {
     components: {AppLayout},
     methods: {
         submitForm() {
-            this.$inertia.visit( '/admin/accounts/',{
-                method: 'POST',
+            this.$inertia.visit( '/admin/accounts/'+this.form.id,{
+                method: 'PUT',
                 data:this.form,
                 onSuccess: () => {
 

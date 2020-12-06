@@ -56,7 +56,7 @@ class LeadController extends Controller
     {
         abort_unless(Gate::allows('leads_process'), 403);
         $lead = $this->leadRepository->process($request);
-        return redirect()->route('admin.leads.show',['lead' => $lead->id]);
+        return redirect()->route('admin.leads.show',['lead' => $lead->id])->with(['toast' => ['message' => 'Lead created!']]);
     }
 
     /**
@@ -102,7 +102,7 @@ class LeadController extends Controller
     {
         abort_unless(Gate::allows('leads_process'), 403);
         $lead = $this->leadRepository->process($request);
-        return redirect()->route('admin.leads.show',['lead' => $lead->id]);
+        return redirect()->route('admin.leads.show',['lead' => $lead->id])->with(['toast' => ['message' => 'Lead updated!']]);
     }
 
     /**
