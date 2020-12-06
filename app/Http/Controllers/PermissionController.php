@@ -52,7 +52,7 @@ class PermissionController extends Controller
     {
         abort_unless(Gate::allows('permissions_process'), 403);
         $this->permissionRepository->process($request);
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.permissions.index')->with(['toast'=>['message' => 'Permission created!']]);
     }
 
     /**
@@ -89,10 +89,10 @@ class PermissionController extends Controller
      */
     public function update(PermissionFormRequest $request, $id)
     {
-        abort_unless(Gate::allows('permissionss_process'), 403);
+        abort_unless(Gate::allows('permissions_process'), 403);
         $this->permissionRepository->findById($id);
         $this->permissionRepository->process($request);
-        return redirect()->route('admin.permissions.index');
+        return redirect()->route('admin.permissions.index')->with(['toast'=>['message' => 'Permission updated!']]);
     }
 
     /**

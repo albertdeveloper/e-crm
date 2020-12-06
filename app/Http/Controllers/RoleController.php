@@ -56,7 +56,7 @@ class RoleController extends Controller
     {
         abort_unless(Gate::allows('roles_process'), 403);
          $this->roleRepository->process($request);
-         return redirect()->route('admin.roles.index');
+         return redirect()->route('admin.roles.index')->with(['toast'=>['message' => 'Role created!']]);
     }
 
     /**
@@ -100,7 +100,7 @@ class RoleController extends Controller
         abort_unless(Gate::allows('roles_process'), 403);
         $this->roleRepository->findById($id);
         $this->roleRepository->process($request);
-        return redirect()->route('admin.roles.index');
+        return redirect()->route('admin.roles.index')->with(['toast'=>['message' => 'Role updated!']]);
     }
 
     /**

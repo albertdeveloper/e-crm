@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         abort_unless(Gate::allows('users_access'), 403);
         $this->userRepository->process($request);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with(['toast'=>['message' => 'User created!']]);
     }
 
     /**
@@ -98,7 +98,7 @@ class UserController extends Controller
         abort_unless(Gate::allows('users_process'), 403);
         $this->userRepository->findById($id);
         $this->userRepository->process($request);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with(['toast'=>['message' => 'User updated!']]);
     }
 
     /**
