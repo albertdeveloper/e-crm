@@ -17,7 +17,7 @@ class PermissionRepository implements PermissionRepositoryContract
 
     public function all()
     {
-         return Permission::orderBy('title','asc')->get();
+         return Permission::orderBy('title','asc')->paginate();
     }
 
     public function findById($id)
