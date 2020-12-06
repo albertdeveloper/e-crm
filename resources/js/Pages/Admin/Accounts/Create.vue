@@ -113,8 +113,15 @@ export default {
     },
     components: {AppLayout},
     methods: {
+
         submitForm() {
-            this.form.post('/admin/accounts');
+            this.$inertia.visit( '/admin/accounts/',{
+                method: 'POST',
+                data:this.form,
+                onSuccess: () => {
+
+                },
+            })
         }
     }
 }

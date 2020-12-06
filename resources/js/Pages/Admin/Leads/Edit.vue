@@ -288,10 +288,15 @@ export default {
     },
     methods: {
         submitForm() {
-            this.form.post('/admin/leads', {
+            this.$inertia.visit( '/admin/leads/',{
+                method: 'POST',
+                data:this.form,
                 preserveScroll: true,
                 preserveState: true,
-            });
+                onSuccess: () => {
+
+                },
+            })
         }
     }
 }

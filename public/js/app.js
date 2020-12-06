@@ -3586,7 +3586,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.form.post('/admin/accounts');
+      this.$inertia.visit('/admin/accounts/', {
+        method: 'POST',
+        data: this.form,
+        onSuccess: function onSuccess() {}
+      });
     }
   }
 });
@@ -3720,7 +3724,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.form.post('/admin/accounts');
+      this.$inertia.visit('/admin/accounts/', {
+        method: 'POST',
+        data: this.form,
+        onSuccess: function onSuccess() {}
+      });
     }
   }
 });
@@ -4064,7 +4072,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.form.post('/admin/contacts');
+      this.$inertia.visit('/admin/contacts/', {
+        method: 'POST',
+        data: this.form,
+        onSuccess: function onSuccess() {}
+      });
     }
   }
 });
@@ -4307,7 +4319,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.form.post('/admin/contacts');
+      this.$inertia.visit('/admin/contacts/', {
+        method: 'POST',
+        data: this.form,
+        onSuccess: function onSuccess() {}
+      });
     }
   }
 });
@@ -4821,9 +4837,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.form.post('/admin/leads', {
+      this.$inertia.visit('/admin/leads/', {
+        method: 'POST',
+        data: this.form,
         preserveScroll: true,
-        preserveState: true
+        preserveState: true,
+        onSuccess: function onSuccess() {}
       });
     }
   }
@@ -5131,9 +5150,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.form.post('/admin/leads', {
+      this.$inertia.visit('/admin/leads/', {
+        method: 'POST',
+        data: this.form,
         preserveScroll: true,
-        preserveState: true
+        preserveState: true,
+        onSuccess: function onSuccess() {}
       });
     }
   }

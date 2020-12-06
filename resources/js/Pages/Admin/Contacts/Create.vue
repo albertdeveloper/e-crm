@@ -223,7 +223,15 @@ export default {
     components: {AppLayout},
     methods: {
         submitForm() {
-            this.form.post('/admin/contacts');
+
+            this.$inertia.visit( '/admin/contacts/',{
+                method: 'POST',
+                data:this.form,
+                onSuccess: () => {
+
+                },
+            })
+
         }
     }
 }
