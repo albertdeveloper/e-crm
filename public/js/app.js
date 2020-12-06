@@ -51484,7 +51484,7 @@ var render = function() {
       _vm._v(" "),
       _c("nav", { staticClass: "bg-white border-b border-gray-100" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" }, [
-          _c("div", { staticClass: "flex justify-between h-16" }, [
+          _c("div", { staticClass: "flex justify-between h-13" }, [
             _c("div", { staticClass: "flex" }, [
               _c(
                 "div",
@@ -52350,10 +52350,10 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("header", { staticClass: "bg-white shadow   w-full sticky top-0 " }, [
+      _c("header", { staticClass: "bg-white shadow w-full sticky top-0 " }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" },
+          { staticClass: "max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8" },
           [_vm._t("header")],
           2
         )
