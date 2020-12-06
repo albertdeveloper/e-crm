@@ -27,7 +27,7 @@ class AccountController extends Controller
     {
         abort_unless(Gate::allows('accounts_access'), 403);
         return Inertia::render('Admin/Accounts/Index',[
-            'accounts' => $this->accountRepository->getAllAccounts(),
+            'accounts' => $this->accountRepository->getAccounts(request()->only('search')),
             'filters' => request()->only('search'),
         ]);
     }

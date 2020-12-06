@@ -63368,7 +63368,11 @@ var render = function() {
                     "bg-white": link.active,
                     "ml-auto": link.label === "Next"
                   },
-                  attrs: { href: link.url }
+                  attrs: {
+                    "preserve-scroll": true,
+                    "preserve-state": true,
+                    href: link.url
+                  }
                 },
                 [_vm._v(_vm._s(link.label))]
               )
