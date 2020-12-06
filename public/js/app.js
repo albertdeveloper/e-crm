@@ -3624,11 +3624,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3669,11 +3664,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4099,11 +4089,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'account_sources'],
@@ -4156,11 +4141,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4861,11 +4841,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'lead_status'],
@@ -4923,11 +4898,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -53141,24 +53111,7 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
-                              return _vm.submitForm($event)
-                            }
-                          }
-                        },
-                        [_vm._v("\n                Save and New\n            ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("accounts_process")
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.submitForm($event)
+                              return _vm.submitForm()
                             }
                           }
                         },
@@ -53509,23 +53462,6 @@ var render = function() {
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
-                  _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("accounts_process")
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.submitForm($event)
-                            }
-                          }
-                        },
-                        [_vm._v("\n                Save and New\n            ")]
-                      )
-                    : _vm._e(),
                   _vm._v(" "),
                   _vm.$page.allowed_gates.includes("accounts_process")
                     ? _c(
@@ -54143,23 +54079,6 @@ var render = function() {
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
-                  _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("contacts_process")
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.submitForm($event)
-                            }
-                          }
-                        },
-                        [_vm._v("\n                Save and New\n            ")]
-                      )
-                    : _vm._e(),
                   _vm._v(" "),
                   _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
@@ -54925,23 +54844,6 @@ var render = function() {
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
-                  _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("contacts_process")
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.submitForm($event)
-                            }
-                          }
-                        },
-                        [_vm._v("\n                Save and New\n            ")]
-                      )
-                    : _vm._e(),
                   _vm._v(" "),
                   _vm.$page.allowed_gates.includes("contacts_process")
                     ? _c(
@@ -56224,23 +56126,6 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                Save and New\n            ")]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("leads_process")
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.submitForm($event)
-                            }
-                          }
-                        },
                         [_vm._v("\n                Save\n            ")]
                       )
                     : _vm._e()
@@ -57195,23 +57080,6 @@ var render = function() {
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
-                  _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("leads_process")
-                    ? _c(
-                        "a",
-                        {
-                          staticClass:
-                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.submitForm($event)
-                            }
-                          }
-                        },
-                        [_vm._v("\n                Save and New\n            ")]
-                      )
-                    : _vm._e(),
                   _vm._v(" "),
                   _vm.$page.allowed_gates.includes("leads_process")
                     ? _c(
@@ -63538,14 +63406,14 @@ var render = function() {
           "div",
           {
             staticClass:
-              "absolute flex z-50 max-w-xs w-full mt-4 mr-4 top-0 right-0 bg-white rounded p-4 shadow"
+              "absolute flex z-50 max-w-xs w-1/4 mt-4 mr-4 top-0 right-0 bg-teal-900 rounded p-4 shadow"
           },
           [
             _c("div", { staticClass: "mr-2" }, [
               _c(
                 "svg",
                 {
-                  staticClass: "w-6 h-4 text-green-600",
+                  staticClass: "w-6 h-4 text-white",
                   attrs: {
                     fill: "none",
                     stroke: "currentColor",
@@ -63566,7 +63434,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "flex-1 text-gray-800 align-middle" }, [
+            _c("div", { staticClass: "flex-1 align-middle text-white" }, [
               _vm._v(
                 "\n            " + _vm._s(_vm.toast.message) + "\n        "
               )
@@ -63577,7 +63445,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "align-top text-gray-500 hover:text-gray-700 focus:outline-none focus:text-indigo-600 ",
+                    "align-top text-gray-500 hover:text-white focus:outline-none focus:text-white ",
                   on: {
                     click: function($event) {
                       _vm.visible = false
