@@ -88,7 +88,7 @@ class ContactController extends Controller
         abort_unless(Gate::allows('contacts_process'), 403);
         return Inertia::render('Admin/Contacts/Edit',[
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
-            'account_sources' => $this->accountRepository->getAccounts(),
+            'account_sources' => $this->accountRepository->getAllAccounts(),
             'contact_data' => $this->contactRepository->findById($id),
         ]);
     }
