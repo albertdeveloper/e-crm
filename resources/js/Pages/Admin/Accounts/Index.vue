@@ -11,7 +11,7 @@
                     <div class="p-6">
                         <Inertia-link :href="route('admin.accounts.create')" v-if="$page.allowed_gates.includes('accounts_process')"
                                       class="btn float-right btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 rounded text-white">
-                            + New Accounts
+                            + New account
                         </Inertia-link>
                         <Search :filters="filters" :routeUrl="route('admin.accounts.index')"/>
 
