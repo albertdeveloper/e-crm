@@ -10,7 +10,7 @@
                 </Inertia-link>
 
                 <a @click.prevent="submitForm"  v-if="$page.allowed_gates.includes('contacts_process')"
-                   class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                   class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-white shadow text-black hover:bg-teal-400  hover:text-white text-white font-normal py-2 px-4 mr-1 rounded">
                     Save
                 </a>
             </div>
