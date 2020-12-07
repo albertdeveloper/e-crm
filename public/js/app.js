@@ -3756,6 +3756,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['account_data'],
@@ -51503,7 +51509,7 @@ var render = function() {
       _vm._v(" "),
       _c("nav", { staticClass: "bg-white border-b border-gray-100" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" }, [
-          _c("div", { staticClass: "flex justify-between h-13" }, [
+          _c("div", { staticClass: "flex justify-between h-16" }, [
             _c("div", { staticClass: "flex" }, [
               _c(
                 "div",
@@ -52372,7 +52378,7 @@ var render = function() {
       _c("header", { staticClass: "bg-white shadow w-full sticky top-0 " }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8" },
+          { staticClass: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" },
           [_vm._t("header")],
           2
         )
@@ -53523,10 +53529,8 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex " }, [
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
+                  _c("div", { staticClass: "flex" }, [
+                    _c("label", { staticClass: "block flex-1 ml-5 px-16" }, [
                       _vm.form.error("name")
                         ? _c("div", { staticClass: "float-right" }, [
                             _vm._v(_vm._s(_vm.form.error("name")))
@@ -53562,206 +53566,232 @@ var render = function() {
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex " }, [
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("owner")
-                        ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("owner")))
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Account owner")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.owner,
-                            expression: "form.owner"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.owner },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _c("div", { staticClass: "flex" }, [
+                    _c(
+                      "label",
+                      { staticClass: "block flex-1 ml-5 mt-5 px-16" },
+                      [
+                        _vm.form.error("owner")
+                          ? _c("div", { staticClass: "float-right" }, [
+                              _vm._v(_vm._s(_vm.form.error("owner")))
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-gray-700" }, [
+                          _vm._v("Account owner")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.owner,
+                              expression: "form.owner"
                             }
-                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          domProps: { value: _vm.form.owner },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "owner", $event.target.value)
+                            }
                           }
-                        }
-                      })
-                    ]),
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5 " }, [
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("industry")
-                        ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("industry")))
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Industry")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.industry,
-                            expression: "form.industry"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.industry },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _c("div", { staticClass: "flex" }, [
+                    _c(
+                      "label",
+                      { staticClass: "block flex-1 ml-5 mt-5 px-16" },
+                      [
+                        _vm.form.error("industry")
+                          ? _c("div", { staticClass: "float-right" }, [
+                              _vm._v(
+                                _vm._s(_vm.form.error("industry")) +
+                                  "\n                                "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-gray-700" }, [
+                          _vm._v("Industry")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.industry,
+                              expression: "form.industry"
                             }
-                            _vm.$set(_vm.form, "industry", $event.target.value)
+                          ],
+                          staticClass:
+                            "form-input mt-1 block w-full is-invalid",
+                          domProps: { value: _vm.form.industry },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "industry",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      })
-                    ]),
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5 " }, [
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("no_employee")
-                        ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("no_employee")))
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("No. of Employee")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.no_employee,
-                            expression: "form.no_employee"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.no_employee },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _c("div", { staticClass: "flex" }, [
+                    _c(
+                      "label",
+                      { staticClass: "block flex-1   ml-5 mt-5 px-16" },
+                      [
+                        _vm.form.error("no_employee")
+                          ? _c("div", { staticClass: "float-right" }, [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(_vm.form.error("no_employee")) +
+                                  "\n                                "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-gray-700" }, [
+                          _vm._v("No. of Employee")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.no_employee,
+                              expression: "form.no_employee"
                             }
-                            _vm.$set(
-                              _vm.form,
-                              "no_employee",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          domProps: { value: _vm.form.no_employee },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "no_employee",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      })
-                    ]),
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5 " }, [
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("annual_revenue")
-                        ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("annual_revenue")))
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Annual Revenue")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.annual_revenue,
-                            expression: "form.annual_revenue"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        attrs: { type: "number" },
-                        domProps: { value: _vm.form.annual_revenue },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _c("div", { staticClass: "flex   " }, [
+                    _c(
+                      "label",
+                      { staticClass: "block flex-1 ml-5 mt-5 px-16" },
+                      [
+                        _vm.form.error("annual_revenue")
+                          ? _c("div", { staticClass: "float-right" }, [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(_vm.form.error("annual_revenue")) +
+                                  "\n                                "
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-gray-700" }, [
+                          _vm._v("Annual Revenue")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.annual_revenue,
+                              expression: "form.annual_revenue"
                             }
-                            _vm.$set(
-                              _vm.form,
-                              "annual_revenue",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          attrs: { type: "number" },
+                          domProps: { value: _vm.form.annual_revenue },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "annual_revenue",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      })
-                    ]),
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5 " }, [
-                    _c("div", { staticClass: "flex-1" }),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("phone")
-                        ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("phone")))
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Phone")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.phone,
-                            expression: "form.phone"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.phone },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                  _c("div", { staticClass: "flex" }, [
+                    _c(
+                      "label",
+                      { staticClass: "block flex-1 ml-5 mt-5 px-16" },
+                      [
+                        _vm.form.error("phone")
+                          ? _c("div", { staticClass: "float-right" }, [
+                              _vm._v(_vm._s(_vm.form.error("phone")))
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-gray-700" }, [
+                          _vm._v("Phone")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.phone,
+                              expression: "form.phone"
                             }
-                            _vm.$set(_vm.form, "phone", $event.target.value)
+                          ],
+                          staticClass: "form-input mt-1 block w-full",
+                          domProps: { value: _vm.form.phone },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "phone", $event.target.value)
+                            }
                           }
-                        }
-                      })
-                    ]),
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex-1" })
                   ])
