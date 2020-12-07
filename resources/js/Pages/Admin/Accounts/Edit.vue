@@ -4,7 +4,7 @@
             Create Account
 
             <div class="float-right">
-                <Inertia-link :href="route('admin.leads.index')"
+                <Inertia-link :href="route('admin.accounts.index')"
                               class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-white shadow text-black font-normal py-2 px-4 mr-1 rounded">
                     Cancel
                 </Inertia-link>
