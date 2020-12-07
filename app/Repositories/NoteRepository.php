@@ -23,11 +23,11 @@ class NoteRepository implements NoteRepositoryContract
     {
         $model = '';
         switch ($type) {
-            case 'lead':
+            case 'leads':
                 $model = "\App\Models\Lead";
                 break;
 
-            case 'contact':
+            case 'contacts':
                 $model = "\App\Models\Contact";
                 break;
             default;

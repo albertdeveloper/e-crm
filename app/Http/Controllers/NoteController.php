@@ -47,6 +47,7 @@ class NoteController extends Controller
     public function store(NoteFormRequest $request)
     {
         $this->noteRepository->process($request);
+        return redirect()->route('admin.'.$request->type.'.index');
     }
 
     /**

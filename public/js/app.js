@@ -58855,7 +58855,7 @@ var render = function() {
     [
       _vm._v(" "),
       _c("note-modal", {
-        attrs: { display: _vm.$page.modal, data: _vm.lead_data, type: "lead" }
+        attrs: { display: _vm.$page.modal, data: _vm.lead_data, type: "leads" }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
