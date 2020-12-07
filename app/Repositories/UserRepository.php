@@ -37,4 +37,11 @@ class UserRepository implements UserRepositoryContract
         $user = $this->findById($id);
         $user->delete();
     }
+
+    public function getLeadOwners()
+    {
+        return User::whereHas('roles',function($query){
+            $query->where('role_id',2);
+        })->get();
+    }
 }

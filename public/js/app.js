@@ -4846,9 +4846,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_sources', 'lead_status'],
+  props: ['lead_sources', 'lead_status', 'lead_owners'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -5753,7 +5758,7 @@ __webpack_require__.r(__webpack_exports__);
     mapPermissions: function mapPermissions() {
       var _this = this;
 
-      this.permissions.map(function (perm) {
+      this.permissions.data.map(function (perm) {
         _this.options.push({
           title: perm.title,
           id: perm.id
@@ -5868,7 +5873,7 @@ __webpack_require__.r(__webpack_exports__);
     mapPermissions: function mapPermissions() {
       var _this = this;
 
-      this.permissions.map(function (perm) {
+      this.permissions.data.map(function (perm) {
         _this.options.push({
           title: perm.title,
           id: perm.id
@@ -56216,26 +56221,53 @@ var render = function() {
                         _vm._v("Lead Owner")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.owner,
-                            expression: "form.owner"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.owner },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.owner,
+                              expression: "form.owner"
                             }
-                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          ],
+                          staticClass: "form-input  mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "owner",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        _vm._l(_vm.lead_owners, function(leadOwner) {
+                          return _c(
+                            "option",
+                            { domProps: { value: leadOwner.id } },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(leadOwner.name) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block ml-5 flex-1" }, [

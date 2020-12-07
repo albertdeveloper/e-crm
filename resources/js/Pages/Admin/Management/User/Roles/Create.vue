@@ -63,7 +63,7 @@ export default {
     methods: {
         mapPermissions()
         {
-            this.permissions.map(perm => {
+            this.permissions.data.map(perm => {
                 this.options.push({title: perm.title, id: perm.id},);
             })
 

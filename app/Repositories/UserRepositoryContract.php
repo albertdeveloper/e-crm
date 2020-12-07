@@ -8,4 +8,5 @@ interface UserRepositoryContract
     public function process($request);
     public function findByIdWithRole($id);
     public function findById($id);
+    public function getLeadOwners();
 }

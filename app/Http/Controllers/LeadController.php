@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LeadFormRequest;
 use App\Repositories\LeadRepositoryContract;
+use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
@@ -11,10 +12,12 @@ use Inertia\Inertia;
 class LeadController extends Controller
 {
     private $leadRepository;
+    private $userRepository;
 
-    public function __construct(LeadRepositoryContract $leadRepositoryContract)
+    public function __construct(LeadRepositoryContract $leadRepositoryContract,UserRepositoryContract $userRepositoryContract)
     {
         $this->leadRepository = $leadRepositoryContract;
+        $this->userRepository = $userRepositoryContract;
     }
 
     /**
@@ -39,10 +42,12 @@ class LeadController extends Controller
     public function create()
     {
 
+
         abort_unless(Gate::allows('leads_process'), 403);
         return Inertia::render('Admin/Leads/Create', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'lead_status' => $this->leadRepository->getAllLeadStatus(),
+            'lead_owners' => $this->userRepository->getLeadOwners(),
         ]);
     }
 

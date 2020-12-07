@@ -16,16 +16,25 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $create_role = new Role();
-        $create_role->id = 1;
-        $create_role->title = 'Administrator';
-        $create_role->save();
+        $create_role_admin = new Role();
+
+        $create_role_admin->id = 1;
+        $create_role_admin->title = 'Administrator';
+        $create_role_admin->save();
+
+        $create_role_user = new Role();
+
+        $create_role_user->id = 2;
+        $create_role_user->title = 'User';
+        $create_role_user->save();
+
 
 
         $permissions = Permission::get();
 
         foreach ($permissions as $k => $value) {
-            if (!in_array($value->id, $create_role->permissions()->pluck('permissions.id')->toArray())) $create_role->permissions()->attach($value->id);
+            if (!in_array($value->id, $create_role_admin->permissions()->pluck('permissions.id')->toArray())) $create_role_admin->permissions()->attach($value->id);
+            if (!in_array($value->id, $create_role_user->permissions()->pluck('permissions.id')->toArray())) $create_role_user->permissions()->attach($value->id);
         }
     }
 }

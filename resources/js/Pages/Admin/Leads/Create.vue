@@ -25,10 +25,15 @@
                             </div>
                             <div class="flex ">
                                 <div class="flex-1"></div>
+
                                 <label class="block   flex-1">
                                     <div class="float-right" v-if="form.error('owner')">{{ form.error('owner') }}</div>
                                     <span class="text-gray-700">Lead Owner</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.owner">
+                                    <select class="form-input  mt-1 block w-full"  v-model="form.owner">
+                                        <option v-for="leadOwner in lead_owners" :value="leadOwner.id">
+                                            {{leadOwner.name}}
+                                        </option>
+                                    </select>
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('company')">{{
@@ -252,7 +257,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources', 'lead_status'],
+    props: ['lead_sources', 'lead_status','lead_owners'],
     components: {AppLayout},
     data() {
         return {
