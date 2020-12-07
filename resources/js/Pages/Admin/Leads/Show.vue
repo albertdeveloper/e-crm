@@ -20,7 +20,7 @@
 
             </div>
         </template>
-         <note-modal :display="$page.modal"/>
+         <note-modal :display="$page.modal"  :data="lead_data" :model="'App\\Models\\Lead'"  />
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -119,6 +119,12 @@
                             </div>
                             <div class="flex-1"><span class="ml-5">{{ lead_data.no_employee }}</span></div>
                         </div>
+
+
+                        <div class="flex mt-5">
+                            <p class="text-2xl">Notes: </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -134,6 +140,7 @@ import NoteModal from '@/Shared/NoteModal';
 export default {
     props: ['lead_data', 'lead_logo'],
     components: { AppLayout,NoteModal},
+
 
 }
 </script>

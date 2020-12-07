@@ -5466,6 +5466,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8109,16 +8115,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Input: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['display'],
+  props: ['display', 'data', 'model'],
   name: "regular-modal",
   data: function data() {
     return {
-      showModal: false
+      showModal: false,
+      form: this.$inertia.form({
+        passId: this.data.id,
+        date: null,
+        title: null,
+        note: null,
+        model: this.model
+      })
     };
   },
   watch: {
@@ -8132,6 +8162,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggleModal: function toggleModal() {
       this.$page.modal = this.showModal = false;
+    },
+    submitForm: function submitForm() {
+      this.$inertia.visit('/admin/notes/', {
+        method: 'POST',
+        data: this.form,
+        preserveScroll: true,
+        preserveState: true,
+        onSuccess: function onSuccess() {}
+      });
     }
   }
 });
@@ -58815,7 +58854,13 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c("note-modal", { attrs: { display: _vm.$page.modal } }),
+      _c("note-modal", {
+        attrs: {
+          display: _vm.$page.modal,
+          data: _vm.lead_data,
+          model: "App\\Models\\Lead"
+        }
+      }),
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
         _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
@@ -59088,6 +59133,10 @@ var render = function() {
                       _vm._v(_vm._s(_vm.lead_data.no_employee))
                     ])
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-5" }, [
+                  _c("p", { staticClass: "text-2xl" }, [_vm._v("Notes: ")])
                 ])
               ])
             ]
@@ -63960,142 +64009,254 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.showModal
-    ? _c("transition", { attrs: { name: "fade" } }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "overflow-x-hidden overflow-y-auto fixed inset-0 z-50   justify-center items-center flex"
-          },
-          [
-            _c("div", { staticClass: "relative w-1/2 my-6 mx-auto  w-4xl" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t bg-teal-900 text-white"
-                    },
-                    [
-                      _c("h3", { staticClass: "text-3xl font-semibold" }, [
-                        _vm._v(
-                          "\n                        Notes\n                    "
+  return _c(
+    "transition",
+    { attrs: { name: "fade", appear: "", mode: "out-in" } },
+    [
+      _c("div", [
+        _vm.showModal
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "overflow-x-hidden overflow-y-auto fixed inset-0 z-50   justify-center items-center flex"
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "relative w-1/1 my-6 mx-auto  w-4xl" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t bg-teal-900 text-white"
+                          },
+                          [
+                            _c(
+                              "h3",
+                              { staticClass: "text-3xl font-semibold" },
+                              [
+                                _vm._v(
+                                  "\n                            Notes for - "
+                                ),
+                                _c("small", [_vm._v(_vm._s(_vm.data.name))])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.toggleModal()
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "bg-transparent  opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none text-white"
+                                  },
+                                  [_vm._v("\n            ×\n          ")]
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          {
+                            on: {
+                              submit: function($event) {
+                                $event.preventDefault()
+                                return _vm.submitForm($event)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "relative p-6 flex-auto" },
+                              [
+                                _c("div", { staticClass: "float-right" }, [
+                                  _c("label", { attrs: { for: "date" } }, [
+                                    _vm._v("Date")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("br", { attrs: { clear: "all" } }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.date,
+                                        expression: "form.date"
+                                      }
+                                    ],
+                                    staticClass: "form-input mt-2",
+                                    attrs: {
+                                      type: "date",
+                                      id: "date",
+                                      required: ""
+                                    },
+                                    domProps: { value: _vm.form.date },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "date",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("br", { attrs: { clear: "all" } }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-5" }, [
+                                  _c("label", { attrs: { for: "title" } }, [
+                                    _vm._v("Title")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.title,
+                                        expression: "form.title"
+                                      }
+                                    ],
+                                    staticClass: "form-input w-full mt-2",
+                                    attrs: { type: "text", id: "title" },
+                                    domProps: { value: _vm.form.title },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "title",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-5" }, [
+                                  _c("label", { attrs: { for: "note" } }, [
+                                    _vm._v("Note")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("textarea", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.form.note,
+                                        expression: "form.note"
+                                      }
+                                    ],
+                                    staticClass: "form-textarea w-full mt-2",
+                                    attrs: { id: "note" },
+                                    domProps: { value: _vm.form.note },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.form,
+                                          "note",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b"
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1",
+                                    staticStyle: {
+                                      transition: "all .15s ease"
+                                    },
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.toggleModal()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                Close\n                            "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1",
+                                    staticStyle: { transition: "all .15s ease" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                Save Note\n                            "
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none",
-                          on: {
-                            click: function($event) {
-                              return _vm.toggleModal()
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "bg-transparent  opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none text-white"
-                            },
-                            [_vm._v("\n            ×\n          ")]
-                          )
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "relative p-6 flex-auto" }, [
-                    _c("div", [
-                      _c("label", { attrs: { for: "title" } }, [
-                        _vm._v("Title")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-input w-full mt-2",
-                        attrs: { type: "text", id: "title" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "mt-5" }, [
-                      _c("label", { attrs: { for: "note" } }, [_vm._v("Note")]),
-                      _vm._v(" "),
-                      _c("textarea", {
-                        staticClass: "form-textarea w-full mt-2",
-                        attrs: { id: "note" }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b"
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1",
-                          staticStyle: { transition: "all .15s ease" },
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.toggleModal()
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Close\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1",
-                          staticStyle: { transition: "all .15s ease" },
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.toggleModal()
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Save Note\n                    "
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
-          ]
-        ),
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e(),
         _vm._v(" "),
         _vm.showModal
           ? _c("div", { staticClass: "opacity-25 fixed inset-0 z-40 bg-black" })
           : _vm._e()
       ])
-    : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

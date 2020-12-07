@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteFormRequest;
+use App\Repositories\NoteRepositoryContract;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class NoteController extends Controller
-{ 
+{
+
+    private $noteRepository;
+
+    public function __construct(NoteRepositoryContract $noteRepositoryContract)
+    {
+        $this->noteRepository = $noteRepositoryContract;
+
+    }
 
     /**
      * Display a listing of the resource.
@@ -34,9 +44,9 @@ class NoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoteFormRequest $request)
     {
-        //
+        $this->noteRepository->process($request);
     }
 
     /**

@@ -8,6 +8,8 @@ use App\Repositories\ContactRepository;
 use App\Repositories\ContactRepositoryContract;
 use App\Repositories\LeadRepository;
 use App\Repositories\LeadRepositoryContract;
+use App\Repositories\NoteRepository;
+use App\Repositories\NoteRepositoryContract;
 use App\Repositories\PermissionRepositoryContract;
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
@@ -41,5 +43,6 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->bind(LeadRepositoryContract::class,LeadRepository::class);
         $this->app->bind(ContactRepositoryContract::class,ContactRepository::class);
         $this->app->bind(AccountRepositoryContract::class,AccountRepository::class);
+        $this->app->bind(NoteRepositoryContract::class,NoteRepository::class);
     }
 }
