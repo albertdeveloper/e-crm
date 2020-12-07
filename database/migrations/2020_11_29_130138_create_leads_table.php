@@ -15,8 +15,9 @@ class CreateLeadsTable extends Migration
     {
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('lead_source_id')->nullable();
-            $table->unsignedBigInteger('lead_status_id')->nullable();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('lead_source_id')->constrained();
+            $table->foreignId('lead_status_id')->constrained();
             $table->string('owner',100)->nullable();
             $table->string('company',100)->nullable();
             $table->string('salutation',5)->nullable();
@@ -38,9 +39,7 @@ class CreateLeadsTable extends Migration
 
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('lead_source_id')->references('id')->on('lead_sources')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('lead_status_id')->references('id')->on('lead_statuses')->onUpdate('cascade')->onDelete('cascade');
-        });
+         });
     }
 
     /**

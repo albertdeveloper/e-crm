@@ -15,8 +15,8 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('account_id');
-            $table->unsignedBigInteger('lead_source_id');
+            $table->foreignId('account_id')->constrained();
+            $table->foreignId('lead_source_id')->constrained();
             $table->string('owner',100)->nullable();
             $table->string('salutation',5)->nullable();
             $table->string('first_name',100);
@@ -34,8 +34,6 @@ class CreateContactsTable extends Migration
             $table->string('assistant_phone',100)->nullable();
             $table->timestamps();
 
-            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
-            $table->foreign('lead_source_id')->references('id')->on('lead_sources')->onDelete('cascade');
         });
     }
 

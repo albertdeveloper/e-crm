@@ -3623,7 +3623,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -53122,7 +53121,7 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-white shadow text-black hover:bg-teal-400  hover:text-white text-white font-normal py-2 px-4 mr-1 rounded",
-                      attrs: { href: _vm.route("admin.leads.index") }
+                      attrs: { href: _vm.route("admin.accounts.index") }
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
@@ -53483,7 +53482,7 @@ var render = function() {
                     {
                       staticClass:
                         "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-white shadow text-black font-normal py-2 px-4 mr-1 rounded",
-                      attrs: { href: _vm.route("admin.leads.index") }
+                      attrs: { href: _vm.route("admin.accounts.index") }
                     },
                     [_vm._v("\n                Cancel\n            ")]
                   ),
