@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -47,5 +48,7 @@ Route::group([
 
     Route::resource('accounts', AccountController::class);
     Route::resource('contacts', ContactController::class);
+
+    Route::get('notes/{id}', [NoteController::class,'index'])->name('notes.index');
 
 });

@@ -24,9 +24,12 @@ class HandleInertiaGates
                 return $allowed_gates ? $allowed_gates : array(0);
             },
             'toast' => function () {
-               return Session::get('toast');
+                return Session::get('toast');
             },
             'popstate' => function () {
+                return false;
+            },
+            'modal' => function () {
                 return false;
             }
         ]));

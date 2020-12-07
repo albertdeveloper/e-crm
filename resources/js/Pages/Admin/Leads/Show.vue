@@ -8,14 +8,19 @@
                     Convert
                 </Inertia-link>
 
+                <a @click="$page.modal = true"
+                              class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                    Note
+                </a>
+
                 <Inertia-link :href="route('admin.leads.edit',{id:lead_data.id})" v-if="$page.allowed_gates.includes('leads_process')"
                               class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Edit
                 </Inertia-link>
 
             </div>
-
         </template>
+         <note-modal :display="$page.modal"/>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -123,10 +128,12 @@
 </template>
 <script>
 import AppLayout from "@/Layouts/AppLayout";
+import NoteModal from '@/Shared/NoteModal';
+
 
 export default {
     props: ['lead_data', 'lead_logo'],
-    components: {AppLayout},
+    components: { AppLayout,NoteModal},
 
 }
 </script>
