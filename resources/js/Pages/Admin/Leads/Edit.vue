@@ -26,9 +26,14 @@
                             <div class="flex ">
                                 <div class="flex-1"></div>
                                 <label class="block   flex-1">
-                                    <div class="float-right" v-if="form.error('owner')">{{ form.error('owner') }}</div>
+                                    <div class="float-right" v-if="form.error('owner_id')">{{ form.error('owner_id') }}</div>
                                     <span class="text-gray-700">Lead Owner</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.owner">
+                                    <select class="form-input  mt-1 block w-full"  v-model="form.owner_id">
+                                        <option></option>
+                                        <option v-for="leadOwner in lead_owners" :value="leadOwner.id">
+                                            {{leadOwner.name}}
+                                        </option>
+                                    </select>
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('company')">{{
@@ -252,13 +257,13 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources', 'lead_status','lead_data'],
+    props: ['lead_sources', 'lead_status','lead_data','lead_owners'],
     components: {AppLayout},
     data() {
         return {
             form: this.$inertia.form({
                 id: this.lead_data.id,
-                owner: this.lead_data.owner,
+                owner_id: this.lead_data.user_id,
                 company: this.lead_data.company,
                 salutation: this.lead_data.salutation,
                 first_name: this.lead_data.first_name,

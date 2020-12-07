@@ -41,8 +41,6 @@ class LeadController extends Controller
      */
     public function create()
     {
-
-
         abort_unless(Gate::allows('leads_process'), 403);
         return Inertia::render('Admin/Leads/Create', [
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
@@ -73,7 +71,8 @@ class LeadController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('leads_show'), 403);
-        $lead =  $this->leadRepository->    findById($id);
+        $lead =  $this->leadRepository->findByIdWithUser($id);
+
         return Inertia::render('Admin/Leads/Show',[
             'lead_data' => $lead,
             'lead_logo' => $lead->defaultProfilePicture(),
@@ -93,6 +92,7 @@ class LeadController extends Controller
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'lead_status' => $this->leadRepository->getAllLeadStatus(),
             'lead_data' => $this->leadRepository->findById($id),
+            'lead_owners' => $this->userRepository->getLeadOwners(),
         ]);
     }
 

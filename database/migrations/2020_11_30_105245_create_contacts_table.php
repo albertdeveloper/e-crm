@@ -17,7 +17,7 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->foreignId('account_id')->constrained();
             $table->foreignId('lead_source_id')->constrained();
-            $table->string('owner',100)->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->string('salutation',5)->nullable();
             $table->string('first_name',100);
             $table->string('last_name',100);

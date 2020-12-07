@@ -10,7 +10,7 @@ class ContactRepository implements ContactRepositoryContract
        $contact =  Contact::updateOrCreate(['id'=>$request->id],[
             'account_id' => $request->account_name,
             'lead_source_id' => $request->lead_source,
-            'owner' => $request->owner,
+            'user_id' => $request->owner_id,
             'salutation' => $request->salutation,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -33,13 +33,12 @@ class ContactRepository implements ContactRepositoryContract
     public function getContacts($request = false)
     {
         $query = Contact::query();
-        $query->with('account');
+        $query->with(['account','user']);
         if(sizeof($request) && isset($request['search']))
         {
             $query->where(function($q) use($request) {
                 $search_field = '%'.$request['search'].'%';
                 $q->where(\DB::raw('concat(first_name," ",last_name)'),'like',$search_field);
-
             });
         }
         return  $query->paginate();

@@ -25,7 +25,7 @@ class LeadFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'owner'  => 'required',
+            'owner_id'  => 'required',
             'company' => 'required',
             'last_name' => 'required',
         ];

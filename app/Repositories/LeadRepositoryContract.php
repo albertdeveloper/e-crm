@@ -9,4 +9,5 @@ interface LeadRepositoryContract
     public function getLeads($request);
     public function process($request);
     public function findById($id);
+    public function findByIdWithUser($id);
 }

@@ -27,9 +27,10 @@
                                 <div class="flex-1"></div>
 
                                 <label class="block   flex-1">
-                                    <div class="float-right" v-if="form.error('owner')">{{ form.error('owner') }}</div>
+                                    <div class="float-right" v-if="form.error('owner_id')">{{ form.error('owner_id') }}</div>
                                     <span class="text-gray-700">Lead Owner</span>
-                                    <select class="form-input  mt-1 block w-full"  v-model="form.owner">
+                                    <select class="form-input  mt-1 block w-full"  v-model="form.owner_id">
+                                        <option></option>
                                         <option v-for="leadOwner in lead_owners" :value="leadOwner.id">
                                             {{leadOwner.name}}
                                         </option>
@@ -262,7 +263,7 @@ export default {
     data() {
         return {
             form: this.$inertia.form({
-                owner: this.$page.user.name,
+                owner_id: this.$page.user.id,
                 company: null,
                 salutation: null,
                 first_name: null,

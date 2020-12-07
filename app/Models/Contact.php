@@ -12,7 +12,7 @@ class Contact extends Model
     protected $fillable = [
         'account_id',
         'lead_source_id',
-        'owner',
+        'user_id',
         'salutation',
         'first_name',
         'last_name',
@@ -44,4 +44,10 @@ class Contact extends Model
     {
         return $this->belongsTo('App\Models\Account');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

@@ -27,8 +27,13 @@
                             <div class="flex ">
                                 <div class="flex-1"></div>
                                 <label class="block flex-1">
-                                    <span class="text-gray-700">Lead Owner</span>
-                                    <input class="form-input mt-1 block w-full" v-model="form.owner">
+                                    <span class="text-gray-700">Contact Owner</span>
+                                    <select class="form-input  mt-1 block w-full"  v-model="form.owner_id">
+                                        <option></option>
+                                        <option v-for="leadOwner in lead_owners" :value="leadOwner.id">
+                                            {{leadOwner.name}}
+                                        </option>
+                                    </select>
                                 </label>
 
                                 <label class="block flex-1 ml-2">
@@ -196,7 +201,7 @@ export default {
         return {
             form: this.$inertia.form({
                 id: this.contact_data.id,
-                owner: this.contact_data.owner,
+                user_id: this.contact_data.user_id,
                 account_name: this.contact_data.account_id,
                 salutation: this.contact_data.salutation,
                 lead_source: this.contact_data.lead_source_id,

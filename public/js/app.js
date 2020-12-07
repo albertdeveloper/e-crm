@@ -4094,13 +4094,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_sources', 'account_sources'],
+  props: ['lead_sources', 'account_sources', 'lead_owners'],
   data: function data() {
     return {
       form: this.$inertia.form({
-        owner: this.$page.user.name,
+        owner_id: this.$page.user.id,
         account_name: null,
         salutation: null,
         lead_source: null,
@@ -4335,6 +4340,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'account_sources', 'contact_data'],
@@ -4342,7 +4352,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: this.$inertia.form({
         id: this.contact_data.id,
-        owner: this.contact_data.owner,
+        user_id: this.contact_data.user_id,
         account_name: this.contact_data.account_id,
         salutation: this.contact_data.salutation,
         lead_source: this.contact_data.lead_source_id,
@@ -4851,6 +4861,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'lead_status', 'lead_owners'],
@@ -4860,7 +4871,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: this.$inertia.form({
-        owner: this.$page.user.name,
+        owner_id: this.$page.user.id,
         company: null,
         salutation: null,
         first_name: null,
@@ -5158,9 +5169,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_sources', 'lead_status', 'lead_data'],
+  props: ['lead_sources', 'lead_status', 'lead_data', 'lead_owners'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -5168,7 +5184,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: this.$inertia.form({
         id: this.lead_data.id,
-        owner: this.lead_data.owner,
+        owner_id: this.lead_data.user_id,
         company: this.lead_data.company,
         salutation: this.lead_data.salutation,
         first_name: this.lead_data.first_name,
@@ -54179,29 +54195,60 @@ var render = function() {
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("Contact Owner")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.owner,
-                            expression: "form.owner"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.owner },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.owner_id,
+                              expression: "form.owner_id"
                             }
-                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          ],
+                          staticClass: "form-input  mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "owner_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.lead_owners, function(leadOwner) {
+                            return _c(
+                              "option",
+                              { domProps: { value: leadOwner.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(leadOwner.name) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1 ml-2" }, [
@@ -54944,29 +54991,60 @@ var render = function() {
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1" }, [
                       _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Lead Owner")
+                        _vm._v("Contact Owner")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.owner,
-                            expression: "form.owner"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.owner },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.owner_id,
+                              expression: "form.owner_id"
                             }
-                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          ],
+                          staticClass: "form-input  mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "owner_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.lead_owners, function(leadOwner) {
+                            return _c(
+                              "option",
+                              { domProps: { value: leadOwner.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(leadOwner.name) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block flex-1 ml-2" }, [
@@ -55894,7 +55972,7 @@ var render = function() {
                                               [
                                                 _vm._v(
                                                   "\n                                        " +
-                                                    _vm._s(contact.owner) +
+                                                    _vm._s(contact.user.name) +
                                                     "\n                                    "
                                                 )
                                               ]
@@ -56211,9 +56289,9 @@ var render = function() {
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("owner")
+                      _vm.form.error("owner_id")
                         ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("owner")))
+                            _vm._v(_vm._s(_vm.form.error("owner_id")))
                           ])
                         : _vm._e(),
                       _vm._v(" "),
@@ -56228,8 +56306,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.owner,
-                              expression: "form.owner"
+                              value: _vm.form.owner_id,
+                              expression: "form.owner_id"
                             }
                           ],
                           staticClass: "form-input  mt-1 block w-full",
@@ -56245,7 +56323,7 @@ var render = function() {
                                 })
                               _vm.$set(
                                 _vm.form,
-                                "owner",
+                                "owner_id",
                                 $event.target.multiple
                                   ? $$selectedVal
                                   : $$selectedVal[0]
@@ -56253,20 +56331,24 @@ var render = function() {
                             }
                           }
                         },
-                        _vm._l(_vm.lead_owners, function(leadOwner) {
-                          return _c(
-                            "option",
-                            { domProps: { value: leadOwner.id } },
-                            [
-                              _vm._v(
-                                "\n                                        " +
-                                  _vm._s(leadOwner.name) +
-                                  "\n                                    "
-                              )
-                            ]
-                          )
-                        }),
-                        0
+                        [
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.lead_owners, function(leadOwner) {
+                            return _c(
+                              "option",
+                              { domProps: { value: leadOwner.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(leadOwner.name) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
                       )
                     ]),
                     _vm._v(" "),
@@ -57206,9 +57288,9 @@ var render = function() {
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
                     _c("label", { staticClass: "block   flex-1" }, [
-                      _vm.form.error("owner")
+                      _vm.form.error("owner_id")
                         ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("owner")))
+                            _vm._v(_vm._s(_vm.form.error("owner_id")))
                           ])
                         : _vm._e(),
                       _vm._v(" "),
@@ -57216,26 +57298,57 @@ var render = function() {
                         _vm._v("Lead Owner")
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.owner,
-                            expression: "form.owner"
-                          }
-                        ],
-                        staticClass: "form-input mt-1 block w-full",
-                        domProps: { value: _vm.form.owner },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.owner_id,
+                              expression: "form.owner_id"
                             }
-                            _vm.$set(_vm.form, "owner", $event.target.value)
+                          ],
+                          staticClass: "form-input  mt-1 block w-full",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.form,
+                                "owner_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option"),
+                          _vm._v(" "),
+                          _vm._l(_vm.lead_owners, function(leadOwner) {
+                            return _c(
+                              "option",
+                              { domProps: { value: leadOwner.id } },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(leadOwner.name) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block ml-5 flex-1" }, [
@@ -58490,7 +58603,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.lead_data.owner))
+                      _vm._v(_vm._s(_vm.lead_data.user.name))
                     ])
                   ]),
                   _vm._v(" "),

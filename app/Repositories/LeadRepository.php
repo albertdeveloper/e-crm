@@ -13,6 +13,10 @@ class LeadRepository implements LeadRepositoryContract
     {
         return Lead::findOrfail($id);
     }
+    public function findByIdWithUser($id)
+    {
+        return Lead::with('user')->findOrfail($id);
+    }
 
     public function getAllLeadSource()
     {
@@ -43,7 +47,7 @@ class LeadRepository implements LeadRepositoryContract
     public function process($request)
     {
       $lead =  Lead::updateOrCreate(['id' => $request->id], [
-            'owner' => $request->owner,
+            'user_id' => $request->owner_id,
             'company' => $request->company,
             'salutation' => $request->salutation,
             'first_name' => $request->first_name,
