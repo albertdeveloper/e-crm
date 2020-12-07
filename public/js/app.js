@@ -8137,7 +8137,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Input: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['display', 'data', 'model'],
+  props: ['display', 'data', 'type'],
   name: "regular-modal",
   data: function data() {
     return {
@@ -8147,7 +8147,7 @@ __webpack_require__.r(__webpack_exports__);
         date: null,
         title: null,
         note: null,
-        model: this.model
+        type: this.type
       })
     };
   },
@@ -58855,11 +58855,7 @@ var render = function() {
     [
       _vm._v(" "),
       _c("note-modal", {
-        attrs: {
-          display: _vm.$page.modal,
-          data: _vm.lead_data,
-          model: "App\\Models\\Lead"
-        }
+        attrs: { display: _vm.$page.modal, data: _vm.lead_data, type: "lead" }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [

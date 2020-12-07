@@ -1,13 +1,15 @@
 <?php
-namespace App\Repositories;
 
+namespace App\Repositories;
 
 
 class NoteRepository implements NoteRepositoryContract
 {
     public function process($request)
     {
-         $data = $request->model::find($request->passId);
+        $model = $this->defineModel($request->type);
+
+        $data = $model::findOrFail($request->passId);
 
         $data->note()->create([
             'title' => $request->title,
@@ -16,4 +18,21 @@ class NoteRepository implements NoteRepositoryContract
             'user_id' => auth()->user()->id,
         ]);
     }
+
+    public function defineModel($type): string
+    {
+        $model = '';
+        switch ($type) {
+            case 'lead':
+                $model = "\App\Models\Lead";
+                break;
+
+            case 'contact':
+                $model = "\App\Models\Contact";
+                break;
+            default;
+        }
+        return $model;
+    }
+
 }

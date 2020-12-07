@@ -74,7 +74,7 @@ import Input from "@/Jetstream/Input";
 
 export default {
     components: {Input},
-    props: ['display', 'data','model'],
+    props: ['display', 'data','type'],
     name: "regular-modal",
     data() {
         return {
@@ -84,7 +84,7 @@ export default {
                 date: null,
                 title: null,
                 note: null,
-                model:this.model
+                type:this.type
             }),
         }
     },
