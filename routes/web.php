@@ -50,5 +50,6 @@ Route::group([
     Route::resource('contacts', ContactController::class);
 
     Route::post('/notes/', [NoteController::class,'store']);
+    Route::delete('/notes/{id}', [NoteController::class,'destroy'])->name('notes.destroy');
 
 });

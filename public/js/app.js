@@ -5508,6 +5508,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58962,8 +58967,8 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("p", { staticClass: "text-2xl" }, [
-                    _vm._v("Lead Information")
+                  _c("p", { staticClass: "text-1xl" }, [
+                    _c("b", [_vm._v("Lead Information")])
                   ])
                 ]),
                 _vm._v(" "),
@@ -59119,18 +59124,79 @@ var render = function() {
                   "div",
                   { staticClass: " mt-5" },
                   [
-                    _c("p", { staticClass: "text-2xl" }, [_vm._v("Notes: ")]),
+                    _c("p", { staticClass: "text-1xl" }, [
+                      _c("b", [_vm._v("Notes:")]),
+                      _vm._v(" ("),
+                      _c("span", { staticClass: "text-sm" }, [
+                        _vm._v(_vm._s(_vm.notes.length))
+                      ]),
+                      _vm._v(") ")
+                    ]),
                     _vm._v(" "),
                     _vm._l(_vm.notes, function(note) {
                       return _vm.notes.length > 0
-                        ? _c("div", { staticClass: "flex mt-2" }, [
+                        ? _c("div", { staticClass: "flex mt-3" }, [
                             _c(
                               "div",
                               {
                                 staticClass:
-                                  "flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15 text-sm shadow  "
+                                  "flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15  shadow  "
                               },
                               [
+                                note.user_id == _vm.$page.user.id
+                                  ? _c("div", [
+                                      _c(
+                                        "div",
+                                        { staticClass: "float-right" },
+                                        [
+                                          _c(
+                                            "Inertia-link",
+                                            {
+                                              staticClass:
+                                                "focus:outline-none hover:text-red-500",
+                                              attrs: {
+                                                method: "DELETE",
+                                                href: _vm.route(
+                                                  "admin.notes.destroy",
+                                                  { id: note.id }
+                                                )
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass: "w-3 h-3",
+                                                  attrs: {
+                                                    fill: "none",
+                                                    stroke: "currentColor",
+                                                    viewBox: "0 0 24 24",
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg"
+                                                  }
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "2",
+                                                      d: "M6 18L18 6M6 6l12 12"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br", { attrs: { clear: "all" } })
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
                                 _c("div", { staticClass: "float-left flex" }, [
                                   _c(
                                     "div",
@@ -59158,23 +59224,24 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "div",
-                                  { staticClass: "float-right text-xs" },
-                                  [_c("i", [_vm._v(_vm._s(note.date))])]
+                                  { staticClass: "float-right md:text-xs " },
+                                  [_vm._v(_vm._s(note.date))]
                                 ),
                                 _vm._v(" "),
                                 _c("br", { attrs: { clear: "all" } }),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "mt-5" }, [
                                   _c("h4", [
-                                    _c("b", [_vm._v(_vm._s(note.title))])
+                                    _c("b", { staticClass: "text-sm" }, [
+                                      _vm._v(_vm._s(note.title))
+                                    ])
                                   ]),
                                   _vm._v(" "),
-                                  _c("p", {
-                                    staticClass: "mt-2  text-justify"
-                                  }),
                                   _c(
                                     "p",
-                                    { staticStyle: { "text-indent": "2em" } },
+                                    {
+                                      staticClass: "mt-2 text-justify text-xs"
+                                    },
                                     [_vm._v(_vm._s(note.note))]
                                   )
                                 ])

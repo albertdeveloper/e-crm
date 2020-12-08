@@ -69,7 +69,7 @@
 
 
                         <div class="flex mt-5">
-                            <p class="text-2xl">Lead Information</p>
+                            <p class="text-1xl"><b>Lead Information</b></p>
                         </div>
 
                         <div class="flex mt-5">
@@ -122,24 +122,29 @@
 
 
                         <div class=" mt-5">
-                            <p class="text-2xl">Notes: </p>
-                            <div v-for="note in notes" v-if="notes.length > 0" class="flex mt-2">
-                                <div class="flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15 text-sm shadow  ">
+                            <p class="text-1xl"><b>Notes:</b> (<span class="text-sm">{{notes.length}}</span>) </p>
+                            <div v-for="note in notes" v-if="notes.length > 0" class="flex mt-3">
+                                <div class="flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15  shadow  ">
+                                    <div v-if="note.user_id == $page.user.id">
+                                    <div class="float-right" >
+                                        <Inertia-link   method="DELETE" :href="route('admin.notes.destroy',{id:note.id})" class="focus:outline-none hover:text-red-500">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        </Inertia-link>
+                                    </div>
+                                    <br clear="all"/>
+                                    </div>
+
                                     <div class="float-left flex">
-
-
                                         <div class="flex align-middle mt-3" >
                                         <img :src="note.user.profile_photo_url" class="h-8 w-8 rounded-full object-cover"/>
                                             <div class="align-middle mt-2.5 ml-2 text-sm">{{note.user.name}}</div>
                                         </div>
-
-
                                     </div>
-                                    <div class="float-right text-xs"><i>{{note.date}}</i></div>
+                                    <div class="float-right md:text-xs ">{{note.date}}</div>
                                     <br clear="all"/>
                                     <div class="mt-5">
-                                        <h4><b>{{note.title}}</b></h4>
-                                        <p class="mt-2  text-justify"><p style="text-indent: 2em;">{{note.note}}</p>
+                                        <h4><b class="text-sm">{{note.title}}</b></h4>
+                                        <p class="mt-2 text-justify text-xs">{{note.note}}</p>
                                     </div>
                                 </div>
                                 <div class="flex-1"></div>
