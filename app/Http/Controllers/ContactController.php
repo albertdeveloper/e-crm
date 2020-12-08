@@ -79,7 +79,9 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        return Inertia::render('Admin/Contacts/Show');
+        return Inertia::render('Admin/Contacts/Show',[
+            'contact_data' => $this->contactRepository->findById($id)
+        ]);
     }
 
     /**

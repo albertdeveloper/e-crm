@@ -17,6 +17,9 @@ class NoteRepository implements NoteRepositoryContract
             'date' => $request->date,
             'user_id' => auth()->user()->id,
         ]);
+
+        return str_replace('s','',$request->type);
+
     }
 
     public function defineModel($type): string

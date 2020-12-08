@@ -122,6 +122,11 @@
 
                         <div class="flex mt-5">
                             <p class="text-2xl">Notes: </p>
+
+                            <div v-for="note in lead_data.note" class="px-3 py-3 mt-4 w-full flex">
+                                <H4>{{note.title}}</H4> <br clear="all"/>
+                                <p>{{note.note}}</p>
+                            </div>
                         </div>
 
                     </div>

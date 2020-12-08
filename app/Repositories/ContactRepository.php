@@ -7,7 +7,7 @@ class ContactRepository implements ContactRepositoryContract
 {
     public function process($request)
     {
-       $contact =  Contact::updateOrCreate(['id'=>$request->id],[
+       return Contact::updateOrCreate(['id'=>$request->id],[
             'account_id' => $request->account_name,
             'lead_source_id' => $request->lead_source,
             'user_id' => $request->owner_id,
@@ -27,7 +27,6 @@ class ContactRepository implements ContactRepositoryContract
             'assistant_phone' => $request->assistant_phone,
         ]);
 
-       return $contact;
     }
 
     public function getContacts($request = false)

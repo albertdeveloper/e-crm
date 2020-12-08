@@ -4503,6 +4503,22 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/NoteModal */ "./resources/js/Shared/NoteModal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4511,9 +4527,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['contact_data'],
   components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    NoteModal: _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -5338,6 +5357,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/NoteModal */ "./resources/js/Shared/NoteModal.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -56115,7 +56139,7 @@ var render = function() {
                                               {
                                                 attrs: {
                                                   href: _vm.route(
-                                                    "admin.contacts.edit",
+                                                    "admin.contacts.show",
                                                     { id: contact.id }
                                                   )
                                                 }
@@ -56309,17 +56333,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("app-layout", {
-    scopedSlots: _vm._u([
-      {
-        key: "header",
-        fn: function() {
-          return [_vm._v("\n         Contact\n    ")]
-        },
-        proxy: true
-      }
-    ])
-  })
+  return _c(
+    "app-layout",
+    {
+      scopedSlots: _vm._u([
+        {
+          key: "header",
+          fn: function() {
+            return [
+              _vm._v("\n        Contact Information\n        "),
+              _c(
+                "div",
+                { staticClass: "float-right" },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                      on: {
+                        click: function($event) {
+                          _vm.$page.modal = true
+                        }
+                      }
+                    },
+                    [_vm._v("\n                Note\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _vm.$page.allowed_gates.includes("contacts_process")
+                    ? _c(
+                        "Inertia-link",
+                        {
+                          staticClass:
+                            "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
+                          attrs: {
+                            href: _vm.route("admin.contacts.edit", {
+                              id: _vm.contact_data.id
+                            })
+                          }
+                        },
+                        [_vm._v("\n                Edit\n            ")]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            ]
+          },
+          proxy: true
+        }
+      ])
+    },
+    [
+      _vm._v(" "),
+      _c("note-modal", {
+        attrs: {
+          display: _vm.$page.modal,
+          data: _vm.contact_data,
+          type: "contacts"
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -59126,9 +59202,29 @@ var render = function() {
                   _c("div", { staticClass: "flex-1" })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "flex mt-5" }, [
-                  _c("p", { staticClass: "text-2xl" }, [_vm._v("Notes: ")])
-                ])
+                _c(
+                  "div",
+                  { staticClass: "flex mt-5" },
+                  [
+                    _c("p", { staticClass: "text-2xl" }, [_vm._v("Notes: ")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.lead_data.note, function(note) {
+                      return _c(
+                        "div",
+                        { staticClass: "px-3 py-3 mt-4 w-full flex" },
+                        [
+                          _c("H4", [_vm._v(_vm._s(note.title))]),
+                          _vm._v(" "),
+                          _c("br", { attrs: { clear: "all" } }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(note.note))])
+                        ],
+                        1
+                      )
+                    })
+                  ],
+                  2
+                )
               ])
             ]
           )
