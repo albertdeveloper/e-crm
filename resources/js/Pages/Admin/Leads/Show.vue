@@ -9,18 +9,19 @@
                 </Inertia-link>
 
                 <a @click="$page.modal = true"
-                              class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
+                   class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Note
                 </a>
 
-                <Inertia-link :href="route('admin.leads.edit',{id:lead_data.id})" v-if="$page.allowed_gates.includes('leads_process')"
+                <Inertia-link :href="route('admin.leads.edit',{id:lead_data.id})"
+                              v-if="$page.allowed_gates.includes('leads_process')"
                               class="cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded">
                     Edit
                 </Inertia-link>
 
             </div>
         </template>
-         <note-modal :display="$page.modal"  :data="lead_data" :type="'leads'"  />
+        <note-modal :display="$page.modal" :data="lead_data" :type="'leads'"/>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -122,15 +123,27 @@
 
                         <div class=" mt-5">
                             <p class="text-2xl">Notes: </p>
-                                <div v-for="note in lead_data.note" v-if="lead_data.note.length > 0" class="flex mt-2"  >
-                                    <div class="flex-1 w-1/2 bg-white shadow px-3 py-3 rounded ml-15 ">
-                                    <div class="float-right">{{note.date}}</div>
-                                        <br clear="all"/>
-                                    <H4>{{note.title}}</H4>
-                                    <p class="mt-2">{{note.note}}</p>
+                            <div v-for="note in notes" v-if="notes.length > 0" class="flex mt-2">
+                                <div class="flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15 text-sm shadow  ">
+                                    <div class="float-left flex">
+
+
+                                        <div class="flex align-middle mt-3" >
+                                        <img :src="note.user.profile_photo_url" class="h-8 w-8 rounded-full object-cover"/>
+                                            <div class="align-middle mt-2.5 ml-2 text-sm">{{note.user.name}}</div>
+                                        </div>
+
+
                                     </div>
-                                    <div class="flex-1"></div>
+                                    <div class="float-right text-xs"><i>{{note.date}}</i></div>
+                                    <br clear="all"/>
+                                    <div class="mt-5">
+                                        <h4><b>{{note.title}}</b></h4>
+                                        <p class="mt-2  text-justify"><p style="text-indent: 2em;">{{note.note}}</p>
+                                    </div>
                                 </div>
+                                <div class="flex-1"></div>
+                            </div>
                         </div>
 
                     </div>
@@ -146,8 +159,8 @@ import NoteModal from '@/Shared/NoteModal';
 
 
 export default {
-    props: ['lead_data', 'lead_logo'],
-    components: { AppLayout,NoteModal},
+    props: ['lead_data', 'lead_logo', 'notes'],
+    components: {AppLayout, NoteModal},
 
 
 }

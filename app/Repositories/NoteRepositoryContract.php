@@ -6,4 +6,5 @@ interface NoteRepositoryContract
 {
     public function process($request);
     public function defineModel($type);
+    public function findByNoteAbleId($id);
 }

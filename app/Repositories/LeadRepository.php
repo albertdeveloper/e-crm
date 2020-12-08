@@ -19,6 +19,7 @@ class LeadRepository implements LeadRepositoryContract
         return Lead::with(['user','leadStatus','leadSource','note'])->findOrfail($id);
     }
 
+
     public function getAllLeadSource()
     {
         return LeadSource::get();

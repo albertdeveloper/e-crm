@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 
+use App\Models\Note;
+
 class NoteRepository implements NoteRepositoryContract
 {
     public function process($request)
@@ -11,14 +13,14 @@ class NoteRepository implements NoteRepositoryContract
 
         $data = $model::findOrFail($request->passId);
 
-        $data->note()->updateOrCreate(['id' => $request->id ],[
+        $data->note()->updateOrCreate(['id' => $request->id], [
             'title' => $request->title,
             'note' => $request->note,
             'date' => $request->date,
             'user_id' => auth()->user()->id,
         ]);
 
-        return str_replace('s','',$request->type);
+        return str_replace('s', '', $request->type);
 
     }
 
@@ -36,6 +38,11 @@ class NoteRepository implements NoteRepositoryContract
             default;
         }
         return $model;
+    }
+
+    public function findByNoteAbleId($id)
+    {
+        return Note::where('noteable_id',$id)->with('user')->orderBy('created_at','desc')->get();
     }
 
 }

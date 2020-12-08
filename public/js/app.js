@@ -3142,10 +3142,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -5499,10 +5495,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_data', 'lead_logo'],
+  props: ['lead_data', 'lead_logo', 'notes'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     NoteModal: _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -51807,70 +51816,48 @@ var render = function() {
                                       key: "trigger",
                                       fn: function() {
                                         return [
-                                          _vm.$page.jetstream
-                                            .managesProfilePhotos
-                                            ? _c(
-                                                "button",
-                                                {
-                                                  staticClass:
-                                                    "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
-                                                },
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
+                                            },
+                                            [
+                                              _c("div", [
+                                                _vm._v("User management")
+                                              ]),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "ml-1" },
                                                 [
-                                                  _c("img", {
-                                                    staticClass:
-                                                      "h-8 w-8 rounded-full object-cover",
-                                                    attrs: {
-                                                      src:
-                                                        _vm.$page.user
-                                                          .profile_photo_url,
-                                                      alt: _vm.$page.user.name
-                                                    }
-                                                  })
-                                                ]
-                                              )
-                                            : _c(
-                                                "button",
-                                                {
-                                                  staticClass:
-                                                    "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
-                                                },
-                                                [
-                                                  _c("div", [
-                                                    _vm._v("User management")
-                                                  ]),
-                                                  _vm._v(" "),
                                                   _c(
-                                                    "div",
-                                                    { staticClass: "ml-1" },
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "fill-current h-4 w-4",
+                                                      attrs: {
+                                                        xmlns:
+                                                          "http://www.w3.org/2000/svg",
+                                                        viewBox: "0 0 20 20"
+                                                      }
+                                                    },
                                                     [
-                                                      _c(
-                                                        "svg",
-                                                        {
-                                                          staticClass:
-                                                            "fill-current h-4 w-4",
-                                                          attrs: {
-                                                            xmlns:
-                                                              "http://www.w3.org/2000/svg",
-                                                            viewBox: "0 0 20 20"
-                                                          }
-                                                        },
-                                                        [
-                                                          _c("path", {
-                                                            attrs: {
-                                                              "fill-rule":
-                                                                "evenodd",
-                                                              d:
-                                                                "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-                                                              "clip-rule":
-                                                                "evenodd"
-                                                            }
-                                                          })
-                                                        ]
-                                                      )
+                                                      _c("path", {
+                                                        attrs: {
+                                                          "fill-rule":
+                                                            "evenodd",
+                                                          d:
+                                                            "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+                                                          "clip-rule": "evenodd"
+                                                        }
+                                                      })
                                                     ]
                                                   )
                                                 ]
                                               )
+                                            ]
+                                          )
                                         ]
                                       },
                                       proxy: true
@@ -51946,7 +51933,7 @@ var render = function() {
                                   ],
                                   null,
                                   false,
-                                  19786576
+                                  2987998480
                                 )
                               })
                             ],
@@ -59134,29 +59121,64 @@ var render = function() {
                   [
                     _c("p", { staticClass: "text-2xl" }, [_vm._v("Notes: ")]),
                     _vm._v(" "),
-                    _vm._l(_vm.lead_data.note, function(note) {
-                      return _vm.lead_data.note.length > 0
+                    _vm._l(_vm.notes, function(note) {
+                      return _vm.notes.length > 0
                         ? _c("div", { staticClass: "flex mt-2" }, [
                             _c(
                               "div",
                               {
                                 staticClass:
-                                  "flex-1 w-1/2 bg-white shadow px-3 py-3 rounded ml-15 "
+                                  "flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15 text-sm shadow  "
                               },
                               [
-                                _c("div", { staticClass: "float-right" }, [
-                                  _vm._v(_vm._s(note.date))
+                                _c("div", { staticClass: "float-left flex" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "flex align-middle mt-3" },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "h-8 w-8 rounded-full object-cover",
+                                        attrs: {
+                                          src: note.user.profile_photo_url
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "align-middle mt-2.5 ml-2 text-sm"
+                                        },
+                                        [_vm._v(_vm._s(note.user.name))]
+                                      )
+                                    ]
+                                  )
                                 ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "float-right text-xs" },
+                                  [_c("i", [_vm._v(_vm._s(note.date))])]
+                                ),
                                 _vm._v(" "),
                                 _c("br", { attrs: { clear: "all" } }),
                                 _vm._v(" "),
-                                _c("H4", [_vm._v(_vm._s(note.title))]),
-                                _vm._v(" "),
-                                _c("p", { staticClass: "mt-2" }, [
-                                  _vm._v(_vm._s(note.note))
+                                _c("div", { staticClass: "mt-5" }, [
+                                  _c("h4", [
+                                    _c("b", [_vm._v(_vm._s(note.title))])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", {
+                                    staticClass: "mt-2  text-justify"
+                                  }),
+                                  _c(
+                                    "p",
+                                    { staticStyle: { "text-indent": "2em" } },
+                                    [_vm._v(_vm._s(note.note))]
+                                  )
                                 ])
-                              ],
-                              1
+                              ]
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "flex-1" })

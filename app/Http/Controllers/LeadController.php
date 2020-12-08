@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LeadFormRequest;
 use App\Repositories\LeadRepositoryContract;
+use App\Repositories\NoteRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -13,11 +14,13 @@ class LeadController extends Controller
 {
     private $leadRepository;
     private $userRepository;
+    private $noteRepository;
 
-    public function __construct(LeadRepositoryContract $leadRepositoryContract,UserRepositoryContract $userRepositoryContract)
+    public function __construct(LeadRepositoryContract $leadRepositoryContract,UserRepositoryContract $userRepositoryContract, NoteRepositoryContract $noteRepositoryContract)
     {
         $this->leadRepository = $leadRepositoryContract;
         $this->userRepository = $userRepositoryContract;
+        $this->noteRepository = $noteRepositoryContract;
     }
 
     /**
@@ -75,6 +78,7 @@ class LeadController extends Controller
 
         return Inertia::render('Admin/Leads/Show',[
             'lead_data' => $lead,
+            'notes' => $this->noteRepository->findByNoteAbleId($id),
             'lead_logo' => $lead->defaultProfilePicture(),
         ]);
     }
