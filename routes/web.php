@@ -49,7 +49,6 @@ Route::group([
     Route::resource('accounts', AccountController::class);
     Route::resource('contacts', ContactController::class);
 
-    Route::get('notes/{id}', [NoteController::class,'index'])->name('notes.index');
-    Route::post('notes', [NoteController::class,'store']);
+    Route::post('/notes/', [NoteController::class,'store']);
 
 });

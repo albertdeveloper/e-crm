@@ -101,7 +101,8 @@ export default {
             this.$page.modal = this.showModal = false;
         },
         submitForm() {
-            this.$inertia.visit( '/admin/notes/',{
+
+            this.$inertia.visit( '/admin/notes',{
                 method: 'POST',
                 data:this.form,
                 preserveScroll: true,

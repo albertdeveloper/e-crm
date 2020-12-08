@@ -11,7 +11,7 @@ class NoteRepository implements NoteRepositoryContract
 
         $data = $model::findOrFail($request->passId);
 
-        $data->note()->create([
+        $data->note()->updateOrCreate(['id' => $request->id ],[
             'title' => $request->title,
             'note' => $request->note,
             'date' => $request->date,
