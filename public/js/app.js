@@ -3642,7 +3642,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.$inertia.visit('/admin/accounts/', {
+      this.$inertia.visit('/admin/accounts', {
         method: 'POST',
         data: this.form,
         onSuccess: function onSuccess() {}
@@ -4130,7 +4130,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.$inertia.visit('/admin/contacts/', {
+      this.$inertia.visit('/admin/contacts', {
         method: 'POST',
         data: this.form,
         onSuccess: function onSuccess() {}
@@ -4915,7 +4915,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submitForm: function submitForm() {
-      this.$inertia.visit('/admin/leads/', {
+      this.$inertia.visit('/admin/leads', {
         method: 'POST',
         data: this.form,
         preserveScroll: true,
@@ -5357,6 +5357,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/NoteModal */ "./resources/js/Shared/NoteModal.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -59126,23 +59130,38 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "flex mt-5" },
+                  { staticClass: " mt-5" },
                   [
                     _c("p", { staticClass: "text-2xl" }, [_vm._v("Notes: ")]),
                     _vm._v(" "),
                     _vm._l(_vm.lead_data.note, function(note) {
-                      return _c(
-                        "div",
-                        { staticClass: "px-3 py-3 mt-4 w-full flex" },
-                        [
-                          _c("H4", [_vm._v(_vm._s(note.title))]),
-                          _vm._v(" "),
-                          _c("br", { attrs: { clear: "all" } }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(note.note))])
-                        ],
-                        1
-                      )
+                      return _vm.lead_data.note.length > 0
+                        ? _c("div", { staticClass: "flex mt-2" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "flex-1 w-1/2 bg-white shadow px-3 py-3 rounded ml-15 "
+                              },
+                              [
+                                _c("div", { staticClass: "float-right" }, [
+                                  _vm._v(_vm._s(note.date))
+                                ]),
+                                _vm._v(" "),
+                                _c("br", { attrs: { clear: "all" } }),
+                                _vm._v(" "),
+                                _c("H4", [_vm._v(_vm._s(note.title))]),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "mt-2" }, [
+                                  _vm._v(_vm._s(note.note))
+                                ])
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "flex-1" })
+                          ])
+                        : _vm._e()
                     })
                   ],
                   2

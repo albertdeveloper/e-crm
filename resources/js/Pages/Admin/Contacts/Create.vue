@@ -224,7 +224,7 @@ export default {
     methods: {
         submitForm() {
 
-            this.$inertia.visit( '/admin/contacts/',{
+            this.$inertia.visit( '/admin/contacts',{
                 method: 'POST',
                 data:this.form,
                 onSuccess: () => {

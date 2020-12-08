@@ -120,13 +120,17 @@
                         </div>
 
 
-                        <div class="flex mt-5">
+                        <div class=" mt-5">
                             <p class="text-2xl">Notes: </p>
-
-                            <div v-for="note in lead_data.note" class="px-3 py-3 mt-4 w-full flex">
-                                <H4>{{note.title}}</H4> <br clear="all"/>
-                                <p>{{note.note}}</p>
-                            </div>
+                                <div v-for="note in lead_data.note" v-if="lead_data.note.length > 0" class="flex mt-2"  >
+                                    <div class="flex-1 w-1/2 bg-white shadow px-3 py-3 rounded ml-15 ">
+                                    <div class="float-right">{{note.date}}</div>
+                                        <br clear="all"/>
+                                    <H4>{{note.title}}</H4>
+                                    <p class="mt-2">{{note.note}}</p>
+                                    </div>
+                                    <div class="flex-1"></div>
+                                </div>
                         </div>
 
                     </div>
