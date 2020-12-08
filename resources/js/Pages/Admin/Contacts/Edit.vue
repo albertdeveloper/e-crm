@@ -196,12 +196,12 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources','account_sources','contact_data'],
+    props: ['lead_sources','account_sources','contact_data','lead_owners'],
     data() {
         return {
             form: this.$inertia.form({
                 id: this.contact_data.id,
-                user_id: this.contact_data.user_id,
+                owner_id: this.contact_data.user_id,
                 account_name: this.contact_data.account_id,
                 salutation: this.contact_data.salutation,
                 lead_source: this.contact_data.lead_source_id,

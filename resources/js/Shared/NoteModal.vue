@@ -107,7 +107,7 @@ export default {
                 preserveScroll: true,
                 preserveState: true,
                 onSuccess: () => {
-
+                    this.toggleModal();
                 },
             })
 

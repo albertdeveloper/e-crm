@@ -13,9 +13,10 @@ class LeadRepository implements LeadRepositoryContract
     {
         return Lead::findOrfail($id);
     }
+
     public function findByIdWithUser($id)
     {
-        return Lead::with('user')->findOrfail($id);
+        return Lead::with(['user','leadStatus','leadSource'])->findOrfail($id);
     }
 
     public function getAllLeadSource()
@@ -31,13 +32,13 @@ class LeadRepository implements LeadRepositoryContract
     public function getLeads($request)
     {
         $query = Lead::query();
-        $query->with('leadStatus', 'leadSource');
+        $query->with(['leadStatus','leadSource']);
 
-        if(sizeof($request) > 0 && isset($request['search'])) {
-            $query->where(function($q) use($request) {
-                $searchField = '%'.$request['search'].'%';
-                $q->where(\DB::raw('concat(first_name, " ", last_name)'),'like',$searchField)
-                    ->orWhere('company','like',$searchField);
+        if (sizeof($request) > 0 && isset($request['search'])) {
+            $query->where(function ($q) use ($request) {
+                $searchField = '%' . $request['search'] . '%';
+                $q->where(\DB::raw('concat(first_name, " ", last_name)'), 'like', $searchField)
+                    ->orWhere('company', 'like', $searchField);
             });
         }
 
@@ -46,7 +47,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function process($request)
     {
-      $lead =  Lead::updateOrCreate(['id' => $request->id], [
+        return Lead::updateOrCreate(['id' => $request->id], [
             'user_id' => $request->owner_id,
             'company' => $request->company,
             'salutation' => $request->salutation,
@@ -68,7 +69,5 @@ class LeadRepository implements LeadRepositoryContract
             'zip_code' => $request->zip_code,
             'country' => $request->country
         ]);
-
-      return $lead;
     }
 }

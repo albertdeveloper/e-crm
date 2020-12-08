@@ -61,7 +61,7 @@
                         <div class="flex mt-5">
 
                             <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Status:</b></div>
-                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.lead_status.title }}</span></div>
                             <div class="flex-1"></div>
                             <div class="flex-1"></div>
                         </div>
@@ -107,17 +107,16 @@
 
                         <div class="flex mt-5">
                             <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Source:</b></div>
-                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.lead_source.title }}</span></div>
                             <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Status:</b></div>
-                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.lead_status.title }}</span></div>
                         </div>
 
                         <div class="flex mt-5">
-                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Source:</b></div>
-                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
-                            <div class="flex-1 w-40"><b class="float-right text-gray-400">No. of employee:</b>
-                            </div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">No. of employee:</b></div>
                             <div class="flex-1"><span class="ml-5">{{ lead_data.no_employee }}</span></div>
+                            <div class="flex-1"></div>
+                            <div class="flex-1"></div>
                         </div>
 
 

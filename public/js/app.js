@@ -4347,12 +4347,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_sources', 'account_sources', 'contact_data'],
+  props: ['lead_sources', 'account_sources', 'contact_data', 'lead_owners'],
   data: function data() {
     return {
       form: this.$inertia.form({
         id: this.contact_data.id,
-        user_id: this.contact_data.user_id,
+        owner_id: this.contact_data.user_id,
         account_name: this.contact_data.account_id,
         salutation: this.contact_data.salutation,
         lead_source: this.contact_data.lead_source_id,
@@ -5338,7 +5338,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/NoteModal */ "./resources/js/Shared/NoteModal.vue");
-//
 //
 //
 //
@@ -8164,12 +8163,16 @@ __webpack_require__.r(__webpack_exports__);
       this.$page.modal = this.showModal = false;
     },
     submitForm: function submitForm() {
+      var _this = this;
+
       this.$inertia.visit('/admin/notes/', {
         method: 'POST',
         data: this.form,
         preserveScroll: true,
         preserveState: true,
-        onSuccess: function onSuccess() {}
+        onSuccess: function onSuccess() {
+          _this.toggleModal();
+        }
       });
     }
   }
@@ -58960,7 +58963,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.lead_data.owner))
+                      _vm._v(_vm._s(_vm.lead_data.lead_status.title))
                     ])
                   ]),
                   _vm._v(" "),
@@ -59088,7 +59091,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.lead_data.owner))
+                      _vm._v(_vm._s(_vm.lead_data.lead_source.title))
                     ])
                   ]),
                   _vm._v(" "),
@@ -59100,24 +59103,12 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.lead_data.owner))
+                      _vm._v(_vm._s(_vm.lead_data.lead_status.title))
                     ])
                   ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
-                  _c("div", { staticClass: "flex-1 w-40" }, [
-                    _c("b", { staticClass: "float-right text-gray-400" }, [
-                      _vm._v("Lead Source:")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "flex-1" }, [
-                    _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.lead_data.owner))
-                    ])
-                  ]),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex-1 w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
                       _vm._v("No. of employee:")
@@ -59128,7 +59119,11 @@ var render = function() {
                     _c("span", { staticClass: "ml-5" }, [
                       _vm._v(_vm._s(_vm.lead_data.no_employee))
                     ])
-                  ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" })
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [

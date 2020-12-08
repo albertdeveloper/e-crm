@@ -95,6 +95,7 @@ class ContactController extends Controller
             'lead_sources' => $this->leadRepository->getAllLeadSource(),
             'account_sources' => $this->accountRepository->getAllAccounts(),
             'contact_data' => $this->contactRepository->findById($id),
+            'lead_owners' => $this->userRepository->getLeadOwners(),
         ]);
     }
 
