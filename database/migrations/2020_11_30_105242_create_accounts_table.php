@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
             $table->string('no_employee',100)->nullable();
             $table->decimal('annual_revenue',8,2)->nullable();
             $table->string('phone',50)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

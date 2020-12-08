@@ -32,6 +32,7 @@ class CreateContactsTable extends Migration
             $table->string('date_of_birth',100)->nullable();
             $table->string('assistant',100)->nullable();
             $table->string('assistant_phone',100)->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
         });
