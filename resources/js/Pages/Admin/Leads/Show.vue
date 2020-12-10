@@ -120,7 +120,6 @@
                             <div class="flex-1"></div>
                         </div>
 
-
                         <div class=" mt-5">
                             <p class="text-1xl"><b>Notes:</b> (<span class="text-sm">{{notes.length}}</span>) </p>
                             <div v-for="note in notes" v-if="notes.length > 0" class="flex mt-3">
