@@ -45,4 +45,14 @@ class NoteRepository implements NoteRepositoryContract
         return Note::where('noteable_id',$id)->with('user')->orderBy('created_at','desc')->get();
     }
 
+    public function findById($id){
+        return Note::find($id);
+    }
+
+    public function delete($id)
+    {
+        $note = $this->findById($id);
+        $note->delete();
+    }
+
 }

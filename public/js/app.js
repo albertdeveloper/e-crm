@@ -5512,7 +5512,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -59155,6 +59154,8 @@ var render = function() {
                                               staticClass:
                                                 "focus:outline-none hover:text-red-500",
                                               attrs: {
+                                                "preserve-scroll": "true",
+                                                "preserve-state": "true",
                                                 method: "DELETE",
                                                 href: _vm.route(
                                                   "admin.notes.destroy",

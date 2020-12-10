@@ -54,6 +54,12 @@ class NoteController extends Controller
     {
 
     }
+
+    public function destroy($id)
+    {
+        $this->noteRepository->delete($id);
+        return redirect()->back();
+    }
 }
 ?>
 

@@ -126,7 +126,7 @@
                                 <div class="flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15  shadow  ">
                                     <div v-if="note.user_id == $page.user.id">
                                     <div class="float-right" >
-                                        <Inertia-link   method="DELETE" :href="route('admin.notes.destroy',{id:note.id})" class="focus:outline-none hover:text-red-500">
+                                        <Inertia-link  preserve-scroll="true" preserve-state="true" method="DELETE" :href="route('admin.notes.destroy',{id:note.id})" class="focus:outline-none hover:text-red-500">
                                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                         </Inertia-link>
                                     </div>
