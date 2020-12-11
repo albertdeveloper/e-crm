@@ -27,8 +27,8 @@ class NoteController extends Controller
      */
     public function store(NoteFormRequest $request)
     {
-        $idType = $this->noteRepository->process($request);
-        return redirect()->route('admin.' . $request->type . '.show', [$idType => $request->passId]);
+        $this->noteRepository->process($request);
+        return redirect()->back();
     }
 
 
