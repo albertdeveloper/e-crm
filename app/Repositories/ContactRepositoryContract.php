@@ -6,5 +6,5 @@ interface ContactRepositoryContract
 {
     public function process($request);
     public function getContacts($request);
-    public function findById($id);
+    public function findByIdWithUser($id);
 }

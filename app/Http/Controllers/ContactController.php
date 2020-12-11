@@ -6,6 +6,7 @@ use App\Http\Requests\ContactFormRequest;
 use App\Repositories\AccountRepositoryContract;
 use App\Repositories\ContactRepositoryContract;
 use App\Repositories\LeadRepositoryContract;
+use App\Repositories\NoteRepositoryContract;
 use App\Repositories\UserRepositoryContract;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -17,16 +18,19 @@ class ContactController extends Controller
     private $contactRepository;
     private $accountRepository;
     private $userRepository;
+    private $noteRepository;
 
     public function __construct(LeadRepositoryContract $leadRepositoryContract,
                                 ContactRepositoryContract $contactRepositoryContract,
                                 AccountRepositoryContract $accountRepositoryContract,
-                                UserRepositoryContract $userRepositoryContract)
+                                UserRepositoryContract $userRepositoryContract,
+                                NoteRepositoryContract  $noteRepositoryContract)
     {
         $this->leadRepository = $leadRepositoryContract;
         $this->contactRepository = $contactRepositoryContract;
         $this->accountRepository = $accountRepositoryContract;
         $this->userRepository = $userRepositoryContract;
+        $this->noteRepository = $noteRepositoryContract;
     }
 
     /**
@@ -80,7 +84,8 @@ class ContactController extends Controller
     public function show($id)
     {
         return Inertia::render('Admin/Contacts/Show',[
-            'contact_data' => $this->contactRepository->findById($id)
+            'contact_data' => $this->contactRepository->findByIdWithUser($id),
+            'notes' => $this->noteRepository->findByNoteAbleId($id),
         ]);
     }
 

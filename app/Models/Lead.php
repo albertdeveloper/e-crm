@@ -63,7 +63,7 @@ class Lead extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function note()
+    public function notes()
     {
         return $this->morphMany(Note::class,'noteable');
     }

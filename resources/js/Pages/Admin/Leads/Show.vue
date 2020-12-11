@@ -27,8 +27,7 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
 
-                        <p class="text-2xl">{{ lead_data.salutation }} {{ lead_data.first_name }}
-                            {{ lead_data.last_name }}</p>
+                        <p class="text-2xl">{{ lead_data.salutation }} {{ lead_data.name}}</p>
                         <p class="text-1xl"> - {{ lead_data.company }}</p>
 
                         <div class="flex mt-5">
@@ -69,7 +68,7 @@
 
 
                         <div class="flex mt-5">
-                            <p class="text-1xl"><b>Lead Information</b></p>
+                            <p class="text-1xl"><b>Information</b></p>
                         </div>
 
                         <div class="flex mt-5">
@@ -121,12 +120,12 @@
                         </div>
 
                         <div class=" mt-5">
-                            <p class="text-1xl"><b>Notes:</b> (<span class="text-sm">{{notes.length}}</span>) </p>
-                            <div v-for="note in notes" v-if="notes.length > 0" class="flex mt-3">
+                            <p class="text-1xl"><b>Notes:</b> (<span class="text-sm">{{lead_data.notes.length}}</span>) </p>
+                            <div v-for="note in lead_data.notes" v-if="lead_data.notes.length > 0" class="flex mt-3">
                                 <div class="flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15  shadow  ">
                                     <div v-if="note.user_id == $page.user.id">
                                     <div class="float-right" >
-                                        <Inertia-link  preserve-scroll="true" preserve-state="true" method="DELETE" :href="route('admin.notes.destroy',{id:note.id})" class="focus:outline-none hover:text-red-500">
+                                        <Inertia-link :preserve-scroll="true" :preserve-state="true"  method="DELETE" :href="route('admin.notes.destroy',{id:note.id})" class="focus:outline-none hover:text-red-500">
                                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                         </Inertia-link>
                                     </div>
@@ -163,7 +162,7 @@ import NoteModal from '@/Shared/NoteModal';
 
 
 export default {
-    props: ['lead_data', 'lead_logo', 'notes'],
+    props: ['lead_data', 'lead_logo'],
     components: {AppLayout, NoteModal},
 
 

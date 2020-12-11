@@ -43,8 +43,8 @@ class ContactRepository implements ContactRepositoryContract
         return  $query->paginate();
     }
 
-    public function findById($id)
+    public function findByIdWithUser($id)
     {
-        return Contact::findOrFail($id);
+        return Contact::with(['user','account','notes.user'])->findOrFail($id);
     }
 }

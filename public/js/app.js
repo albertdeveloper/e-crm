@@ -4522,6 +4522,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5511,11 +5591,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_data', 'lead_logo', 'notes'],
+  props: ['lead_data', 'lead_logo'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     NoteModal: _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -56309,7 +56388,307 @@ var render = function() {
           data: _vm.contact_data,
           type: "contacts"
         }
-      })
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "py-12" }, [
+        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+          _c(
+            "div",
+            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
+            [
+              _c("div", { staticClass: "p-6" }, [
+                _c("p", { staticClass: "text-2xl" }, [
+                  _vm._v(
+                    _vm._s(_vm.contact_data.salutation) +
+                      " " +
+                      _vm._s(_vm.contact_data.name) +
+                      " "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-1xl mt-1" }, [
+                  _vm._v(" - "),
+                  _c("b", [_vm._v(_vm._s(_vm.contact_data.account.name))])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-6" }, [
+                  _c("p", { staticClass: "text-1xl" }, [
+                    _c("b", [_vm._v("Information")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex-1 w-40" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Contact Owner:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.user.name))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Title: ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.title))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex-1 w-40" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Email:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.email))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Department: ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.department))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex-1 w-40" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Phone:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.phone))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Home phone: ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.home_phone))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex-1 w-40" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Other phone:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.fax))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Mobile: ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.date_of_birth))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex-1 w-40" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Assistant:")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.assistant))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("b", { staticClass: "float-right text-gray-400" }, [
+                      _vm._v("Assistant phone: ")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex-1" }, [
+                    _c("span", { staticClass: "ml-5" }, [
+                      _vm._v(_vm._s(_vm.contact_data.assistant_phone))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: " mt-5" },
+                  [
+                    _c("p", { staticClass: "text-1xl" }, [
+                      _c("b", [_vm._v("Notes:")]),
+                      _vm._v(" ("),
+                      _c("span", { staticClass: "text-sm" }, [
+                        _vm._v(_vm._s(_vm.contact_data.notes.length))
+                      ]),
+                      _vm._v(") ")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.contact_data.notes, function(note) {
+                      return _vm.contact_data.notes.length > 0
+                        ? _c("div", { staticClass: "flex mt-3" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "flex-1 w-1/3 bg-white px-4 py-4 rounded ml-15  shadow  "
+                              },
+                              [
+                                note.user_id == _vm.$page.user.id
+                                  ? _c("div", [
+                                      _c(
+                                        "div",
+                                        { staticClass: "float-right" },
+                                        [
+                                          _c(
+                                            "Inertia-link",
+                                            {
+                                              staticClass:
+                                                "focus:outline-none hover:text-red-500",
+                                              attrs: {
+                                                "preserve-scroll": "1",
+                                                "preserve-state": "1",
+                                                method: "DELETE",
+                                                href: _vm.route(
+                                                  "admin.notes.destroy",
+                                                  { id: note.id }
+                                                )
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "svg",
+                                                {
+                                                  staticClass: "w-3 h-3",
+                                                  attrs: {
+                                                    fill: "none",
+                                                    stroke: "currentColor",
+                                                    viewBox: "0 0 24 24",
+                                                    xmlns:
+                                                      "http://www.w3.org/2000/svg"
+                                                  }
+                                                },
+                                                [
+                                                  _c("path", {
+                                                    attrs: {
+                                                      "stroke-linecap": "round",
+                                                      "stroke-linejoin":
+                                                        "round",
+                                                      "stroke-width": "2",
+                                                      d: "M6 18L18 6M6 6l12 12"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br", { attrs: { clear: "all" } })
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "float-left flex" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "flex align-middle mt-3" },
+                                    [
+                                      _c("img", {
+                                        staticClass:
+                                          "h-8 w-8 rounded-full object-cover",
+                                        attrs: {
+                                          src: note.user.profile_photo_url
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "align-middle mt-2.5 ml-2 text-sm"
+                                        },
+                                        [_vm._v(_vm._s(note.user.name))]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "float-right md:text-xs " },
+                                  [_vm._v(_vm._s(note.date))]
+                                ),
+                                _vm._v(" "),
+                                _c("br", { attrs: { clear: "all" } }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "mt-5" }, [
+                                  _c("h4", [
+                                    _c("b", { staticClass: "text-sm" }, [
+                                      _vm._v(_vm._s(note.title))
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "mt-2 text-justify text-xs"
+                                    },
+                                    [_vm._v(_vm._s(note.note))]
+                                  )
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "flex-1" })
+                          ])
+                        : _vm._e()
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]
+          )
+        ])
+      ])
     ],
     1
   )
@@ -58865,9 +59244,7 @@ var render = function() {
                   _vm._v(
                     _vm._s(_vm.lead_data.salutation) +
                       " " +
-                      _vm._s(_vm.lead_data.first_name) +
-                      "\n                        " +
-                      _vm._s(_vm.lead_data.last_name)
+                      _vm._s(_vm.lead_data.name)
                   )
                 ]),
                 _vm._v(" "),
@@ -58967,7 +59344,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-5" }, [
                   _c("p", { staticClass: "text-1xl" }, [
-                    _c("b", [_vm._v("Lead Information")])
+                    _c("b", [_vm._v("Information")])
                   ])
                 ]),
                 _vm._v(" "),
@@ -59127,13 +59504,13 @@ var render = function() {
                       _c("b", [_vm._v("Notes:")]),
                       _vm._v(" ("),
                       _c("span", { staticClass: "text-sm" }, [
-                        _vm._v(_vm._s(_vm.notes.length))
+                        _vm._v(_vm._s(_vm.lead_data.notes.length))
                       ]),
                       _vm._v(") ")
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.notes, function(note) {
-                      return _vm.notes.length > 0
+                    _vm._l(_vm.lead_data.notes, function(note) {
+                      return _vm.lead_data.notes.length > 0
                         ? _c("div", { staticClass: "flex mt-3" }, [
                             _c(
                               "div",
@@ -59154,8 +59531,8 @@ var render = function() {
                                               staticClass:
                                                 "focus:outline-none hover:text-red-500",
                                               attrs: {
-                                                "preserve-scroll": "true",
-                                                "preserve-state": "true",
+                                                "preserve-scroll": true,
+                                                "preserve-state": true,
                                                 method: "DELETE",
                                                 href: _vm.route(
                                                   "admin.notes.destroy",
