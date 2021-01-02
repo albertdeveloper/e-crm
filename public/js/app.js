@@ -3122,26 +3122,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -8328,7 +8308,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n  transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */\n{\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n  transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */\r\n{\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -8347,7 +8327,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".slide-fade-enter-active {\n  transition: all .3s ease;\n}\n.slide-fade-leave-active {\n  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);\n}\n.slide-fade-enter, .slide-fade-leave-to {\n  transform: translateX(150px);\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, ".slide-fade-enter-active {\n  transition: all .3s ease;\n}\n.slide-fade-leave-active {\n  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);\n}\n.slide-fade-enter, .slide-fade-leave-to {\n  transform: translateX(150px);\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -51880,152 +51860,6 @@ var render = function() {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm.$page.allowed_gates.includes("user_management_access")
-                    ? _c(
-                        "div",
-                        {
-                          staticClass: "hidden sm:flex sm:items-center sm:ml-6"
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "ml-3 relative" },
-                            [
-                              _c("jet-dropdown", {
-                                attrs: { align: "left", width: "48" },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "trigger",
-                                      fn: function() {
-                                        return [
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass:
-                                                "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out"
-                                            },
-                                            [
-                                              _c("div", [
-                                                _vm._v("User management")
-                                              ]),
-                                              _vm._v(" "),
-                                              _c(
-                                                "div",
-                                                { staticClass: "ml-1" },
-                                                [
-                                                  _c(
-                                                    "svg",
-                                                    {
-                                                      staticClass:
-                                                        "fill-current h-4 w-4",
-                                                      attrs: {
-                                                        xmlns:
-                                                          "http://www.w3.org/2000/svg",
-                                                        viewBox: "0 0 20 20"
-                                                      }
-                                                    },
-                                                    [
-                                                      _c("path", {
-                                                        attrs: {
-                                                          "fill-rule":
-                                                            "evenodd",
-                                                          d:
-                                                            "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
-                                                          "clip-rule": "evenodd"
-                                                        }
-                                                      })
-                                                    ]
-                                                  )
-                                                ]
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      },
-                                      proxy: true
-                                    },
-                                    {
-                                      key: "content",
-                                      fn: function() {
-                                        return [
-                                          _c(
-                                            "div",
-                                            {
-                                              staticClass:
-                                                "block px-4 py-2 text-xs text-gray-400"
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            Account\n                                        "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "jet-dropdown-link",
-                                            {
-                                              attrs: {
-                                                href: _vm.route(
-                                                  "admin.permissions.index"
-                                                )
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            Permissions\n                                        "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "jet-dropdown-link",
-                                            {
-                                              attrs: {
-                                                href: _vm.route(
-                                                  "admin.roles.index"
-                                                )
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            Roles\n                                        "
-                                              )
-                                            ]
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "jet-dropdown-link",
-                                            {
-                                              attrs: {
-                                                href: _vm.route(
-                                                  "admin.users.index"
-                                                )
-                                              }
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\n                                            Users\n                                        "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      },
-                                      proxy: true
-                                    }
-                                  ],
-                                  null,
-                                  false,
-                                  2987998480
-                                )
-                              })
-                            ],
-                            1
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
                   _vm.$page.allowed_gates.includes("leads_access")
                     ? _c(
                         "jet-nav-link",
@@ -52252,6 +52086,82 @@ var render = function() {
                                     _c("div", {
                                       staticClass: "border-t border-gray-100"
                                     }),
+                                    _vm._v(" "),
+                                    _vm.$page.allowed_gates.includes(
+                                      "user_management_access"
+                                    )
+                                      ? _c(
+                                          "div",
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "block px-4 py-2 text-xs text-gray-400"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                        Manage User\n                                    "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "jet-dropdown-link",
+                                              {
+                                                attrs: {
+                                                  href: _vm.route(
+                                                    "admin.permissions.index"
+                                                  )
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                        Permissions\n                                    "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "jet-dropdown-link",
+                                              {
+                                                attrs: {
+                                                  href: _vm.route(
+                                                    "admin.roles.index"
+                                                  )
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                        Roles\n                                    "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "jet-dropdown-link",
+                                              {
+                                                attrs: {
+                                                  href: _vm.route(
+                                                    "admin.users.index"
+                                                  )
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                                        Users\n                                    "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("div", {
+                                              staticClass:
+                                                "border-t border-gray-100"
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c(
                                       "div",

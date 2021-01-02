@@ -39,6 +39,7 @@ class PermissionSeeder extends Seeder
             'accounts_process',
             'accounts_destroy',
             'accounts_show',
+            'notes_process',
         );
 
 
