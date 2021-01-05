@@ -12,7 +12,7 @@
                     <div class="p-6">
                         <Inertia-Link v-if="$page.allowed_gates.includes('leads_process')"
                             class="button-primary float-right bg-teal-700 hover:bg-teal-900 px-3 py-3  text-white shadow-lg rounded"
-                            :href="route('admin.leads.create')"> + New lead
+                            :href="route('admin.leads.create')"> + New Lead
                         </Inertia-Link>
                         <Search :filters="filters" :routeUrl="route('admin.leads.index')"/>
 

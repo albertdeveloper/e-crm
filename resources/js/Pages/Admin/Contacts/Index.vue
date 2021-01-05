@@ -11,7 +11,7 @@
                     <div class="p-6">
                         <Inertia-link :href="route('admin.contacts.create')"  v-if="$page.allowed_gates.includes('contacts_process')"
                                       class="btn btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 rounded text-white float-right">
-                            + New contact
+                            + New Contact
                         </Inertia-link>
                         <Search :filters="filters" :routeUrl="route('admin.contacts.index')"/>
 
