@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Contact;
@@ -7,7 +8,7 @@ class ContactRepository implements ContactRepositoryContract
 {
     public function process($request)
     {
-       return Contact::updateOrCreate(['id'=>$request->id],[
+        return Contact::updateOrCreate(['id' => $request->id], [
             'account_id' => $request->account_name,
             'lead_source_id' => $request->lead_source,
             'user_id' => $request->owner_id,
@@ -20,8 +21,8 @@ class ContactRepository implements ContactRepositoryContract
             'phone' => $request->phone,
             'home_phone' => $request->home_phone,
             'other_phone' => $request->other_phone,
-            'fax'       => $request->fax,
-            'mobile'   => $request->mobile,
+            'fax' => $request->fax,
+            'mobile' => $request->mobile,
             'date_of_birth' => $request->date_of_birth,
             'assistant' => $request->assistant,
             'assistant_phone' => $request->assistant_phone,
@@ -32,27 +33,31 @@ class ContactRepository implements ContactRepositoryContract
     public function getContacts($request = false)
     {
         $query = Contact::query();
-        $query->with(['account','user']);
-        if(sizeof($request) && isset($request['search']))
-        {
-            $query->where(function($q) use($request) {
-                $search_field = '%'.$request['search'].'%';
-                $q->where(\DB::raw('concat(first_name," ",last_name)'),'like',$search_field);
+        $query->with(['account', 'user']);
+        if (sizeof($request) && isset($request['search'])) {
+            $query->where(function ($q) use ($request) {
+                $search_field = '%' . $request['search'] . '%';
+                $q->where(\DB::raw('concat(first_name," ",last_name)'), 'like', $search_field);
             });
         }
-        return  $query->paginate();
+        return $query->paginate();
     }
 
     public function findByIdWithUser($id)
     {
-        return Contact::with(['user','account','notes.user'])->findOrFail($id);
+        return Contact::with(['user', 'account', 'notes.user'])->findOrFail($id);
+    }
+
+    public function findById($id)
+    {
+        return Contact::findOrfail($id);
     }
 
     public function findByName($lead)
     {
-         return Contact::where([
-             'first_name' => $lead->first_name,
-             'last_name' => $lead->last_name,
-         ])->first();
+        return Contact::where([
+            'first_name' => $lead->first_name,
+            'last_name' => $lead->last_name,
+        ])->first();
     }
 }

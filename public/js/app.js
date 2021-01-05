@@ -56103,7 +56103,7 @@ var render = function() {
                                                 staticClass: "text-blue-500",
                                                 attrs: {
                                                   href: _vm.route(
-                                                    "admin.accounts.show",
+                                                    "admin.accounts.edit",
                                                     { id: contact.id }
                                                   )
                                                 }
