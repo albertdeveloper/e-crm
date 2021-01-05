@@ -4662,8 +4662,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_data', 'existing_account', 'existing_contact'],
@@ -4940,6 +4938,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'lead_status', 'lead_owners'],
@@ -4950,6 +4975,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: this.$inertia.form({
         owner_id: this.$page.user.id,
+        company_owner: null,
         company: null,
         salutation: null,
         first_name: null,
@@ -5416,7 +5442,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/NoteModal */ "./resources/js/Shared/NoteModal.vue");
-//
 //
 //
 //
@@ -54093,7 +54118,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                        + New account\n                    "
+                            "\n                        + New Account\n                    "
                           )
                         ]
                       )
@@ -55965,7 +55990,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                        + New contact\n                    "
+                            "\n                        + New Contact\n                    "
                           )
                         ]
                       )
@@ -56697,20 +56722,16 @@ var render = function() {
                   _vm._v(" "),
                   _c("br", { attrs: { clear: "all" } }),
                   _vm._v(" "),
-                  _c("br", { attrs: { clear: "all" } }),
-                  _vm._v(" "),
                   _c("div", { staticClass: "flex mt-5" }, [
                     _c("div", { staticClass: "flex-1" }, [
                       _vm._v(
-                        "\n                                Onwer of the new Record:"
+                        "\n                                Owner of the new Record:  "
                       ),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("b", [_vm._v(_vm._s(_vm.lead_data.owner))])
+                      _c("b", [_vm._v(_vm._s(_vm.lead_data.company_owner))])
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-5" }, [
+                  _c("div", { staticClass: "flex mt-7" }, [
                     _c(
                       "div",
                       { staticClass: "flex-1" },
@@ -56853,10 +56874,13 @@ var render = function() {
                   _c("div", { staticClass: "flex " }, [
                     _c("div", { staticClass: "flex-1" }),
                     _vm._v(" "),
-                    _c("label", { staticClass: "block   flex-1" }, [
+                    _c("label", { staticClass: "block flex-1" }, [
                       _vm.form.error("owner_id")
                         ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(_vm._s(_vm.form.error("owner_id")))
+                            _vm._v(
+                              _vm._s(_vm.form.error("owner_id")) +
+                                "\n                                "
+                            )
                           ])
                         : _vm._e(),
                       _vm._v(" "),
@@ -56915,6 +56939,88 @@ var render = function() {
                         ],
                         2
                       )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" }, [
+                      _vm.form.error("company")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("company")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Company")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.company,
+                            expression: "form.company"
+                          }
+                        ],
+                        staticClass:
+                          "form-input mt-1 border-r-red block w-full",
+                        domProps: { value: _vm.form.company },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "company", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-2" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("company")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("company")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Company Owner")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.company_owner,
+                            expression: "form.company_owner"
+                          }
+                        ],
+                        staticClass:
+                          "form-input mt-1 border-r-red block w-full",
+                        domProps: { value: _vm.form.company_owner },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "company_owner",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
                     ]),
                     _vm._v(" "),
                     _c("label", { staticClass: "block ml-5 flex-1" }, [
@@ -58826,7 +58932,7 @@ var render = function() {
                             "button-primary float-right bg-teal-700 hover:bg-teal-900 px-3 py-3  text-white shadow-lg rounded",
                           attrs: { href: _vm.route("admin.leads.create") }
                         },
-                        [_vm._v(" + New lead\n                    ")]
+                        [_vm._v(" + New Lead\n                    ")]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -59274,13 +59380,13 @@ var render = function() {
                 _c("div", { staticClass: "flex mt-5" }, [
                   _c("div", { staticClass: "flex-1 w-40" }, [
                     _c("b", { staticClass: "float-right text-gray-400" }, [
-                      _vm._v("Lead Owner:")
+                      _vm._v("Company Owner:")
                     ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.lead_data.owner))
+                      _vm._v(_vm._s(_vm.lead_data.company_owner))
                     ])
                   ]),
                   _vm._v(" "),

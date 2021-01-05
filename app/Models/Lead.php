@@ -15,6 +15,7 @@ class Lead extends Model
     protected $guarded = array();
     protected $fillable = [
         'user_id',
+        'company_owner',
         'company',
         'salutation',
         'first_name',

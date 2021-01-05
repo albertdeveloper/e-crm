@@ -72,9 +72,8 @@
                         </div>
 
                         <div class="flex mt-5">
-
-                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Lead Owner:</b></div>
-                            <div class="flex-1"><span class="ml-5">{{ lead_data.owner }}</span></div>
+                            <div class="flex-1 w-40"><b class="float-right text-gray-400">Company Owner:</b></div>
+                            <div class="flex-1"><span class="ml-5">{{ lead_data.company_owner }}</span></div>
                             <div class="flex-1 w-40"><b class="float-right text-gray-400">Company:</b></div>
                             <div class="flex-1"><span class="ml-5">{{ lead_data.company }}</span></div>
                         </div>

@@ -23,18 +23,45 @@
                             <div class="flex py-3 px-3 ">
                                 <h2 class="text-2xl font-bold">Lead Information</h2>
                             </div>
+
                             <div class="flex ">
                                 <div class="flex-1"></div>
 
-                                <label class="block   flex-1">
-                                    <div class="float-right" v-if="form.error('owner_id')">{{ form.error('owner_id') }}</div>
+                                <label class="block flex-1">
+                                    <div class="float-right" v-if="form.error('owner_id')">{{
+                                            form.error('owner_id')
+                                        }}
+                                    </div>
                                     <span class="text-gray-700">Lead Owner</span>
-                                    <select class="form-input  mt-1 block w-full"  v-model="form.owner_id">
+                                    <select class="form-input  mt-1 block w-full" v-model="form.owner_id">
                                         <option></option>
                                         <option v-for="leadOwner in lead_owners" :value="leadOwner.id">
-                                            {{leadOwner.name}}
+                                            {{ leadOwner.name }}
                                         </option>
                                     </select>
+                                </label>
+                                <label class="block ml-5 flex-1">
+                                    <div class="float-right" v-if="form.error('company')">{{
+                                            form.error('company')
+                                        }}
+                                    </div>
+                                    <span class="text-gray-700">Company</span>
+                                    <input class="form-input mt-1 border-r-red block w-full"
+                                           v-model="form.company">
+                                </label>
+                            </div>
+
+                            <div class="flex mt-2">
+                                <div class="flex-1"></div>
+
+                                <label class="block flex-1">
+                                    <div class="float-right" v-if="form.error('company')">{{
+                                            form.error('company')
+                                        }}
+                                    </div>
+                                    <span class="text-gray-700">Company Owner</span>
+                                    <input class="form-input mt-1 border-r-red block w-full"
+                                           v-model="form.company_owner">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('company')">{{
@@ -84,7 +111,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Last Name</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.last_name">
+                                    <input class="form-input mt-1 block w-full" v-model="form.last_name">
                                 </label>
                             </div>
 
@@ -93,12 +120,12 @@
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('title')">{{ form.error('title') }}</div>
                                     <span class="text-gray-700">Title</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.title">
+                                    <input class="form-input mt-1 block w-full" v-model="form.title">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('email')">{{ form.error('email') }}</div>
                                     <span class="text-gray-700">Email</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.email">
+                                    <input class="form-input mt-1 block w-full" v-model="form.email">
                                 </label>
                             </div>
 
@@ -108,12 +135,12 @@
                                 <label class="block flex-1">
                                     <div class="float-right" v-if="form.error('phone')">{{ form.error('phone') }}</div>
                                     <span class="text-gray-700">Phone</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.phone">
+                                    <input class="form-input mt-1 block w-full" v-model="form.phone">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('fax')">{{ form.error('fax') }}</div>
                                     <span class="text-gray-700">Fax</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.fax">
+                                    <input class="form-input mt-1 block w-full" v-model="form.fax">
                                 </label>
                             </div>
 
@@ -125,7 +152,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Mobile</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.mobile">
+                                    <input class="form-input mt-1 block w-full" v-model="form.mobile">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('website')">{{
@@ -133,7 +160,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Website</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.website">
+                                    <input class="form-input mt-1 block w-full" v-model="form.website">
                                 </label>
                             </div>
 
@@ -174,7 +201,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Industry</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.industry">
+                                    <input class="form-input mt-1 block w-full" v-model="form.industry">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('no_employees')">
@@ -199,7 +226,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Street</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.street">
+                                    <input class="form-input mt-1 block w-full" v-model="form.street">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('city')">
@@ -219,7 +246,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">State</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.state">
+                                    <input class="form-input mt-1 block w-full" v-model="form.state">
                                 </label>
                                 <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('zip_code')">
@@ -240,7 +267,7 @@
                                         }}
                                     </div>
                                     <span class="text-gray-700">Country</span>
-                                    <input class="form-input mt-1 block w-full"  v-model="form.country">
+                                    <input class="form-input mt-1 block w-full" v-model="form.country">
                                 </label>
                                 <label class="block ml-5 flex-1">
 
@@ -258,12 +285,13 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    props: ['lead_sources', 'lead_status','lead_owners'],
+    props: ['lead_sources', 'lead_status', 'lead_owners'],
     components: {AppLayout},
     data() {
         return {
             form: this.$inertia.form({
                 owner_id: this.$page.user.id,
+                company_owner: null,
                 company: null,
                 salutation: null,
                 first_name: null,
@@ -283,14 +311,15 @@ export default {
                 state: null,
                 zip_code: null,
                 country: null,
+
             })
         }
     },
     methods: {
         submitForm() {
-            this.$inertia.visit( '/admin/leads',{
+            this.$inertia.visit('/admin/leads', {
                 method: 'POST',
-                data:this.form,
+                data: this.form,
                 preserveScroll: true,
                 preserveState: true,
                 onSuccess: () => {

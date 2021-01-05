@@ -51,6 +51,7 @@ class LeadRepository implements LeadRepositoryContract
     {
         return Lead::updateOrCreate(['id' => $request->id], [
             'user_id' => $request->owner_id,
+            'company_owner' => $request->company_owner,
             'company' => $request->company,
             'salutation' => $request->salutation,
             'first_name' => $request->first_name,
@@ -89,37 +90,39 @@ class LeadRepository implements LeadRepositoryContract
             'last_name' => $lead_data->last_name,
         ]);
 
-
-        if ($account->count() == 0)
-        {
+        //save the account if non exists
+        if ($account->count() == 0) {
             $account = new Account();
-            $account->name = $lead_data->company;
-            $account->owner = null;
-            $account->industry = $lead_data->industry;
-            $account->no_employee = $lead_data->no_employee;
+            $account->name           = $lead_data->company;
+            $account->owner          = $lead_data->company_owner;
+            $account->industry       = $lead_data->industry;
+            $account->no_employee    = $lead_data->no_employee;
             $account->annual_revenue = $lead_data->annual_revenue;
-            $account->phone = $lead_data->account;
+            $account->phone          = $lead_data->account;
             $account->save();
 
             $account = $account->id;
-        }
-        else $account = $account->first()->id;
+        } else $account = $account->first()->id;
 
-
-        if($contact->count() > 0 && $account !== null)
-        {
+        // create contact if non exists
+        if ($contact->count() == 0 && $account !== null) {
             $contact = new Contact();
-            $contact->user_id = $lead_data->user_id;
-            $contact->account_id =  $account;
-            $contact->lead_source_id = $lead_data->lead_source_id;
-            $contact->salutation = $lead_data->salutation;
-            $contact->first_name = $lead_data->first_name;
-            $contact->last_name = $lead_data->last_name;
+            $contact->user_id           = $lead_data->user_id;
+            $contact->account_id        = $account;
+            $contact->title             = $lead_data->title;
+            $contact->email             = $lead_data->email;
+            $contact->department        = $lead_data->department;
+            $contact->phone             = $lead_data->phone;
+            $contact->fax               = $lead_data->fax;
+            $contact->mobile            = $lead_data->mobile;
+            $contact->lead_source_id    = $lead_data->lead_source_id;
+            $contact->salutation        = $lead_data->salutation;
+            $contact->first_name        = $lead_data->first_name;
+            $contact->last_name         = $lead_data->last_name;
             $contact->save();
         }
 
         //destroy lead  after converted
         $lead_data->delete();
     }
-
 }

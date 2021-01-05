@@ -23,17 +23,15 @@
 
                             <br clear="all"/>
                             <br clear="all"/>
-                            <br clear="all"/>
 
                             <div class="flex mt-5">
                                 <div class="flex-1">
-                                    Onwer of the new Record:<br/>
-                                    <b>{{lead_data.owner}}</b>
+                                    Owner of the new Record:  <b>{{lead_data.company_owner}}</b>
                                 </div>
                             </div>
 
 
-                            <div class="flex mt-5">
+                            <div class="flex mt-7">
                                 <div class="flex-1">
                                     <Inertia-link :href="route('admin.leads.convert',{id: lead_data.id})" method="post"
                                                   class="btn btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 text-white">
