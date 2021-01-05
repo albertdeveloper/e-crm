@@ -8,4 +8,5 @@ interface AccountRepositoryContract
     public function getAllAccounts();
     public function process($request);
     public function findById($id);
+    public function findByName($lead);
 }

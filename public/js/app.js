@@ -4661,9 +4661,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['lead_data'],
+  props: ['lead_data', 'existing_account', 'existing_contact'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -56665,7 +56668,9 @@ var render = function() {
                   _c("div", { staticClass: "flex" }, [
                     _c("div", { staticClass: "flex-1" }, [
                       _vm._v(
-                        "\n                                Create New Account:  "
+                        "\n                                " +
+                          _vm._s(_vm.existing_account ? "Existing" : "New") +
+                          " Account : "
                       ),
                       _c("b", [_vm._v(_vm._s(_vm.lead_data.company))])
                     ])
@@ -56674,7 +56679,9 @@ var render = function() {
                   _c("div", { staticClass: "flex mt-5" }, [
                     _c("div", { staticClass: "flex-1" }, [
                       _vm._v(
-                        "\n                                Create New Contact: "
+                        "\n                                " +
+                          _vm._s(_vm.existing_contact ? "Existing" : "New") +
+                          " Contact: "
                       ),
                       _c("b", [
                         _vm._v(
@@ -56712,11 +56719,17 @@ var render = function() {
                           "Inertia-link",
                           {
                             staticClass:
-                              "btn btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 text-white"
+                              "btn btn-primary px-3 py-3 bg-teal-700 hover:bg-teal-900 text-white",
+                            attrs: {
+                              href: _vm.route("admin.leads.convert", {
+                                id: _vm.lead_data.id
+                              }),
+                              method: "post"
+                            }
                           },
                           [
                             _vm._v(
-                              "\n                                   Convert\n                               "
+                              "\n                                    Convert\n                                "
                             )
                           ]
                         ),

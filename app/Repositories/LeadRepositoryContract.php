@@ -10,4 +10,5 @@ interface LeadRepositoryContract
     public function process($request);
     public function findById($id);
     public function findByIdWithUser($id);
+    public function process_convert($id);
 }

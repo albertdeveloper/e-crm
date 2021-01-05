@@ -2,9 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadSource;
 use App\Models\LeadStatus;
+use App\Models\Account;
 
 class LeadRepository implements LeadRepositoryContract
 {
@@ -16,7 +18,7 @@ class LeadRepository implements LeadRepositoryContract
 
     public function findByIdWithUser($id)
     {
-        return Lead::with(['user','leadStatus','leadSource','notes.user'])->findOrfail($id);
+        return Lead::with(['user', 'leadStatus', 'leadSource', 'notes.user'])->findOrfail($id);
     }
 
     public function getAllLeadSource()
@@ -32,7 +34,7 @@ class LeadRepository implements LeadRepositoryContract
     public function getLeads($request)
     {
         $query = Lead::query();
-        $query->with(['leadStatus','leadSource']);
+        $query->with(['leadStatus', 'leadSource']);
 
         if (sizeof($request) > 0 && isset($request['search'])) {
             $query->where(function ($q) use ($request) {
@@ -70,4 +72,54 @@ class LeadRepository implements LeadRepositoryContract
             'country' => $request->country
         ]);
     }
+
+    public function process_convert($id)
+    {
+        $lead_data = $this->findById($id);
+        $this->process_lead_convert($lead_data);
+    }
+
+    public function process_lead_convert($lead_data)
+    {
+        $account = Account::where('name', $lead_data->company);
+
+        $contact = Contact::where([
+            'salutation' => $lead_data->salutation,
+            'first_name' => $lead_data->first_name,
+            'last_name' => $lead_data->last_name,
+        ]);
+
+
+        if ($account->count() == 0)
+        {
+            $account = new Account();
+            $account->name = $lead_data->company;
+            $account->owner = null;
+            $account->industry = $lead_data->industry;
+            $account->no_employee = $lead_data->no_employee;
+            $account->annual_revenue = $lead_data->annual_revenue;
+            $account->phone = $lead_data->account;
+            $account->save();
+
+            $account = $account->id;
+        }
+        else $account = $account->first()->id;
+
+
+        if($contact->count() > 0 && $account !== null)
+        {
+            $contact = new Contact();
+            $contact->user_id = $lead_data->user_id;
+            $contact->account_id =  $account;
+            $contact->lead_source_id = $lead_data->lead_source_id;
+            $contact->salutation = $lead_data->salutation;
+            $contact->first_name = $lead_data->first_name;
+            $contact->last_name = $lead_data->last_name;
+            $contact->save();
+        }
+
+        //destroy lead  after converted
+        $lead_data->delete();
+    }
+
 }

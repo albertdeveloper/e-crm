@@ -40,5 +40,10 @@ class AccountRepository implements AccountRepositoryContract
         return Account::findOrFail($id);
     }
 
+    public function findByName($lead)
+    {
+        return Account::where('name',$lead->company)->first();
+    }
+
 
 }

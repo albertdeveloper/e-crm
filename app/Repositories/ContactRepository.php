@@ -47,4 +47,12 @@ class ContactRepository implements ContactRepositoryContract
     {
         return Contact::with(['user','account','notes.user'])->findOrFail($id);
     }
+
+    public function findByName($lead)
+    {
+         return Contact::where([
+             'first_name' => $lead->first_name,
+             'last_name' => $lead->last_name,
+         ])->first();
+    }
 }

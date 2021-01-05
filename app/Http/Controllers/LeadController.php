@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LeadFormRequest;
+use App\Repositories\AccountRepositoryContract;
+use App\Repositories\ContactRepositoryContract;
 use App\Repositories\LeadRepositoryContract;
 use App\Repositories\NoteRepositoryContract;
 use App\Repositories\UserRepositoryContract;
@@ -15,12 +17,16 @@ class LeadController extends Controller
     private $leadRepository;
     private $userRepository;
     private $noteRepository;
+    private $accountRepository;
+    private $contactRepository;
 
-    public function __construct(LeadRepositoryContract $leadRepositoryContract,UserRepositoryContract $userRepositoryContract, NoteRepositoryContract $noteRepositoryContract)
+    public function __construct(LeadRepositoryContract $leadRepositoryContract,UserRepositoryContract $userRepositoryContract, NoteRepositoryContract $noteRepositoryContract, AccountRepositoryContract $accountRepositoryContract, ContactRepositoryContract $contactRepositoryContract)
     {
         $this->leadRepository = $leadRepositoryContract;
         $this->userRepository = $userRepositoryContract;
         $this->noteRepository = $noteRepositoryContract;
+        $this->accountRepository = $accountRepositoryContract;
+        $this->contactRepository = $contactRepositoryContract;
     }
 
     /**
@@ -127,13 +133,17 @@ class LeadController extends Controller
 
     public function convert_lead($id)
     {
+        $lead_data =  $this->leadRepository->findById($id);
         return Inertia::render('Admin/Leads/Convert',[
-            'lead_data' => $this->leadRepository->findById($id),
+            'lead_data' => $lead_data,
+            'existing_account' => $this->accountRepository->findByName($lead_data),
+            'existing_contact' => $this->contactRepository->findByName($lead_data),
         ]);
     }
 
-    public function convert_lead_store()
+    public function convert_lead_store($id)
     {
-
+        $this->leadRepository->process_convert($id);
+        return redirect()->route('admin.leads.index');
     }
 }
