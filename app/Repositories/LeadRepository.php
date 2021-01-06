@@ -77,52 +77,44 @@ class LeadRepository implements LeadRepositoryContract
     public function process_convert($id)
     {
         $lead_data = $this->findById($id);
-        $this->process_lead_convert($lead_data);
+        $account = $this->process_account($lead_data);
+        $this->process_contact($account, $lead_data);
+        $lead_data->delete();
     }
 
-    public function process_lead_convert($lead_data)
+    public function process_account($lead)
     {
-        $account = Account::where('name', $lead_data->company);
+        $account = Account::where('name', $lead->company)->first();
 
-        $contact = Contact::where([
-            'salutation' => $lead_data->salutation,
-            'first_name' => $lead_data->first_name,
-            'last_name' => $lead_data->last_name,
-        ]);
-
-        //save the account if non exists
-        if ($account->count() == 0) {
+        if ($account === null) {
             $account = new Account();
-            $account->name           = $lead_data->company;
-            $account->owner          = $lead_data->company_owner;
-            $account->industry       = $lead_data->industry;
-            $account->no_employee    = $lead_data->no_employee;
-            $account->annual_revenue = $lead_data->annual_revenue;
-            $account->phone          = $lead_data->account;
+            $account->name = $lead->company;
+            $account->owner = $lead->company_owner;
+            $account->industry = $lead->industry;
+            $account->no_employee = $lead->no_employee;
+            $account->annual_revenue = $lead->annual_revenue;
+            $account->phone = $lead->account;
             $account->save();
-
-            $account = $account->id;
-        } else $account = $account->first()->id;
-
-        // create contact if non exists
-        if ($contact->count() == 0 && $account !== null) {
-            $contact = new Contact();
-            $contact->user_id           = $lead_data->user_id;
-            $contact->account_id        = $account;
-            $contact->title             = $lead_data->title;
-            $contact->email             = $lead_data->email;
-            $contact->department        = $lead_data->department;
-            $contact->phone             = $lead_data->phone;
-            $contact->fax               = $lead_data->fax;
-            $contact->mobile            = $lead_data->mobile;
-            $contact->lead_source_id    = $lead_data->lead_source_id;
-            $contact->salutation        = $lead_data->salutation;
-            $contact->first_name        = $lead_data->first_name;
-            $contact->last_name         = $lead_data->last_name;
-            $contact->save();
         }
 
-        //destroy lead  after converted
-        $lead_data->delete();
+        return $account;
+    }
+
+    public function process_contact($account, $lead)
+    {
+            $contact = new Contact();
+            $contact->user_id = $lead->user_id;
+            $contact->account_id = $account->id;
+            $contact->title = $lead->title;
+            $contact->email = $lead->email;
+            $contact->department = $lead->department;
+            $contact->phone = $lead->phone;
+            $contact->fax = $lead->fax;
+            $contact->mobile = $lead->mobile;
+            $contact->lead_source_id = $lead->lead_source_id;
+            $contact->salutation = $lead->salutation;
+            $contact->first_name = $lead->first_name;
+            $contact->last_name = $lead->last_name;
+            $contact->save();
     }
 }
