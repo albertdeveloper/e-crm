@@ -45,7 +45,7 @@ class AccountCreatedNotification extends Notification
     {
 
         return (new MailMessage)
-                    ->line('New Account.')
+                    ->line('Good day.')
                     ->line('A new account is created.')
                     ->line('Account name: '.$this->account->name)
                     ->line('Account owner: '.$this->account->owner)

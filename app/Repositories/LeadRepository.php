@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Events\LeadConvert;
 use App\Models\Contact;
 use App\Models\Lead;
 use App\Models\LeadSource;
@@ -79,6 +80,7 @@ class LeadRepository implements LeadRepositoryContract
         $lead_data = $this->findById($id);
         $account = $this->process_account($lead_data);
         $this->process_contact($account, $lead_data);
+        event(new LeadConvert($account));
         $lead_data->delete();
     }
 
