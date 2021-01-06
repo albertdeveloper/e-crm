@@ -141,7 +141,7 @@ class LeadController extends Controller
         ]);
     }
 
-    public function convert_lead_store($id)
+    public function convert_lead_store($id): \Illuminate\Http\RedirectResponse
     {
         $this->leadRepository->process_convert($id);
         return redirect()->route('admin.leads.index')->with(['toast' => ['message' => 'Convert successfully']]);
