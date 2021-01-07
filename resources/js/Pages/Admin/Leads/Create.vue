@@ -41,13 +41,7 @@
                                     </select>
                                 </label>
                                 <label class="block ml-5 flex-1">
-                                    <div class="float-right" v-if="form.error('company')">{{
-                                            form.error('company')
-                                        }}
-                                    </div>
-                                    <span class="text-gray-700">Company</span>
-                                    <input class="form-input mt-1 border-r-red block w-full"
-                                           v-model="form.company">
+
                                 </label>
                             </div>
 

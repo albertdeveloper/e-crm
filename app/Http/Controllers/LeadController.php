@@ -80,6 +80,7 @@ class LeadController extends Controller
     public function show($id)
     {
         abort_unless(Gate::allows('leads_show'), 403);
+
         $lead =  $this->leadRepository->findByIdWithUser($id);
 
         return Inertia::render('Admin/Leads/Show',[

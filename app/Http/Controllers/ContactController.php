@@ -84,7 +84,7 @@ class ContactController extends Controller
     public function show($id)
     {
         return Inertia::render('Admin/Contacts/Show',[
-            'contact_data' => $this->contactRepository->findByIdWithUser($id),
+            'contact' => $this->contactRepository->findByIdWithUser($id),
             'notes' => $this->noteRepository->findByNoteAbleId($id),
         ]);
     }

@@ -36,6 +36,23 @@
                                     </select>
                                 </label>
                                 <label class="block ml-5 flex-1">
+
+                                </label>
+                            </div>
+
+                            <div class="flex mt-2">
+                                <div class="flex-1"></div>
+
+                                <label class="block flex-1">
+                                    <div class="float-right" v-if="form.error('company')">{{
+                                            form.error('company')
+                                        }}
+                                    </div>
+                                    <span class="text-gray-700">Company Owner</span>
+                                    <input class="form-input mt-1 border-r-red block w-full"
+                                           v-model="form.company_owner">
+                                </label>
+                                <label class="block ml-5 flex-1">
                                     <div class="float-right" v-if="form.error('company')">{{
                                             form.error('company')
                                         }}
@@ -44,11 +61,6 @@
                                     <input class="form-input mt-1 border-r-red block w-full"
                                            v-model="form.company">
                                 </label>
-                            </div>
-
-                            <div class="flex mt-3">
-                                <div class="flex-1"></div>
-
                             </div>
 
                             <div class="flex mt-3">
@@ -263,6 +275,7 @@ export default {
         return {
             form: this.$inertia.form({
                 id: this.lead_data.id,
+                company_owner: this.lead_data.company_owner,
                 owner_id: this.lead_data.user_id,
                 company: this.lead_data.company,
                 salutation: this.lead_data.salutation,

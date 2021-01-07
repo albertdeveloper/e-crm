@@ -37,7 +37,7 @@
                                     <td class="px-6 py-4     focus:text-indigo-500 border-t">
                                         <Inertia-link :href="route('admin.accounts.edit',{id:contact.id})"
                                                       class="text-blue-500">
-                                            {{ contact.account.name }}
+                                            {{ contact.account ? contact.account.name : '' }}
                                         </Inertia-link>
 
                                     </td>

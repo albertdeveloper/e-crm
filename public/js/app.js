@@ -4585,7 +4585,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['contact_data'],
+  props: ['contact'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     NoteModal: _Shared_NoteModal__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -4682,12 +4682,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -5278,6 +5272,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['lead_sources', 'lead_status', 'lead_data', 'lead_owners'],
@@ -5288,6 +5294,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: this.$inertia.form({
         id: this.lead_data.id,
+        company_owner: this.lead_data.company_owner,
         owner_id: this.lead_data.user_id,
         company: this.lead_data.company,
         salutation: this.lead_data.salutation,
@@ -8336,7 +8343,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n  transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */\r\n{\n  opacity: 0;\n}\r\n", ""]);
+exports.push([module.i, ".fade-enter-active, .fade-leave-active {\n  transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */\n{\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -56112,7 +56119,9 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                                        " +
                                                     _vm._s(
-                                                      contact.account.name
+                                                      contact.account
+                                                        ? contact.account.name
+                                                        : ""
                                                     ) +
                                                     "\n                                    "
                                                 )
@@ -56302,7 +56311,7 @@ var render = function() {
                             "cursor-pointer btn-primary mb-5 transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-teal-700 hover:bg-teal-900 text-white font-normal py-2 px-4 mr-1 rounded",
                           attrs: {
                             href: _vm.route("admin.contacts.edit", {
-                              id: _vm.contact_data.id
+                              id: _vm.contact.id
                             })
                           }
                         },
@@ -56321,11 +56330,7 @@ var render = function() {
     [
       _vm._v(" "),
       _c("note-modal", {
-        attrs: {
-          display: _vm.$page.modal,
-          data: _vm.contact_data,
-          type: "contacts"
-        }
+        attrs: { display: _vm.$page.modal, data: _vm.contact, type: "contacts" }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
@@ -56337,16 +56342,22 @@ var render = function() {
               _c("div", { staticClass: "p-6" }, [
                 _c("p", { staticClass: "text-2xl" }, [
                   _vm._v(
-                    _vm._s(_vm.contact_data.salutation) +
+                    _vm._s(_vm.contact.salutation) +
                       " " +
-                      _vm._s(_vm.contact_data.name) +
+                      _vm._s(_vm.contact.name) +
                       " "
                   )
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "text-1xl mt-1" }, [
                   _vm._v(" - "),
-                  _c("b", [_vm._v(_vm._s(_vm.contact_data.account.name))])
+                  _c("b", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.contact.account ? _vm.contact.account.name : ""
+                      )
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "flex mt-6" }, [
@@ -56364,7 +56375,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.user.name))
+                      _vm._v(_vm._s(_vm.contact.user.name))
                     ])
                   ]),
                   _vm._v(" "),
@@ -56376,7 +56387,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.title))
+                      _vm._v(_vm._s(_vm.contact.title))
                     ])
                   ])
                 ]),
@@ -56390,7 +56401,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.email))
+                      _vm._v(_vm._s(_vm.contact.email))
                     ])
                   ]),
                   _vm._v(" "),
@@ -56402,7 +56413,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.department))
+                      _vm._v(_vm._s(_vm.contact.department))
                     ])
                   ])
                 ]),
@@ -56416,7 +56427,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.phone))
+                      _vm._v(_vm._s(_vm.contact.phone))
                     ])
                   ]),
                   _vm._v(" "),
@@ -56428,7 +56439,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.home_phone))
+                      _vm._v(_vm._s(_vm.contact.home_phone))
                     ])
                   ])
                 ]),
@@ -56442,7 +56453,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.fax))
+                      _vm._v(_vm._s(_vm.contact.fax))
                     ])
                   ]),
                   _vm._v(" "),
@@ -56454,7 +56465,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.date_of_birth))
+                      _vm._v(_vm._s(_vm.contact.date_of_birth))
                     ])
                   ])
                 ]),
@@ -56468,7 +56479,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.assistant))
+                      _vm._v(_vm._s(_vm.contact.assistant))
                     ])
                   ]),
                   _vm._v(" "),
@@ -56480,7 +56491,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "flex-1" }, [
                     _c("span", { staticClass: "ml-5" }, [
-                      _vm._v(_vm._s(_vm.contact_data.assistant_phone))
+                      _vm._v(_vm._s(_vm.contact.assistant_phone))
                     ])
                   ])
                 ]),
@@ -56493,13 +56504,13 @@ var render = function() {
                       _c("b", [_vm._v("Notes:")]),
                       _vm._v(" ("),
                       _c("span", { staticClass: "text-sm" }, [
-                        _vm._v(_vm._s(_vm.contact_data.notes.length))
+                        _vm._v(_vm._s(_vm.contact.notes.length))
                       ]),
                       _vm._v(") ")
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.contact_data.notes, function(note) {
-                      return _vm.contact_data.notes.length > 0
+                    _vm._l(_vm.contact.notes, function(note) {
+                      return _vm.contact.notes.length > 0
                         ? _c("div", { staticClass: "flex mt-3" }, [
                             _c(
                               "div",
@@ -56520,8 +56531,8 @@ var render = function() {
                                               staticClass:
                                                 "focus:outline-none hover:text-red-500",
                                               attrs: {
-                                                "preserve-scroll": "1",
-                                                "preserve-state": "1",
+                                                "preserve-scroll": true,
+                                                "preserve-state": true,
                                                 method: "DELETE",
                                                 href: _vm.route(
                                                   "admin.notes.destroy",
@@ -56941,42 +56952,7 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("label", { staticClass: "block ml-5 flex-1" }, [
-                      _vm.form.error("company")
-                        ? _c("div", { staticClass: "float-right" }, [
-                            _vm._v(
-                              _vm._s(_vm.form.error("company")) +
-                                "\n                                "
-                            )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "text-gray-700" }, [
-                        _vm._v("Company")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.form.company,
-                            expression: "form.company"
-                          }
-                        ],
-                        staticClass:
-                          "form-input mt-1 border-r-red block w-full",
-                        domProps: { value: _vm.form.company },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.form, "company", $event.target.value)
-                          }
-                        }
-                      })
-                    ])
+                    _c("label", { staticClass: "block ml-5 flex-1" })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex mt-2" }, [
@@ -58022,6 +57998,53 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
+                    _c("label", { staticClass: "block ml-5 flex-1" })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex mt-2" }, [
+                    _c("div", { staticClass: "flex-1" }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "block flex-1" }, [
+                      _vm.form.error("company")
+                        ? _c("div", { staticClass: "float-right" }, [
+                            _vm._v(
+                              _vm._s(_vm.form.error("company")) +
+                                "\n                                "
+                            )
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-gray-700" }, [
+                        _vm._v("Company Owner")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.company_owner,
+                            expression: "form.company_owner"
+                          }
+                        ],
+                        staticClass:
+                          "form-input mt-1 border-r-red block w-full",
+                        domProps: { value: _vm.form.company_owner },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "company_owner",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
                     _c("label", { staticClass: "block ml-5 flex-1" }, [
                       _vm.form.error("company")
                         ? _c("div", { staticClass: "float-right" }, [
@@ -58058,10 +58081,6 @@ var render = function() {
                         }
                       })
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "flex mt-3" }, [
-                    _c("div", { staticClass: "flex-1" })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex mt-3" }, [
