@@ -56571,7 +56571,7 @@ var render = function() {
                                         1
                                       ),
                                       _vm._v(" "),
-                                      _c("br", { attrs: { clear: "all" } })
+                                      _c("br")
                                     ])
                                   : _vm._e(),
                                 _vm._v(" "),
@@ -56584,7 +56584,8 @@ var render = function() {
                                         staticClass:
                                           "h-8 w-8 rounded-full object-cover",
                                         attrs: {
-                                          src: note.user.profile_photo_url
+                                          src: note.user.profile_photo_url,
+                                          alt: ""
                                         }
                                       }),
                                       _vm._v(" "),
@@ -56606,7 +56607,7 @@ var render = function() {
                                   [_vm._v(_vm._s(note.date))]
                                 ),
                                 _vm._v(" "),
-                                _c("br", { attrs: { clear: "all" } }),
+                                _c("br"),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "mt-5" }, [
                                   _c("h4", [

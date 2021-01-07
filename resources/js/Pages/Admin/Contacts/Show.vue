@@ -75,17 +75,17 @@
                                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                             </Inertia-link>
                                         </div>
-                                        <br clear="all"/>
+                                        <br />
                                     </div>
 
                                     <div class="float-left flex">
                                         <div class="flex align-middle mt-3" >
-                                            <img :src="note.user.profile_photo_url" class="h-8 w-8 rounded-full object-cover"/>
+                                            <img :src="note.user.profile_photo_url" class="h-8 w-8 rounded-full object-cover" alt=""/>
                                             <div class="align-middle mt-2.5 ml-2 text-sm">{{note.user.name}}</div>
                                         </div>
                                     </div>
                                     <div class="float-right md:text-xs ">{{note.date}}</div>
-                                    <br clear="all"/>
+                                    <br />
                                     <div class="mt-5">
                                         <h4><b class="text-sm">{{note.title}}</b></h4>
                                         <p class="mt-2 text-justify text-xs">{{note.note}}</p>
