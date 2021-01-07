@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Crypt;
 class Account extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'name',
         'industry',
@@ -18,9 +19,4 @@ class Account extends Model
         'annual_revenue',
         'phone'
     ];
-
-    public function getIdAttribute()
-    {
-        return Crypt::encryptString($this->attributes['id']);
-    }
 }

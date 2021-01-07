@@ -7,11 +7,6 @@ use Illuminate\Support\Facades\Crypt;
 
 class AccountRepository implements AccountRepositoryContract
 {
-    public function decryptId($id): string
-    {
-        return Crypt::decryptString($id);
-    }
-
     public function getAccounts($request)
     {
         $query = Account::query();
@@ -45,7 +40,6 @@ class AccountRepository implements AccountRepositoryContract
 
     public function findById($id)
     {
-        $id = $this->decryptId($id);
         return Account::findOrFail($id);
     }
 
